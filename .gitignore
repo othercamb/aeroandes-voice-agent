@@ -1,0 +1,25 @@
+# Secretos y configuración local: nunca al repo
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+service-account*.json
+credentials*.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Editor y sistema
+.vscode/
+.idea/
+.DS_Store
+
+# Grabaciones y material pesado del video
+recordings/
+*.mp4
+*.mov

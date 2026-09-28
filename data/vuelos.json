@@ -1,0 +1,3875 @@
+[
+  {
+    "id": "AN101-2026-10-15",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-15",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 219,
+      "Clasica": 292,
+      "Flex": 423
+    }
+  },
+  {
+    "id": "AN103-2026-10-15",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-15",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 211,
+      "Clasica": 281,
+      "Flex": 407
+    }
+  },
+  {
+    "id": "AN102-2026-10-15",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-15",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 15,
+    "tarifas_usd": {
+      "Basica": 231,
+      "Clasica": 308,
+      "Flex": 447
+    }
+  },
+  {
+    "id": "AN201-2026-10-15",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-15",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 340,
+      "Clasica": 453,
+      "Flex": 657
+    }
+  },
+  {
+    "id": "AN202-2026-10-15",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-15",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 37,
+    "tarifas_usd": {
+      "Basica": 325,
+      "Clasica": 433,
+      "Flex": 628
+    }
+  },
+  {
+    "id": "AN301-2026-10-15",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-15",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 37,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 403,
+      "Flex": 584
+    }
+  },
+  {
+    "id": "AN302-2026-10-15",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-15",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 293,
+      "Clasica": 391,
+      "Flex": 567
+    }
+  },
+  {
+    "id": "AN401-2026-10-15",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-15",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 37,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 258,
+      "Flex": 374
+    }
+  },
+  {
+    "id": "AN403-2026-10-15",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-15",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 40,
+    "tarifas_usd": {
+      "Basica": 134,
+      "Clasica": 179,
+      "Flex": 260
+    }
+  },
+  {
+    "id": "AN402-2026-10-15",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-15",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 164,
+      "Clasica": 218,
+      "Flex": 316
+    }
+  },
+  {
+    "id": "AN501-2026-10-15",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-15",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 25,
+    "tarifas_usd": {
+      "Basica": 85,
+      "Clasica": 113,
+      "Flex": 164
+    }
+  },
+  {
+    "id": "AN101-2026-10-16",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-16",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 220,
+      "Clasica": 294,
+      "Flex": 426
+    }
+  },
+  {
+    "id": "AN103-2026-10-16",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-16",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "CANCELADO",
+    "cupos": 0,
+    "tarifas_usd": {
+      "Basica": 226,
+      "Clasica": 302,
+      "Flex": 438
+    },
+    "motivo": "condiciones meteorologicas en destino"
+  },
+  {
+    "id": "AN102-2026-10-16",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-16",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 212,
+      "Clasica": 282,
+      "Flex": 409
+    }
+  },
+  {
+    "id": "AN201-2026-10-16",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-16",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 16,
+    "tarifas_usd": {
+      "Basica": 340,
+      "Clasica": 454,
+      "Flex": 658
+    }
+  },
+  {
+    "id": "AN202-2026-10-16",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-16",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 5,
+    "tarifas_usd": {
+      "Basica": 313,
+      "Clasica": 417,
+      "Flex": 605
+    }
+  },
+  {
+    "id": "AN301-2026-10-16",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-16",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 320,
+      "Clasica": 426,
+      "Flex": 618
+    }
+  },
+  {
+    "id": "AN302-2026-10-16",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-16",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 14,
+    "tarifas_usd": {
+      "Basica": 284,
+      "Clasica": 379,
+      "Flex": 550
+    }
+  },
+  {
+    "id": "AN401-2026-10-16",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-16",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 188,
+      "Clasica": 251,
+      "Flex": 364
+    }
+  },
+  {
+    "id": "AN403-2026-10-16",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-16",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 32,
+    "tarifas_usd": {
+      "Basica": 158,
+      "Clasica": 211,
+      "Flex": 306
+    }
+  },
+  {
+    "id": "AN402-2026-10-16",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-16",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 2,
+    "tarifas_usd": {
+      "Basica": 176,
+      "Clasica": 235,
+      "Flex": 341
+    }
+  },
+  {
+    "id": "AN501-2026-10-16",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-16",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 40,
+    "tarifas_usd": {
+      "Basica": 85,
+      "Clasica": 113,
+      "Flex": 164
+    }
+  },
+  {
+    "id": "AN101-2026-10-17",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-17",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 204,
+      "Clasica": 272,
+      "Flex": 394
+    }
+  },
+  {
+    "id": "AN103-2026-10-17",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-17",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 24,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 258,
+      "Flex": 374
+    }
+  },
+  {
+    "id": "AN102-2026-10-17",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-17",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 17,
+    "tarifas_usd": {
+      "Basica": 206,
+      "Clasica": 275,
+      "Flex": 399
+    }
+  },
+  {
+    "id": "AN201-2026-10-17",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-17",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 314,
+      "Clasica": 418,
+      "Flex": 606
+    }
+  },
+  {
+    "id": "AN202-2026-10-17",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-17",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 15,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 403,
+      "Flex": 584
+    }
+  },
+  {
+    "id": "AN301-2026-10-17",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-17",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 25,
+    "tarifas_usd": {
+      "Basica": 285,
+      "Clasica": 380,
+      "Flex": 551
+    }
+  },
+  {
+    "id": "AN302-2026-10-17",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-17",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 2,
+    "tarifas_usd": {
+      "Basica": 282,
+      "Clasica": 376,
+      "Flex": 545
+    }
+  },
+  {
+    "id": "AN401-2026-10-17",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-17",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 40,
+    "tarifas_usd": {
+      "Basica": 152,
+      "Clasica": 202,
+      "Flex": 293
+    }
+  },
+  {
+    "id": "AN403-2026-10-17",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-17",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 158,
+      "Clasica": 210,
+      "Flex": 304
+    }
+  },
+  {
+    "id": "AN402-2026-10-17",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-17",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 158,
+      "Clasica": 210,
+      "Flex": 304
+    }
+  },
+  {
+    "id": "AN501-2026-10-17",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-17",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 71,
+      "Clasica": 95,
+      "Flex": 138
+    }
+  },
+  {
+    "id": "AN101-2026-10-18",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-18",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 228,
+      "Clasica": 304,
+      "Flex": 441
+    }
+  },
+  {
+    "id": "AN103-2026-10-18",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-18",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 259,
+      "Flex": 376
+    }
+  },
+  {
+    "id": "AN102-2026-10-18",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-18",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 5,
+    "tarifas_usd": {
+      "Basica": 221,
+      "Clasica": 295,
+      "Flex": 428
+    }
+  },
+  {
+    "id": "AN201-2026-10-18",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-18",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 33,
+    "tarifas_usd": {
+      "Basica": 305,
+      "Clasica": 407,
+      "Flex": 590
+    }
+  },
+  {
+    "id": "AN202-2026-10-18",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-18",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 341,
+      "Clasica": 455,
+      "Flex": 660
+    }
+  },
+  {
+    "id": "AN301-2026-10-18",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-18",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 321,
+      "Clasica": 428,
+      "Flex": 621
+    }
+  },
+  {
+    "id": "AN302-2026-10-18",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-18",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 14,
+    "tarifas_usd": {
+      "Basica": 320,
+      "Clasica": 427,
+      "Flex": 619
+    }
+  },
+  {
+    "id": "AN401-2026-10-18",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-18",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 160,
+      "Clasica": 214,
+      "Flex": 310
+    }
+  },
+  {
+    "id": "AN403-2026-10-18",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-18",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 39,
+    "tarifas_usd": {
+      "Basica": 174,
+      "Clasica": 232,
+      "Flex": 336
+    }
+  },
+  {
+    "id": "AN402-2026-10-18",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-18",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 192,
+      "Clasica": 256,
+      "Flex": 371
+    }
+  },
+  {
+    "id": "AN501-2026-10-18",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-18",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 23,
+    "tarifas_usd": {
+      "Basica": 44,
+      "Clasica": 59,
+      "Flex": 86
+    }
+  },
+  {
+    "id": "AN101-2026-10-19",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-19",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 12,
+    "tarifas_usd": {
+      "Basica": 238,
+      "Clasica": 318,
+      "Flex": 461
+    }
+  },
+  {
+    "id": "AN103-2026-10-19",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-19",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 204,
+      "Clasica": 272,
+      "Flex": 394
+    }
+  },
+  {
+    "id": "AN102-2026-10-19",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-19",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 226,
+      "Clasica": 302,
+      "Flex": 438
+    }
+  },
+  {
+    "id": "AN201-2026-10-19",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-19",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 316,
+      "Clasica": 422,
+      "Flex": 612
+    }
+  },
+  {
+    "id": "AN202-2026-10-19",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-19",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 17,
+    "tarifas_usd": {
+      "Basica": 341,
+      "Clasica": 455,
+      "Flex": 660
+    }
+  },
+  {
+    "id": "AN301-2026-10-19",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-19",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 5,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 403,
+      "Flex": 584
+    }
+  },
+  {
+    "id": "AN302-2026-10-19",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-19",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 402,
+      "Flex": 583
+    }
+  },
+  {
+    "id": "AN401-2026-10-19",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-19",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 2,
+    "tarifas_usd": {
+      "Basica": 178,
+      "Clasica": 238,
+      "Flex": 345
+    }
+  },
+  {
+    "id": "AN403-2026-10-19",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-19",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 141,
+      "Clasica": 188,
+      "Flex": 273
+    }
+  },
+  {
+    "id": "AN402-2026-10-19",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-19",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 1,
+    "tarifas_usd": {
+      "Basica": 169,
+      "Clasica": 225,
+      "Flex": 326
+    }
+  },
+  {
+    "id": "AN501-2026-10-19",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-19",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 88,
+      "Clasica": 117,
+      "Flex": 170
+    }
+  },
+  {
+    "id": "AN101-2026-10-20",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-20",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 12,
+    "tarifas_usd": {
+      "Basica": 217,
+      "Clasica": 289,
+      "Flex": 419
+    }
+  },
+  {
+    "id": "AN103-2026-10-20",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-20",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 189,
+      "Clasica": 252,
+      "Flex": 365
+    }
+  },
+  {
+    "id": "AN102-2026-10-20",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-20",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 240,
+      "Clasica": 320,
+      "Flex": 464
+    }
+  },
+  {
+    "id": "AN201-2026-10-20",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-20",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 40,
+    "tarifas_usd": {
+      "Basica": 334,
+      "Clasica": 445,
+      "Flex": 645
+    }
+  },
+  {
+    "id": "AN202-2026-10-20",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-20",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 2,
+    "tarifas_usd": {
+      "Basica": 328,
+      "Clasica": 438,
+      "Flex": 635
+    }
+  },
+  {
+    "id": "AN301-2026-10-20",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-20",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 315,
+      "Clasica": 420,
+      "Flex": 609
+    }
+  },
+  {
+    "id": "AN302-2026-10-20",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-20",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 32,
+    "tarifas_usd": {
+      "Basica": 292,
+      "Clasica": 389,
+      "Flex": 564
+    }
+  },
+  {
+    "id": "AN401-2026-10-20",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-20",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 32,
+    "tarifas_usd": {
+      "Basica": 192,
+      "Clasica": 256,
+      "Flex": 371
+    }
+  },
+  {
+    "id": "AN403-2026-10-20",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-20",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 22,
+    "tarifas_usd": {
+      "Basica": 177,
+      "Clasica": 236,
+      "Flex": 342
+    }
+  },
+  {
+    "id": "AN402-2026-10-20",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-20",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 259,
+      "Flex": 376
+    }
+  },
+  {
+    "id": "AN501-2026-10-20",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-20",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 17,
+    "tarifas_usd": {
+      "Basica": 82,
+      "Clasica": 110,
+      "Flex": 160
+    }
+  },
+  {
+    "id": "AN101-2026-10-21",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-21",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 0,
+    "tarifas_usd": {
+      "Basica": 217,
+      "Clasica": 289,
+      "Flex": 419
+    }
+  },
+  {
+    "id": "AN103-2026-10-21",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-21",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 12,
+    "tarifas_usd": {
+      "Basica": 197,
+      "Clasica": 263,
+      "Flex": 381
+    }
+  },
+  {
+    "id": "AN102-2026-10-21",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-21",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 22,
+    "tarifas_usd": {
+      "Basica": 232,
+      "Clasica": 310,
+      "Flex": 450
+    }
+  },
+  {
+    "id": "AN201-2026-10-21",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-21",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 1,
+    "tarifas_usd": {
+      "Basica": 339,
+      "Clasica": 452,
+      "Flex": 655
+    }
+  },
+  {
+    "id": "AN202-2026-10-21",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-21",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 25,
+    "tarifas_usd": {
+      "Basica": 340,
+      "Clasica": 454,
+      "Flex": 658
+    }
+  },
+  {
+    "id": "AN301-2026-10-21",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-21",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 295,
+      "Clasica": 393,
+      "Flex": 570
+    }
+  },
+  {
+    "id": "AN302-2026-10-21",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-21",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 292,
+      "Clasica": 390,
+      "Flex": 566
+    }
+  },
+  {
+    "id": "AN401-2026-10-21",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-21",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 15,
+    "tarifas_usd": {
+      "Basica": 166,
+      "Clasica": 221,
+      "Flex": 320
+    }
+  },
+  {
+    "id": "AN403-2026-10-21",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-21",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 14,
+    "tarifas_usd": {
+      "Basica": 175,
+      "Clasica": 233,
+      "Flex": 338
+    }
+  },
+  {
+    "id": "AN402-2026-10-21",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-21",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 169,
+      "Clasica": 225,
+      "Flex": 326
+    }
+  },
+  {
+    "id": "AN501-2026-10-21",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-21",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 58,
+      "Clasica": 77,
+      "Flex": 112
+    }
+  },
+  {
+    "id": "AN101-2026-10-22",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-22",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 239,
+      "Clasica": 319,
+      "Flex": 463
+    }
+  },
+  {
+    "id": "AN103-2026-10-22",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-22",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 224,
+      "Clasica": 299,
+      "Flex": 434
+    }
+  },
+  {
+    "id": "AN102-2026-10-22",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-22",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 214,
+      "Clasica": 286,
+      "Flex": 415
+    }
+  },
+  {
+    "id": "AN201-2026-10-22",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-22",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 308,
+      "Clasica": 410,
+      "Flex": 594
+    }
+  },
+  {
+    "id": "AN202-2026-10-22",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-22",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 25,
+    "tarifas_usd": {
+      "Basica": 344,
+      "Clasica": 459,
+      "Flex": 666
+    }
+  },
+  {
+    "id": "AN301-2026-10-22",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-22",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 20,
+    "tarifas_usd": {
+      "Basica": 298,
+      "Clasica": 397,
+      "Flex": 576
+    }
+  },
+  {
+    "id": "AN302-2026-10-22",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-22",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 313,
+      "Clasica": 417,
+      "Flex": 605
+    }
+  },
+  {
+    "id": "AN401-2026-10-22",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-22",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 2,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 259,
+      "Flex": 376
+    }
+  },
+  {
+    "id": "AN403-2026-10-22",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-22",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 153,
+      "Clasica": 204,
+      "Flex": 296
+    }
+  },
+  {
+    "id": "AN402-2026-10-22",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-22",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 23,
+    "tarifas_usd": {
+      "Basica": 151,
+      "Clasica": 201,
+      "Flex": 291
+    }
+  },
+  {
+    "id": "AN501-2026-10-22",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-22",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 64,
+      "Clasica": 86,
+      "Flex": 125
+    }
+  },
+  {
+    "id": "AN101-2026-10-23",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-23",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 37,
+    "tarifas_usd": {
+      "Basica": 240,
+      "Clasica": 320,
+      "Flex": 464
+    }
+  },
+  {
+    "id": "AN103-2026-10-23",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-23",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 20,
+    "tarifas_usd": {
+      "Basica": 190,
+      "Clasica": 254,
+      "Flex": 368
+    }
+  },
+  {
+    "id": "AN102-2026-10-23",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-23",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 211,
+      "Clasica": 281,
+      "Flex": 407
+    }
+  },
+  {
+    "id": "AN201-2026-10-23",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-23",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 340,
+      "Clasica": 454,
+      "Flex": 658
+    }
+  },
+  {
+    "id": "AN202-2026-10-23",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-23",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 2,
+    "tarifas_usd": {
+      "Basica": 334,
+      "Clasica": 445,
+      "Flex": 645
+    }
+  },
+  {
+    "id": "AN301-2026-10-23",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-23",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 296,
+      "Clasica": 394,
+      "Flex": 571
+    }
+  },
+  {
+    "id": "AN302-2026-10-23",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-23",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 10,
+    "tarifas_usd": {
+      "Basica": 308,
+      "Clasica": 411,
+      "Flex": 596
+    }
+  },
+  {
+    "id": "AN401-2026-10-23",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-23",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 30,
+    "tarifas_usd": {
+      "Basica": 167,
+      "Clasica": 223,
+      "Flex": 323
+    }
+  },
+  {
+    "id": "AN403-2026-10-23",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-23",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 38,
+    "tarifas_usd": {
+      "Basica": 168,
+      "Clasica": 224,
+      "Flex": 325
+    }
+  },
+  {
+    "id": "AN402-2026-10-23",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-23",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 177,
+      "Clasica": 236,
+      "Flex": 342
+    }
+  },
+  {
+    "id": "AN501-2026-10-23",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-23",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 1,
+    "tarifas_usd": {
+      "Basica": 48,
+      "Clasica": 64,
+      "Flex": 93
+    }
+  },
+  {
+    "id": "AN101-2026-10-24",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-24",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 240,
+      "Clasica": 320,
+      "Flex": 464
+    }
+  },
+  {
+    "id": "AN103-2026-10-24",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-24",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 259,
+      "Flex": 376
+    }
+  },
+  {
+    "id": "AN102-2026-10-24",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-24",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 15,
+    "tarifas_usd": {
+      "Basica": 232,
+      "Clasica": 310,
+      "Flex": 450
+    }
+  },
+  {
+    "id": "AN201-2026-10-24",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-24",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 326,
+      "Clasica": 435,
+      "Flex": 631
+    }
+  },
+  {
+    "id": "AN202-2026-10-24",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-24",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 40,
+    "tarifas_usd": {
+      "Basica": 303,
+      "Clasica": 404,
+      "Flex": 586
+    }
+  },
+  {
+    "id": "AN301-2026-10-24",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-24",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 22,
+    "tarifas_usd": {
+      "Basica": 291,
+      "Clasica": 388,
+      "Flex": 563
+    }
+  },
+  {
+    "id": "AN302-2026-10-24",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-24",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 39,
+    "tarifas_usd": {
+      "Basica": 284,
+      "Clasica": 379,
+      "Flex": 550
+    }
+  },
+  {
+    "id": "AN401-2026-10-24",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-24",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 30,
+    "tarifas_usd": {
+      "Basica": 187,
+      "Clasica": 249,
+      "Flex": 361
+    }
+  },
+  {
+    "id": "AN403-2026-10-24",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-24",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 178,
+      "Clasica": 238,
+      "Flex": 345
+    }
+  },
+  {
+    "id": "AN402-2026-10-24",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-24",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 150,
+      "Clasica": 200,
+      "Flex": 290
+    }
+  },
+  {
+    "id": "AN501-2026-10-24",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-24",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 26,
+    "tarifas_usd": {
+      "Basica": 78,
+      "Clasica": 104,
+      "Flex": 151
+    }
+  },
+  {
+    "id": "AN101-2026-10-25",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-25",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 20,
+    "tarifas_usd": {
+      "Basica": 230,
+      "Clasica": 306,
+      "Flex": 444
+    }
+  },
+  {
+    "id": "AN103-2026-10-25",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-25",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 198,
+      "Clasica": 264,
+      "Flex": 383
+    }
+  },
+  {
+    "id": "AN102-2026-10-25",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-25",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 229,
+      "Clasica": 305,
+      "Flex": 442
+    }
+  },
+  {
+    "id": "AN201-2026-10-25",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-25",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 320,
+      "Clasica": 426,
+      "Flex": 618
+    }
+  },
+  {
+    "id": "AN202-2026-10-25",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-25",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 301,
+      "Clasica": 401,
+      "Flex": 581
+    }
+  },
+  {
+    "id": "AN301-2026-10-25",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-25",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 5,
+    "tarifas_usd": {
+      "Basica": 291,
+      "Clasica": 388,
+      "Flex": 563
+    }
+  },
+  {
+    "id": "AN302-2026-10-25",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-25",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 1,
+    "tarifas_usd": {
+      "Basica": 321,
+      "Clasica": 428,
+      "Flex": 621
+    }
+  },
+  {
+    "id": "AN401-2026-10-25",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-25",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 183,
+      "Clasica": 244,
+      "Flex": 354
+    }
+  },
+  {
+    "id": "AN403-2026-10-25",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-25",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 171,
+      "Clasica": 228,
+      "Flex": 331
+    }
+  },
+  {
+    "id": "AN402-2026-10-25",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-25",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 164,
+      "Clasica": 218,
+      "Flex": 316
+    }
+  },
+  {
+    "id": "AN501-2026-10-25",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-25",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 17,
+    "tarifas_usd": {
+      "Basica": 82,
+      "Clasica": 110,
+      "Flex": 160
+    }
+  },
+  {
+    "id": "AN101-2026-10-26",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-26",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 207,
+      "Clasica": 276,
+      "Flex": 400
+    }
+  },
+  {
+    "id": "AN103-2026-10-26",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-26",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 258,
+      "Flex": 374
+    }
+  },
+  {
+    "id": "AN102-2026-10-26",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-26",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 210,
+      "Clasica": 280,
+      "Flex": 406
+    }
+  },
+  {
+    "id": "AN201-2026-10-26",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-26",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 306,
+      "Clasica": 408,
+      "Flex": 592
+    }
+  },
+  {
+    "id": "AN202-2026-10-26",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-26",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 0,
+    "tarifas_usd": {
+      "Basica": 303,
+      "Clasica": 404,
+      "Flex": 586
+    }
+  },
+  {
+    "id": "AN301-2026-10-26",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-26",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 290,
+      "Clasica": 387,
+      "Flex": 561
+    }
+  },
+  {
+    "id": "AN302-2026-10-26",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-26",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 32,
+    "tarifas_usd": {
+      "Basica": 287,
+      "Clasica": 383,
+      "Flex": 555
+    }
+  },
+  {
+    "id": "AN401-2026-10-26",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-26",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 170,
+      "Clasica": 227,
+      "Flex": 329
+    }
+  },
+  {
+    "id": "AN403-2026-10-26",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-26",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 29,
+    "tarifas_usd": {
+      "Basica": 163,
+      "Clasica": 217,
+      "Flex": 315
+    }
+  },
+  {
+    "id": "AN402-2026-10-26",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-26",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 154,
+      "Clasica": 206,
+      "Flex": 299
+    }
+  },
+  {
+    "id": "AN501-2026-10-26",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-26",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 12,
+    "tarifas_usd": {
+      "Basica": 61,
+      "Clasica": 81,
+      "Flex": 117
+    }
+  },
+  {
+    "id": "AN101-2026-10-27",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-27",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 5,
+    "tarifas_usd": {
+      "Basica": 220,
+      "Clasica": 294,
+      "Flex": 426
+    }
+  },
+  {
+    "id": "AN103-2026-10-27",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-27",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 205,
+      "Clasica": 273,
+      "Flex": 396
+    }
+  },
+  {
+    "id": "AN102-2026-10-27",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-27",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 246,
+      "Clasica": 328,
+      "Flex": 476
+    }
+  },
+  {
+    "id": "AN201-2026-10-27",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-27",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 309,
+      "Clasica": 412,
+      "Flex": 597
+    }
+  },
+  {
+    "id": "AN202-2026-10-27",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-27",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 332,
+      "Clasica": 442,
+      "Flex": 641
+    }
+  },
+  {
+    "id": "AN301-2026-10-27",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-27",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 30,
+    "tarifas_usd": {
+      "Basica": 315,
+      "Clasica": 420,
+      "Flex": 609
+    }
+  },
+  {
+    "id": "AN302-2026-10-27",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-27",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 297,
+      "Clasica": 396,
+      "Flex": 574
+    }
+  },
+  {
+    "id": "AN401-2026-10-27",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-27",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 25,
+    "tarifas_usd": {
+      "Basica": 149,
+      "Clasica": 199,
+      "Flex": 289
+    }
+  },
+  {
+    "id": "AN403-2026-10-27",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-27",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 26,
+    "tarifas_usd": {
+      "Basica": 178,
+      "Clasica": 237,
+      "Flex": 344
+    }
+  },
+  {
+    "id": "AN402-2026-10-27",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-27",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 183,
+      "Clasica": 244,
+      "Flex": 354
+    }
+  },
+  {
+    "id": "AN501-2026-10-27",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-27",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 39,
+    "tarifas_usd": {
+      "Basica": 68,
+      "Clasica": 90,
+      "Flex": 130
+    }
+  },
+  {
+    "id": "AN101-2026-10-28",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-28",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 18,
+    "tarifas_usd": {
+      "Basica": 208,
+      "Clasica": 278,
+      "Flex": 403
+    }
+  },
+  {
+    "id": "AN103-2026-10-28",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-28",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 21,
+    "tarifas_usd": {
+      "Basica": 230,
+      "Clasica": 306,
+      "Flex": 444
+    }
+  },
+  {
+    "id": "AN102-2026-10-28",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-28",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 26,
+    "tarifas_usd": {
+      "Basica": 209,
+      "Clasica": 279,
+      "Flex": 405
+    }
+  },
+  {
+    "id": "AN201-2026-10-28",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-28",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 39,
+    "tarifas_usd": {
+      "Basica": 336,
+      "Clasica": 448,
+      "Flex": 650
+    }
+  },
+  {
+    "id": "AN202-2026-10-28",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-28",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 309,
+      "Clasica": 412,
+      "Flex": 597
+    }
+  },
+  {
+    "id": "AN301-2026-10-28",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-28",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 22,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 402,
+      "Flex": 583
+    }
+  },
+  {
+    "id": "AN302-2026-10-28",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-28",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 30,
+    "tarifas_usd": {
+      "Basica": 292,
+      "Clasica": 390,
+      "Flex": 566
+    }
+  },
+  {
+    "id": "AN401-2026-10-28",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-28",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 174,
+      "Clasica": 232,
+      "Flex": 336
+    }
+  },
+  {
+    "id": "AN403-2026-10-28",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-28",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 14,
+    "tarifas_usd": {
+      "Basica": 148,
+      "Clasica": 197,
+      "Flex": 286
+    }
+  },
+  {
+    "id": "AN402-2026-10-28",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-28",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 183,
+      "Clasica": 244,
+      "Flex": 354
+    }
+  },
+  {
+    "id": "AN501-2026-10-28",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-28",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 82,
+      "Clasica": 109,
+      "Flex": 158
+    }
+  },
+  {
+    "id": "AN101-2026-10-29",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-29",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 26,
+    "tarifas_usd": {
+      "Basica": 230,
+      "Clasica": 306,
+      "Flex": 444
+    }
+  },
+  {
+    "id": "AN103-2026-10-29",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-29",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 219,
+      "Clasica": 292,
+      "Flex": 423
+    }
+  },
+  {
+    "id": "AN102-2026-10-29",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-29",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 238,
+      "Clasica": 318,
+      "Flex": 461
+    }
+  },
+  {
+    "id": "AN201-2026-10-29",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-29",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 310,
+      "Clasica": 414,
+      "Flex": 600
+    }
+  },
+  {
+    "id": "AN202-2026-10-29",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-29",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 335,
+      "Clasica": 447,
+      "Flex": 648
+    }
+  },
+  {
+    "id": "AN301-2026-10-29",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-29",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 1,
+    "tarifas_usd": {
+      "Basica": 298,
+      "Clasica": 397,
+      "Flex": 576
+    }
+  },
+  {
+    "id": "AN302-2026-10-29",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-29",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 12,
+    "tarifas_usd": {
+      "Basica": 298,
+      "Clasica": 397,
+      "Flex": 576
+    }
+  },
+  {
+    "id": "AN401-2026-10-29",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-29",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 37,
+    "tarifas_usd": {
+      "Basica": 185,
+      "Clasica": 247,
+      "Flex": 358
+    }
+  },
+  {
+    "id": "AN403-2026-10-29",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-29",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 170,
+      "Clasica": 227,
+      "Flex": 329
+    }
+  },
+  {
+    "id": "AN402-2026-10-29",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-29",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 258,
+      "Flex": 374
+    }
+  },
+  {
+    "id": "AN501-2026-10-29",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-29",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 87,
+      "Clasica": 116,
+      "Flex": 168
+    }
+  },
+  {
+    "id": "AN101-2026-10-30",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-30",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 15,
+    "tarifas_usd": {
+      "Basica": 224,
+      "Clasica": 298,
+      "Flex": 432
+    }
+  },
+  {
+    "id": "AN103-2026-10-30",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-30",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 213,
+      "Clasica": 284,
+      "Flex": 412
+    }
+  },
+  {
+    "id": "AN102-2026-10-30",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-30",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 29,
+    "tarifas_usd": {
+      "Basica": 218,
+      "Clasica": 290,
+      "Flex": 420
+    }
+  },
+  {
+    "id": "AN201-2026-10-30",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-30",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 343,
+      "Clasica": 457,
+      "Flex": 663
+    }
+  },
+  {
+    "id": "AN202-2026-10-30",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-30",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 340,
+      "Clasica": 454,
+      "Flex": 658
+    }
+  },
+  {
+    "id": "AN301-2026-10-30",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-30",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 402,
+      "Flex": 583
+    }
+  },
+  {
+    "id": "AN302-2026-10-30",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-30",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 282,
+      "Clasica": 376,
+      "Flex": 545
+    }
+  },
+  {
+    "id": "AN401-2026-10-30",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-30",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 168,
+      "Clasica": 224,
+      "Flex": 325
+    }
+  },
+  {
+    "id": "AN403-2026-10-30",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-30",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 166,
+      "Clasica": 221,
+      "Flex": 320
+    }
+  },
+  {
+    "id": "AN402-2026-10-30",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-30",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 20,
+    "tarifas_usd": {
+      "Basica": 184,
+      "Clasica": 246,
+      "Flex": 357
+    }
+  },
+  {
+    "id": "AN501-2026-10-30",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-30",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 14,
+    "tarifas_usd": {
+      "Basica": 79,
+      "Clasica": 105,
+      "Flex": 152
+    }
+  },
+  {
+    "id": "AN101-2026-10-31",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-31",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 29,
+    "tarifas_usd": {
+      "Basica": 218,
+      "Clasica": 290,
+      "Flex": 420
+    }
+  },
+  {
+    "id": "AN103-2026-10-31",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-10-31",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 37,
+    "tarifas_usd": {
+      "Basica": 206,
+      "Clasica": 275,
+      "Flex": 399
+    }
+  },
+  {
+    "id": "AN102-2026-10-31",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-10-31",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 39,
+    "tarifas_usd": {
+      "Basica": 216,
+      "Clasica": 288,
+      "Flex": 418
+    }
+  },
+  {
+    "id": "AN201-2026-10-31",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-10-31",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 23,
+    "tarifas_usd": {
+      "Basica": 322,
+      "Clasica": 429,
+      "Flex": 622
+    }
+  },
+  {
+    "id": "AN202-2026-10-31",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-10-31",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 17,
+    "tarifas_usd": {
+      "Basica": 327,
+      "Clasica": 436,
+      "Flex": 632
+    }
+  },
+  {
+    "id": "AN301-2026-10-31",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-10-31",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 287,
+      "Clasica": 383,
+      "Flex": 555
+    }
+  },
+  {
+    "id": "AN302-2026-10-31",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-10-31",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 314,
+      "Clasica": 419,
+      "Flex": 608
+    }
+  },
+  {
+    "id": "AN401-2026-10-31",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-31",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 157,
+      "Clasica": 209,
+      "Flex": 303
+    }
+  },
+  {
+    "id": "AN403-2026-10-31",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-10-31",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 151,
+      "Clasica": 201,
+      "Flex": 291
+    }
+  },
+  {
+    "id": "AN402-2026-10-31",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-10-31",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 30,
+    "tarifas_usd": {
+      "Basica": 160,
+      "Clasica": 214,
+      "Flex": 310
+    }
+  },
+  {
+    "id": "AN501-2026-10-31",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-10-31",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 23,
+    "tarifas_usd": {
+      "Basica": 82,
+      "Clasica": 110,
+      "Flex": 160
+    }
+  },
+  {
+    "id": "AN101-2026-11-01",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-01",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 223,
+      "Clasica": 297,
+      "Flex": 431
+    }
+  },
+  {
+    "id": "AN103-2026-11-01",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-01",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 220,
+      "Clasica": 293,
+      "Flex": 425
+    }
+  },
+  {
+    "id": "AN102-2026-11-01",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-11-01",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 23,
+    "tarifas_usd": {
+      "Basica": 220,
+      "Clasica": 293,
+      "Flex": 425
+    }
+  },
+  {
+    "id": "AN201-2026-11-01",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-11-01",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 29,
+    "tarifas_usd": {
+      "Basica": 319,
+      "Clasica": 425,
+      "Flex": 616
+    }
+  },
+  {
+    "id": "AN202-2026-11-01",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-11-01",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 313,
+      "Clasica": 417,
+      "Flex": 605
+    }
+  },
+  {
+    "id": "AN301-2026-11-01",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-11-01",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 293,
+      "Clasica": 391,
+      "Flex": 567
+    }
+  },
+  {
+    "id": "AN302-2026-11-01",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-11-01",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 282,
+      "Clasica": 376,
+      "Flex": 545
+    }
+  },
+  {
+    "id": "AN401-2026-11-01",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-01",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 34,
+    "tarifas_usd": {
+      "Basica": 191,
+      "Clasica": 255,
+      "Flex": 370
+    }
+  },
+  {
+    "id": "AN403-2026-11-01",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-01",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 134,
+      "Clasica": 179,
+      "Flex": 260
+    }
+  },
+  {
+    "id": "AN402-2026-11-01",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-11-01",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 3,
+    "tarifas_usd": {
+      "Basica": 182,
+      "Clasica": 242,
+      "Flex": 351
+    }
+  },
+  {
+    "id": "AN501-2026-11-01",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-11-01",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 54,
+      "Clasica": 72,
+      "Flex": 104
+    }
+  },
+  {
+    "id": "AN101-2026-11-02",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-02",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 24,
+    "tarifas_usd": {
+      "Basica": 246,
+      "Clasica": 328,
+      "Flex": 476
+    }
+  },
+  {
+    "id": "AN103-2026-11-02",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-02",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 198,
+      "Clasica": 264,
+      "Flex": 383
+    }
+  },
+  {
+    "id": "AN102-2026-11-02",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-11-02",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 0,
+    "tarifas_usd": {
+      "Basica": 225,
+      "Clasica": 300,
+      "Flex": 435
+    }
+  },
+  {
+    "id": "AN201-2026-11-02",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-11-02",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 319,
+      "Clasica": 425,
+      "Flex": 616
+    }
+  },
+  {
+    "id": "AN202-2026-11-02",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-11-02",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 331,
+      "Clasica": 441,
+      "Flex": 639
+    }
+  },
+  {
+    "id": "AN301-2026-11-02",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-11-02",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 18,
+    "tarifas_usd": {
+      "Basica": 278,
+      "Clasica": 370,
+      "Flex": 536
+    }
+  },
+  {
+    "id": "AN302-2026-11-02",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-11-02",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 278,
+      "Clasica": 370,
+      "Flex": 536
+    }
+  },
+  {
+    "id": "AN401-2026-11-02",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-02",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 184,
+      "Clasica": 246,
+      "Flex": 357
+    }
+  },
+  {
+    "id": "AN403-2026-11-02",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-02",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 1,
+    "tarifas_usd": {
+      "Basica": 167,
+      "Clasica": 223,
+      "Flex": 323
+    }
+  },
+  {
+    "id": "AN402-2026-11-02",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-11-02",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 33,
+    "tarifas_usd": {
+      "Basica": 158,
+      "Clasica": 210,
+      "Flex": 304
+    }
+  },
+  {
+    "id": "AN501-2026-11-02",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-11-02",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 56,
+      "Clasica": 74,
+      "Flex": 107
+    }
+  },
+  {
+    "id": "AN101-2026-11-03",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-03",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 24,
+    "tarifas_usd": {
+      "Basica": 230,
+      "Clasica": 306,
+      "Flex": 444
+    }
+  },
+  {
+    "id": "AN103-2026-11-03",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-03",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 25,
+    "tarifas_usd": {
+      "Basica": 230,
+      "Clasica": 307,
+      "Flex": 445
+    }
+  },
+  {
+    "id": "AN102-2026-11-03",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-11-03",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 6,
+    "tarifas_usd": {
+      "Basica": 237,
+      "Clasica": 316,
+      "Flex": 458
+    }
+  },
+  {
+    "id": "AN201-2026-11-03",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-11-03",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 14,
+    "tarifas_usd": {
+      "Basica": 318,
+      "Clasica": 424,
+      "Flex": 615
+    }
+  },
+  {
+    "id": "AN202-2026-11-03",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-11-03",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 324,
+      "Clasica": 432,
+      "Flex": 626
+    }
+  },
+  {
+    "id": "AN301-2026-11-03",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-11-03",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 0,
+    "tarifas_usd": {
+      "Basica": 279,
+      "Clasica": 372,
+      "Flex": 539
+    }
+  },
+  {
+    "id": "AN302-2026-11-03",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-11-03",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 297,
+      "Clasica": 396,
+      "Flex": 574
+    }
+  },
+  {
+    "id": "AN401-2026-11-03",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-03",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 5,
+    "tarifas_usd": {
+      "Basica": 185,
+      "Clasica": 247,
+      "Flex": 358
+    }
+  },
+  {
+    "id": "AN403-2026-11-03",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-03",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 24,
+    "tarifas_usd": {
+      "Basica": 166,
+      "Clasica": 221,
+      "Flex": 320
+    }
+  },
+  {
+    "id": "AN402-2026-11-03",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-11-03",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 185,
+      "Clasica": 247,
+      "Flex": 358
+    }
+  },
+  {
+    "id": "AN501-2026-11-03",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-11-03",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 46,
+      "Clasica": 62,
+      "Flex": 90
+    }
+  },
+  {
+    "id": "AN101-2026-11-04",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-04",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 243,
+      "Clasica": 324,
+      "Flex": 470
+    }
+  },
+  {
+    "id": "AN103-2026-11-04",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-04",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 38,
+    "tarifas_usd": {
+      "Basica": 217,
+      "Clasica": 289,
+      "Flex": 419
+    }
+  },
+  {
+    "id": "AN102-2026-11-04",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-11-04",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 27,
+    "tarifas_usd": {
+      "Basica": 224,
+      "Clasica": 298,
+      "Flex": 432
+    }
+  },
+  {
+    "id": "AN201-2026-11-04",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-11-04",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 300,
+      "Clasica": 400,
+      "Flex": 580
+    }
+  },
+  {
+    "id": "AN202-2026-11-04",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-11-04",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 402,
+      "Flex": 583
+    }
+  },
+  {
+    "id": "AN301-2026-11-04",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-11-04",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 13,
+    "tarifas_usd": {
+      "Basica": 298,
+      "Clasica": 397,
+      "Flex": 576
+    }
+  },
+  {
+    "id": "AN302-2026-11-04",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-11-04",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 277,
+      "Clasica": 369,
+      "Flex": 535
+    }
+  },
+  {
+    "id": "AN401-2026-11-04",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-04",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 31,
+    "tarifas_usd": {
+      "Basica": 151,
+      "Clasica": 201,
+      "Flex": 291
+    }
+  },
+  {
+    "id": "AN403-2026-11-04",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-04",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 7,
+    "tarifas_usd": {
+      "Basica": 141,
+      "Clasica": 188,
+      "Flex": 273
+    }
+  },
+  {
+    "id": "AN402-2026-11-04",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-11-04",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 35,
+    "tarifas_usd": {
+      "Basica": 181,
+      "Clasica": 241,
+      "Flex": 349
+    }
+  },
+  {
+    "id": "AN501-2026-11-04",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-11-04",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 19,
+    "tarifas_usd": {
+      "Basica": 67,
+      "Clasica": 89,
+      "Flex": 129
+    }
+  },
+  {
+    "id": "AN101-2026-11-05",
+    "vuelo": "AN101",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-05",
+    "sale": "07:10",
+    "llega": "11:05",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 242,
+      "Clasica": 323,
+      "Flex": 468
+    }
+  },
+  {
+    "id": "AN103-2026-11-05",
+    "vuelo": "AN103",
+    "origen": "BOG",
+    "destino": "MEX",
+    "fecha": "2026-11-05",
+    "sale": "15:40",
+    "llega": "19:35",
+    "estado": "PROGRAMADO",
+    "cupos": 36,
+    "tarifas_usd": {
+      "Basica": 194,
+      "Clasica": 258,
+      "Flex": 374
+    }
+  },
+  {
+    "id": "AN102-2026-11-05",
+    "vuelo": "AN102",
+    "origen": "MEX",
+    "destino": "BOG",
+    "fecha": "2026-11-05",
+    "sale": "13:15",
+    "llega": "18:50",
+    "estado": "PROGRAMADO",
+    "cupos": 9,
+    "tarifas_usd": {
+      "Basica": 238,
+      "Clasica": 318,
+      "Flex": 461
+    }
+  },
+  {
+    "id": "AN201-2026-11-05",
+    "vuelo": "AN201",
+    "origen": "BOG",
+    "destino": "EZE",
+    "fecha": "2026-11-05",
+    "sale": "09:05",
+    "llega": "17:30",
+    "estado": "PROGRAMADO",
+    "cupos": 0,
+    "tarifas_usd": {
+      "Basica": 327,
+      "Clasica": 436,
+      "Flex": 632
+    }
+  },
+  {
+    "id": "AN202-2026-11-05",
+    "vuelo": "AN202",
+    "origen": "EZE",
+    "destino": "BOG",
+    "fecha": "2026-11-05",
+    "sale": "17:00",
+    "llega": "22:10",
+    "estado": "PROGRAMADO",
+    "cupos": 8,
+    "tarifas_usd": {
+      "Basica": 334,
+      "Clasica": 445,
+      "Flex": 645
+    }
+  },
+  {
+    "id": "AN301-2026-11-05",
+    "vuelo": "AN301",
+    "origen": "BOG",
+    "destino": "SCL",
+    "fecha": "2026-11-05",
+    "sale": "08:20",
+    "llega": "15:45",
+    "estado": "PROGRAMADO",
+    "cupos": 18,
+    "tarifas_usd": {
+      "Basica": 280,
+      "Clasica": 373,
+      "Flex": 541
+    }
+  },
+  {
+    "id": "AN302-2026-11-05",
+    "vuelo": "AN302",
+    "origen": "SCL",
+    "destino": "BOG",
+    "fecha": "2026-11-05",
+    "sale": "16:10",
+    "llega": "21:05",
+    "estado": "PROGRAMADO",
+    "cupos": 21,
+    "tarifas_usd": {
+      "Basica": 302,
+      "Clasica": 403,
+      "Flex": 584
+    }
+  },
+  {
+    "id": "AN401-2026-11-05",
+    "vuelo": "AN401",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-05",
+    "sale": "06:45",
+    "llega": "09:55",
+    "estado": "PROGRAMADO",
+    "cupos": 16,
+    "tarifas_usd": {
+      "Basica": 181,
+      "Clasica": 241,
+      "Flex": 349
+    }
+  },
+  {
+    "id": "AN403-2026-11-05",
+    "vuelo": "AN403",
+    "origen": "BOG",
+    "destino": "LIM",
+    "fecha": "2026-11-05",
+    "sale": "18:30",
+    "llega": "21:40",
+    "estado": "PROGRAMADO",
+    "cupos": 4,
+    "tarifas_usd": {
+      "Basica": 169,
+      "Clasica": 225,
+      "Flex": 326
+    }
+  },
+  {
+    "id": "AN402-2026-11-05",
+    "vuelo": "AN402",
+    "origen": "LIM",
+    "destino": "BOG",
+    "fecha": "2026-11-05",
+    "sale": "11:30",
+    "llega": "14:50",
+    "estado": "PROGRAMADO",
+    "cupos": 28,
+    "tarifas_usd": {
+      "Basica": 149,
+      "Clasica": 199,
+      "Flex": 289
+    }
+  },
+  {
+    "id": "AN501-2026-11-05",
+    "vuelo": "AN501",
+    "origen": "BOG",
+    "destino": "MDE",
+    "fecha": "2026-11-05",
+    "sale": "12:00",
+    "llega": "13:00",
+    "estado": "PROGRAMADO",
+    "cupos": 11,
+    "tarifas_usd": {
+      "Basica": 81,
+      "Clasica": 108,
+      "Flex": 157
+    }
+  }
+]
