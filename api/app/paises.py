@@ -1,7 +1,8 @@
 """Localización por país: se decide por el prefijo telefónico de quien llama.
 
-Las voces son de la biblioteca de ElevenLabs y se validan escuchándolas por
-teléfono antes de la grabación. Cambiarlas aquí no requiere tocar el agente.
+Las voces son de la Voice Library de ElevenLabs (requieren plan Creator o
+superior y estar agregadas a My Voices del workspace). Cambiarlas aquí no
+requiere tocar el agente: el webhook de inicio las envía como override.
 """
 from dataclasses import dataclass
 
@@ -18,20 +19,26 @@ class Pais:
 
 
 PAISES = {
+    # Todos los saludos incluyen el aviso de grabación antes de pedir datos.
     "CO": Pais("CO", "Colombia", "+57", "1ZhMG5ZZgJ6XpkOrB8Az", "Luna",
-               "¡Hola! Bienvenido a AeroAndes, habla Sofía, tu asistente virtual. ¿En qué te puedo ayudar hoy?",
+               "¡Hola! Bienvenido a AeroAndes, habla Sofía, tu asistente virtual. "
+               "Te cuento que esta llamada puede ser grabada para fines de calidad. ¿En qué te puedo ayudar hoy?",
                "Español de Colombia, cálido y cercano. Tutea con respeto; puede usar 'con gusto'."),
     "MX": Pais("MX", "México", "+52", "9Godp7dNohUvXk6qp0gS", "Regina",
-               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. ¿En qué te puedo ayudar?",
+               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. "
+               "Esta llamada puede ser grabada para fines de calidad. ¿En qué te puedo ayudar?",
                "Español de México, amable. Puede usar 'claro que sí' y 'con mucho gusto'."),
     "AR": Pais("AR", "Argentina", "+54", "4wDRKlxcHNOFO5kBvE81", "Melisa",
-               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. ¿En qué te puedo ayudar?",
+               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. "
+               "Te aviso que esta llamada puede ser grabada para fines de calidad. Contame, ¿en qué te puedo ayudar?",
                "Español rioplatense: usa voseo ('vos tenés', 'contame'). Cordial y directo."),
     "CL": Pais("CL", "Chile", "+56", "6Gr4AVmTax1pMJO0lHRK", "Catalina",
-               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. ¿En qué te puedo ayudar?",
+               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. "
+               "Esta llamada puede ser grabada para fines de calidad. ¿En qué te puedo ayudar?",
                "Español de Chile, cercano y profesional. Evita modismos muy coloquiales."),
     "PE": Pais("PE", "Perú", "+51", "ek0qR5Bu0N3aPdijsdae", "Lily",
-               "¡Hola! Bienvenido a AeroAndes, te atiende Sofía, tu asistente virtual. ¿En qué te puedo ayudar?",
+               "¡Hola! Bienvenido a AeroAndes, te saluda Sofía, tu asistente virtual. "
+               "Esta llamada puede ser grabada para fines de calidad. ¿En qué te puedo ayudar?",
                "Español de Perú, amable y claro."),
 }
 
