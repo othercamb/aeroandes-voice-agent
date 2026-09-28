@@ -28,12 +28,24 @@ if ! gcloud firestore databases describe --database="${FIRESTORE_DB}" >/dev/null
   gcloud firestore databases create --database="${FIRESTORE_DB}" --location="${REGION}" --type=firestore-native
 fi
 
-echo "==> Cuenta de servicio con permisos mínimos"
+echo "==> Cuentas de servicio con permisos mínimos"
 if ! gcloud iam service-accounts describe "${SA}" >/dev/null 2>&1; then
-  gcloud iam service-accounts create "${SA_NAME}" --display-name="AeroAndes API"
+  gcloud iam service-accounts create "${SA_NAME}" --display-name="AeroAndes API (runtime)"
 fi
 gcloud projects add-iam-policy-binding "${PROJECT_ID}" --member="serviceAccount:${SA}" \
   --role="roles/datastore.user" --condition=None >/dev/null
+
+# Cuenta dedicada para construir la imagen. En proyectos nuevos la cuenta por defecto de
+# Compute Engine ya no tiene permisos de build; en vez de ampliarla, usamos una propia
+# con solo Cloud Run Builder.
+BUILD_SA_NAME="${BUILD_SA_NAME:-aeroandes-build}"
+BUILD_SA="${BUILD_SA_NAME}@${PROJECT_ID}.iam.gserviceaccount.com"
+if ! gcloud iam service-accounts describe "${BUILD_SA}" >/dev/null 2>&1; then
+  gcloud iam service-accounts create "${BUILD_SA_NAME}" --display-name="AeroAndes API (build)"
+  sleep 10  # la cuenta nueva tarda unos segundos en propagarse en IAM
+fi
+gcloud projects add-iam-policy-binding "${PROJECT_ID}" --member="serviceAccount:${BUILD_SA}" \
+  --role="roles/run.builder" --condition=None >/dev/null
 
 # Crea o actualiza un secreto y le da acceso solo a la cuenta de servicio.
 guardar_secreto() {
@@ -69,6 +81,7 @@ echo "==> Construyendo y desplegando en Cloud Run"
 # --allow-unauthenticated: ElevenLabs llama desde internet; la protección es el header X-Agent-Secret.
 # --min-instances 1: sin arranque en frío en mitad de una llamada de voz.
 gcloud run deploy "${SERVICE}" --source . --region "${REGION}" \
+  --build-service-account "projects/${PROJECT_ID}/serviceAccounts/${BUILD_SA}" \
   --service-account "${SA}" --allow-unauthenticated \
   --min-instances 1 --max-instances 3 --cpu 1 --memory 512Mi --concurrency 40 \
   --set-env-vars "${ENV_VARS}" --update-secrets "${SECRETS}"
