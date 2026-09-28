@@ -23,6 +23,18 @@ El secreto `X-Agent-Secret` vive como secreto del workspace de ElevenLabs (solo 
 
 > El webhook de inicio solo se dispara en llamadas telefónicas (Twilio o SIP). En el widget o en las pruebas de texto se usan los valores por defecto de Colombia.
 
+## Número de teléfono (Twilio)
+
+- Número de la demo: **+1 629 288 9379** (local, Nashville). Importado en ElevenLabs y asignado al agente.
+- SMS deshabilitados en Twilio (falta registro A2P 10DLC): la API envía el enlace de pago en modo simulado.
+
+### Restaurar el número después del proceso
+
+Antes de la demo, el número redirigía las llamadas a un celular con una Twilio Function. Para volver a ese estado:
+eliminar el número en ElevenLabs (Phone Numbers) y, en Twilio → número → Voice Configuration → "A call comes in",
+elegir **Function** → servicio `forward-call` (SID `<service SID>`), path `/forward-call`
+(`<forward-call Function URL>`).
+
 ## Pendiente
 
 - Número de Twilio y transferencia a humano.
