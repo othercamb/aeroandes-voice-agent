@@ -18,11 +18,13 @@ El secreto `X-Agent-Secret` vive como secreto del workspace de ElevenLabs (solo 
 - **Variables dinámicas:** `pais`, `pais_codigo`, `trato_regional`, `telefono_cliente`. Tienen Colombia por defecto; en llamadas reales las llena el webhook de inicio.
 - **Base de conocimiento:** los 6 documentos de `kb/`, en modo `auto` con RAG apagado. Son unos 12 KB y caben completos en el contexto: sin búsqueda previa y sin riesgo de que se escape un detalle.
 - **Herramientas de sistema:** `end_call`. `transfer_to_number` se agrega junto con Twilio.
+- **Voz por defecto:** Luna (CO). Las 5 voces por país son de la Voice Library (plan Creator) y están en My Voices.
+- **Webhook de inicio:** `POST /webhooks/inicio-conversacion` con el header `X-Agent-Secret` (mismo secreto de las herramientas). Con cada llamada entrante de Twilio, ElevenLabs envía `caller_id`; la API responde la voz, el saludo y las variables del país. Overrides habilitados en el agente: `tts.voice_id`, `agent.first_message` y `agent.language`; cualquier otro override se ignora.
+
+> El webhook de inicio solo se dispara en llamadas telefónicas (Twilio o SIP). En el widget o en las pruebas de texto se usan los valores por defecto de Colombia.
 
 ## Pendiente
 
-- Webhook de inicio por país (habilitar los overrides de voz y primer mensaje).
-- Voces por país agregadas a "My Voices".
 - Número de Twilio y transferencia a humano.
 - Criterios de evaluación y data collection.
 - Tests de casos fuera del guion.
