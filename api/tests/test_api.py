@@ -92,9 +92,11 @@ def test_golden_path_completo(cliente):
     assert r["verificado"] and r["cambio"]["permitido"] and r["tarifa"] == "Clásica"
     assert r["vuelo"]["numero"] == "AN101" and r["vuelo"]["fecha"] == "2026-10-20"
 
-    # El 21 el vuelo de la mañana está lleno.
+    # El 21 está lleno (mañana y tarde): ofrece alternativas, primero las del 22.
     r = c.post("/herramientas/buscar-vuelos", headers=H, json={**auth, "fecha_deseada": "2026-10-21"}).json()
-    assert "AN101" in r["vuelos_llenos_en_fecha_pedida"]
+    assert set(r["vuelos_llenos_en_fecha_pedida"]) == {"AN101", "AN103"}
+    assert r["son_alternativas_cercanas"] is True
+    assert [(o["fecha"], o["numero"]) for o in r["opciones"][:2]] == [("2026-10-22", "AN101"), ("2026-10-22", "AN103")]
 
     # El 22 hay dos opciones con el total correcto según la política.
     r = c.post("/herramientas/buscar-vuelos", headers=H, json={**auth, "fecha_deseada": "2026-10-22"}).json()

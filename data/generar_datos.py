@@ -38,7 +38,8 @@ INICIO, FIN = date(2026, 10, 15), date(2026, 11, 5)
 AJUSTES = {
     # Golden path: Valentina pasa del 20 al 22 de octubre en AN101.
     ("AN101", "2026-10-20"): {"cupos": 12, "precio_clasica": 289},
-    ("AN101", "2026-10-21"): {"cupos": 0, "precio_clasica": 289},   # lleno: fuerza alternativa
+    ("AN101", "2026-10-21"): {"cupos": 0, "precio_clasica": 289},   # 21-oct lleno (mañana y tarde):
+    ("AN103", "2026-10-21"): {"cupos": 0, "precio_clasica": 269},   # fuerza a ofrecer alternativas
     ("AN101", "2026-10-22"): {"cupos": 9, "precio_clasica": 319},   # diferencia USD 30
     ("AN103", "2026-10-22"): {"cupos": 4, "precio_clasica": 299},   # alternativa de la tarde
     # Vuelo cancelado por la aerolínea (caso irregularidad operacional).
@@ -95,7 +96,7 @@ RESERVAS = [
         "pasajeros": [{"nombre": "Valentina", "apellido": "Rojas"}],
         "vuelo": "AN101", "fecha": "2026-10-20", "familia": "Clasica",
         "precio_pagado_usd": 289, "equipaje_bodega": 1, "estado": "CONFIRMADA",
-        "nota_demo": "Golden path: cambio al 22-oct. El 21 está lleno. Opciones: AN101 mañana (cargo 50 + diferencia 30 = USD 80) o AN103 tarde (50 + 10 = USD 60).",
+        "nota_demo": "Golden path: pide el 21-oct, que está lleno (mañana y tarde). Alternativas el 22: AN101 mañana (cargo 50 + diferencia 30 = USD 80) o AN103 tarde (50 + 10 = USD 60).",
     },
     # --- Colombia ----------------------------------------------------------
     {

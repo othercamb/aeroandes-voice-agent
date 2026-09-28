@@ -15,7 +15,7 @@
     "precio_pagado_usd": 289,
     "equipaje_bodega": 1,
     "estado": "CONFIRMADA",
-    "nota_demo": "Golden path: cambio al 22-oct. El 21 está lleno. Opciones: AN101 mañana (cargo 50 + diferencia 30 = USD 80) o AN103 tarde (50 + 10 = USD 60)."
+    "nota_demo": "Golden path: pide el 21-oct, que está lleno (mañana y tarde). Alternativas el 22: AN101 mañana (cargo 50 + diferencia 30 = USD 80) o AN103 tarde (50 + 10 = USD 60)."
   },
   {
     "pnr": "H3LM9P",

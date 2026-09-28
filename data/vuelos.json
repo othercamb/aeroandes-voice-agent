@@ -1081,11 +1081,11 @@
     "sale": "15:40",
     "llega": "19:35",
     "estado": "PROGRAMADO",
-    "cupos": 12,
+    "cupos": 0,
     "tarifas_usd": {
-      "Basica": 197,
-      "Clasica": 263,
-      "Flex": 381
+      "Basica": 202,
+      "Clasica": 269,
+      "Flex": 390
     }
   },
   {

@@ -215,6 +215,10 @@ def crear_app(cfg: Config | None = None, repo: Repositorio | None = None, reloj=
         alternativas_cercanas = False
         if not opciones:
             opciones, _ = opciones_en(d - timedelta(days=2), d + timedelta(days=2))
+            # Primero las fechas más cercanas a la pedida; ante empate, las posteriores
+            # (quien pide cambiar a una fecha suele poder viajar después, no antes).
+            opciones.sort(key=lambda o: (abs((date.fromisoformat(o["fecha"]) - d).days),
+                                         o["fecha"] < d.isoformat(), o["fecha"], o["hora_salida"]))
             alternativas_cercanas = True
         return {
             "verificado": True,
