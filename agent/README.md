@@ -28,6 +28,14 @@ El secreto `X-Agent-Secret` vive como secreto del workspace de ElevenLabs (solo 
 - Número de la demo: **+1 629 288 9379** (local, Nashville). Importado en ElevenLabs y asignado al agente.
 - SMS deshabilitados en Twilio (falta registro A2P 10DLC): la API envía el enlace de pago en modo simulado.
 
+### Enrutador delante del agente
+
+El número apunta a la Twilio Function [`/router`](../twilio/router.js) (servicio `forward-call`). Las llamadas de la
+plataforma de notificaciones (<notification platform number>) se desvían al celular; el resto va a ElevenLabs
+(`https://api.us.elevenlabs.io/twilio/inbound_call`). El *status callback* de ElevenLabs
+(`https://api.us.elevenlabs.io/twilio/status-callback`) se deja igual. Si el número se reimporta en ElevenLabs,
+hay que volver a apuntar "A call comes in" a `/router`.
+
 ### Restaurar el número después del proceso
 
 Antes de la demo, el número redirigía las llamadas a un celular con una Twilio Function. Para volver a ese estado:
