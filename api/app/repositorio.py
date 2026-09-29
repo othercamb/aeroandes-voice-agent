@@ -35,6 +35,9 @@ class Repositorio(ABC):
     def obtener_reserva(self, pnr: str) -> dict | None: ...
 
     @abstractmethod
+    def listar_codigos_reserva(self) -> list[str]: ...
+
+    @abstractmethod
     def obtener_vuelo(self, vuelo_id: str) -> dict | None: ...
 
     @abstractmethod
@@ -74,6 +77,9 @@ class RepositorioMemoria(Repositorio):
     def obtener_reserva(self, pnr):
         r = self._reservas.get(pnr)
         return copy.deepcopy(r) if r else None
+
+    def listar_codigos_reserva(self):
+        return list(self._reservas)
 
     def obtener_vuelo(self, vuelo_id):
         v = self._vuelos.get(vuelo_id)
@@ -132,6 +138,10 @@ class RepositorioFirestore(Repositorio):
     def obtener_reserva(self, pnr):
         d = self._reservas.document(pnr).get()
         return d.to_dict() if d.exists else None
+
+    def listar_codigos_reserva(self):
+        # Suficiente para la demo (12 reservas). En producción: índice por apellido.
+        return [d.id for d in self._reservas.list_documents()]
 
     def obtener_vuelo(self, vuelo_id):
         d = self._vuelos.document(vuelo_id).get()

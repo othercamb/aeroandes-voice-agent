@@ -78,10 +78,28 @@ def test_apellido_distinto_sigue_fallando(cliente, apellido):
     assert r["verificado"] is False
 
 
-def test_codigo_sigue_siendo_exacto(cliente):
+def test_codigo_con_un_caracter_distinto_se_acepta_si_el_apellido_coincide(cliente):
+    c, _ = cliente
+    # Transcripción real de la segunda llamada: "N de mamá" en lugar de M.
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": "K7Q2NX", "apellido": "Rojas"}).json()
+    assert r["verificado"] is True
+    assert r["codigo_reserva"] == "K7Q2MX"
+    assert "K7Q2MX" in r["indicacion"]
+
+
+def test_codigo_con_un_caracter_distinto_y_apellido_ajeno_falla(cliente):
     c, _ = cliente
     r = c.post("/herramientas/consultar-reserva", headers=H,
-               json={"codigo_reserva": "AZQ2MX", "apellido": "Rojas"}).json()
+               json={"codigo_reserva": "K7Q2NX", "apellido": "Gomez"}).json()
+    assert r["verificado"] is False
+
+
+@pytest.mark.parametrize("codigo", ["AZQ2MX", "K7K2NX", "1K12NE"])
+def test_codigo_con_dos_o_mas_errores_falla(cliente, codigo):
+    c, _ = cliente
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": codigo, "apellido": "Rojas"}).json()
     assert r["verificado"] is False
 
 
