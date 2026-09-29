@@ -78,6 +78,23 @@ def _codigo(texto: str) -> str:
     return "".join(texto.split()).upper()
 
 
+# Palabras que el reconocimiento de voz suele pegar al apellido ("apellido Rojas", "Rojas de Pérez").
+_RELLENO_APELLIDO = {"apellido", "mi", "es", "el", "la", "de", "del", "y", "señor", "senor", "senora"}
+
+
+def _tokens_apellido(texto: str) -> set[str]:
+    limpio = "".join(c if c.isalpha() or c.isspace() else " " for c in _normalizar(texto))
+    return {t for t in limpio.split() if t not in _RELLENO_APELLIDO and len(t) > 1}
+
+
+def _apellido_coincide(dicho: str, registrado: str) -> bool:
+    """Tolerante a la voz: coincide si todas las palabras del apellido registrado aparecen en lo
+    dicho ("Abejero Rojas" → Rojas) o si lo dicho es parte de un apellido compuesto ("Rojas" →
+    "Rojas Pérez"). El código de reserva sigue siendo exacto: la tolerancia es solo en el apellido."""
+    d, r = _tokens_apellido(dicho), _tokens_apellido(registrado)
+    return bool(d and r) and (r <= d or d <= r)
+
+
 def _describir_vuelo(v: dict) -> dict:
     return {
         "vuelo_id": v["id"],
@@ -119,7 +136,7 @@ def crear_app(cfg: Config | None = None, repo: Repositorio | None = None, reloj=
         reserva = repo.obtener_reserva(_codigo(codigo))
         if not reserva:
             return None
-        if _normalizar(apellido) not in {_normalizar(p["apellido"]) for p in reserva["pasajeros"]}:
+        if not any(_apellido_coincide(apellido, p["apellido"]) for p in reserva["pasajeros"]):
             return None
         return reserva
 
@@ -305,7 +322,7 @@ def crear_app(cfg: Config | None = None, repo: Repositorio | None = None, reloj=
         if not reclamo:
             return {"encontrado": False, "indicacion": "Pide la referencia de nuevo, letra por letra."}
         reserva = repo.obtener_reserva(reclamo["pnr"])
-        if not reserva or _normalizar(datos.apellido) not in {_normalizar(p["apellido"]) for p in reserva["pasajeros"]}:
+        if not reserva or not any(_apellido_coincide(datos.apellido, p["apellido"]) for p in reserva["pasajeros"]):
             return {"encontrado": False, "indicacion": "Los datos no coinciden. No des información del reclamo."}
         dias = (ahora().date() - date.fromisoformat(reclamo["ultima_actualizacion"])).days
         return {

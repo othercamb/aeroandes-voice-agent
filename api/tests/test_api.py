@@ -57,6 +57,34 @@ def test_verificacion_tolera_mayusculas_espacios_y_tildes(cliente):
     assert r["verificado"] is True
 
 
+@pytest.mark.parametrize("apellido", [
+    "Abejero Rojas",          # transcripción real de la primera llamada ("apellido Rojas")
+    "apellido Rojas",
+    "Rojas.",
+    "Valentina Rojas",
+])
+def test_apellido_tolera_ruido_de_la_transcripcion(cliente, apellido):
+    c, _ = cliente
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": "K7Q2MX", "apellido": apellido}).json()
+    assert r["verificado"] is True
+
+
+@pytest.mark.parametrize("apellido", ["Rodas", "Rojo", "de", ""])
+def test_apellido_distinto_sigue_fallando(cliente, apellido):
+    c, _ = cliente
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": "K7Q2MX", "apellido": apellido}).json()
+    assert r["verificado"] is False
+
+
+def test_codigo_sigue_siendo_exacto(cliente):
+    c, _ = cliente
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": "AZQ2MX", "apellido": "Rojas"}).json()
+    assert r["verificado"] is False
+
+
 # ---------- Webhook de inicio ------------------------------------------------------
 
 @pytest.mark.parametrize("caller,pais,voz", [
