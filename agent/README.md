@@ -17,7 +17,7 @@ El secreto `X-Agent-Secret` vive como secreto del workspace de ElevenLabs (solo 
 - **Prompt:** [`prompt.md`](prompt.md), organizado en personalidad, entorno, tono, flujo, herramientas y guardrails.
 - **Variables dinámicas:** `pais`, `pais_codigo`, `trato_regional`, `telefono_cliente`. Tienen Colombia por defecto; en llamadas reales las llena el webhook de inicio.
 - **Base de conocimiento:** los 6 documentos de `kb/`, en modo `auto` con RAG apagado. Son unos 12 KB y caben completos en el contexto: sin búsqueda previa y sin riesgo de que se escape un detalle.
-- **Herramientas de sistema:** `end_call`. `transfer_to_number` se agrega junto con Twilio.
+- **Herramientas de sistema:** `end_call` y `transfer_to_number` (conferencia al asesor humano del BPO; en la demo, un celular colombiano). El agente la usa solo cuando el pasajero acepta la transferencia.
 - **Reconocimiento de voz:** turno `patient` y *keywords* de ASR con los apellidos del CRM de la demo y "AeroAndes". En producción, el webhook de inicio podría enviar como keywords los apellidos asociados al teléfono de quien llama.
 - **Voz por defecto:** Luna (CO). Las 5 voces por país son de la Voice Library (plan Creator) y están en My Voices.
 - **Webhook de inicio:** `POST /webhooks/inicio-conversacion` con el header `X-Agent-Secret` (mismo secreto de las herramientas). Con cada llamada entrante de Twilio, ElevenLabs envía `caller_id`; la API responde la voz, el saludo y las variables del país. Overrides habilitados en el agente: `tts.voice_id`, `agent.first_message` y `agent.language`; cualquier otro override se ignora.
@@ -44,6 +44,21 @@ eliminar el número en ElevenLabs (Phone Numbers) y, en Twilio → número → V
 elegir **Function** → servicio `forward-call` (SID `<service SID>`), path `/forward-call`
 (`<forward-call Function URL>`).
 
+## Evaluación automática de cada llamada
+
+Al terminar cada conversación, ElevenLabs la analiza con un LLM y la califica. Así el BPO mide calidad en el 100% de las llamadas, no en una muestra.
+
+| Criterio | Qué revisa |
+|---|---|
+| `verificacion_antes_de_datos` | No revela datos de la reserva antes de `verificado=true`, ni confirma que exista si falla |
+| `confirmacion_explicita` | Lee vuelo, día, hora y total, y espera un sí explícito antes de `cambiar_vuelo` |
+| `sin_informacion_inventada` | Precios, horarios y reglas salen de las herramientas o de la política; sin excepciones |
+| `resolucion_o_escalamiento` | Resuelve, o transfiere cuando el caso es de asesor |
+| `estilo_de_voz` | Frases cortas, una pregunta a la vez, sin listas ni identificadores técnicos |
+
+Datos extraídos por llamada (filtrables en el historial): `motivo_llamada`, `codigo_reserva`, `verificacion_exitosa`,
+`resultado`, `total_a_pagar_usd`, `transferido_a_humano`. El país viene de la variable dinámica `pais_codigo`.
+
 ## Conversación de referencia (golden path por teléfono)
 
 `conv_1801m3sm21vsf569gwgeym933xd2` (30-sep-2026): llamada real desde Colombia por Twilio → enrutador → ElevenLabs.
@@ -53,6 +68,4 @@ AN103 por USD 60 → confirmación explícita → cambio + enlace de pago → ci
 
 ## Pendiente
 
-- Número de Twilio y transferencia a humano.
-- Criterios de evaluación y data collection.
 - Tests de casos fuera del guion.
