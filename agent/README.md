@@ -56,7 +56,9 @@ Data extracted per call (filterable in the call history): `call_reason`, `bookin
 
 `conv_1801m3sm21vsf569gwgeym933xd2` (Sep 30, 2026, in Spanish): a real call from Colombia through Twilio → router → ElevenLabs. Verification (code dictated with support words + confirmed surname) → the 21st is full → alternatives on the 22nd → AN103 for USD 60 → explicit confirmation → change + payment link → close with `end_call`. 3 min 40 s, 2,129 credits (≈ USD 0.39). Tool latency: 0.4–0.5 s. Agent response time: 0.8–2.5 s.
 
+`conv_8701m3t4vdgse5cv6e14bjh1aq5b` (Sep 30, 2026, in English): the caller asks for English right after the Spanish greeting → `language_detection` switches language and voice → same golden path, morning option AN101 for USD 80 → explicit confirmation → change + payment link. 4 min 24 s, 2,547 credits. All 5 evaluation criteria passed, but a transcript review found a numbered list, Spanish spelling words in English ("M as in mama") and a flight date called "today". The prompt and the `voice_style` criterion were tightened afterwards: the automatic evaluation is only as good as its criteria, so they are reviewed against real transcripts.
+
 ## Next steps
 
 - Off-script tests (Basic fare, airline cancellation, already checked in, caller asks for a human).
-- English sample conversation for reviewers.
+- A clean English sample conversation for reviewers, after the prompt fixes.
