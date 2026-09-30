@@ -1,88 +1,95 @@
 # AeroAndes Voice Agent
 
-Demo de un agente de voz construido en **ElevenLabs Agents** para el take-home de Solutions Engineer.
+A voice agent built on **ElevenLabs Agents** for the Solutions Engineer take-home.
 
-**Escenario:** un BPO en Colombia atiende la línea telefónica de AeroAndes, una aerolínea regional ficticia, para pasajeros de Colombia, México, Argentina, Chile y Perú. El agente detecta el país por el prefijo del número que llama, responde con una voz de acento local y resuelve lo rutinario: consultar reservas, cambiar vuelos, equipaje y mascotas. Los cargos se cobran con un enlace de pago enviado por SMS, sin pedir datos de tarjeta, y los casos complejos pasan a un asesor humano con el contexto completo.
+**Scenario:** a BPO in Colombia runs the phone line of AeroAndes, a fictitious regional airline, for passengers in Colombia, Mexico, Argentina, Chile and Peru. The agent detects the caller's country from the phone number prefix, answers with a voice in the local accent, and resolves the routine work: booking lookups, flight changes, baggage and pets. Fees are collected through a payment link sent by SMS, never by taking card details over the phone, and complex cases go to a human agent with full context.
 
-## Estructura
+The agent speaks Spanish by default (the real customer base) and switches to English when the caller speaks English, so it can be tested by non-Spanish speakers.
 
-| Carpeta | Contenido |
+> Code, tool names and the agent prompt are in Spanish on purpose: this is how the solution would be delivered to a LATAM customer whose team maintains it. Everything reviewer-facing is in English.
+
+## Repository layout
+
+| Folder | Contents |
 |---|---|
-| `api/` | API en FastAPI que el agente usa como herramientas: webhook de inicio, reservas, vuelos, cambios, equipaje y pago simulado |
-| `data/` | Datos ficticios: `vuelos.json` (inventario), `reservas.json` (12 reservas de prueba) y `generar_datos.py`, que los regenera |
-| `kb/` | Políticas de la aerolínea que se cargan en la base de conocimiento del agente |
-| `deploy/` | `deploy.sh`: despliegue a Cloud Run desde Cloud Shell |
-| `docs/` | Caso comercial y, más adelante, el diagrama de arquitectura |
+| `api/` | FastAPI service the agent uses as tools: conversation-initiation webhook, bookings, flights, changes, baggage and a simulated payment page |
+| `agent/` | Agent configuration: [prompt](agent/prompt.md), IDs, evaluation criteria and the [agent README](agent/README.md) |
+| `twilio/` | Twilio Function that routes calls in front of the agent |
+| `data/` | Fictitious data: `vuelos.json` (flight inventory), `reservas.json` (12 test bookings) and `generar_datos.py`, which regenerates them |
+| `kb/` | Airline policies loaded into the agent's knowledge base |
+| `deploy/` | `deploy.sh`: deploys to Cloud Run from Cloud Shell |
+| `docs/` | [Business case](docs/business-case.md) |
 
-Próxima carpeta: `agent/`, con la configuración del agente, las herramientas y los tests versionados.
-
-## Arquitectura
+## Architecture
 
 ```
-Llamada → Twilio → ElevenLabs Agent
-                     ├── Webhook de inicio → API: país por prefijo → voz, saludo y variables
-                     ├── Base de conocimiento (kb/)
-                     └── Herramientas → API (Cloud Run) → Firestore (transacción en el cambio)
-                                                       → Twilio SMS → página de pago simulado
+Caller → Twilio number → Twilio Function (router) → ElevenLabs Agent
+                                                     ├── Initiation webhook → API: country from prefix → voice, greeting, variables
+                                                     ├── Knowledge base (kb/)
+                                                     ├── Server tools → API (Cloud Run) → Firestore (transaction on change)
+                                                     │                                  → SMS with payment link (simulated in the demo)
+                                                     └── System tools: language_detection, transfer_to_number, end_call
 ```
 
-Decisiones principales:
+Key design decisions:
 
-- **Reglas de negocio como funciones puras** (`api/app/reglas.py`): el LLM conversa, pero el cálculo de cargos y la elegibilidad los decide código determinístico y probado. El agente no puede "inventar" una excepción a la política.
-- **Verificación en cada herramienta:** cada llamada vuelve a validar código de reserva y apellido. No hay sesión que se pueda secuestrar, y un fallo nunca revela si la reserva existe.
-- **Confirmación explícita:** `cambiar-vuelo` exige `confirmacion_cliente: true`. Si no llega, no ejecuta.
-- **Cupos consistentes:** el cambio corre en una transacción de Firestore, para que dos llamadas simultáneas no vendan el mismo asiento.
-- **Pago fuera de la voz:** el agente nunca recibe datos de tarjeta; el cobro llega por un enlace en un SMS.
-- **"Hoy" congelado** (`DEMO_NOW`): el mundo de la demo vive el 13 de octubre de 2026, así el golden path funciona igual cuando alguien lo pruebe después.
-- **SMS seguros en la demo** (`DEMO_SMS_TO`): todos los SMS van al número de quien presenta; nunca se escribe a los teléfonos ficticios de las reservas.
+- **Business rules as pure functions** (`api/app/reglas.py`): the LLM handles the conversation, but fees and eligibility are decided by deterministic, tested code. The agent cannot "invent" a policy exception.
+- **Verification on every tool call:** each tool re-validates booking code and surname. There is no session to hijack, and a failure never reveals whether the booking exists.
+- **Built for phone audio:** codes are dictated with support words ("K as in kilo"), read back and confirmed; the API tolerates surname noise ("Rojas." / "surname Rojas") and a single misheard code character, but only when the surname matches exactly one booking.
+- **Explicit confirmation:** `cambiar-vuelo` requires `confirmacion_cliente: true`. Without it, nothing executes.
+- **Consistent inventory:** the change runs inside a Firestore transaction, so two simultaneous calls cannot sell the same seat.
+- **Payment outside the voice channel:** the agent never receives card data; payment happens through an SMS link.
+- **Frozen "today"** (`DEMO_NOW`): the demo world lives on October 13, 2026, so the golden path behaves the same whenever someone tests it.
+- **Safe SMS in the demo** (`DEMO_SMS_TO`): every SMS goes to the presenter's number, never to the fictitious phones in the bookings.
+- **Measurable quality:** every call is scored by 5 evaluation criteria and 6 extracted data fields (see the [agent README](agent/README.md)).
 
 ## API
 
-| Ruta | Uso |
+| Route | Purpose |
 |---|---|
-| `POST /webhooks/inicio-conversacion` | ElevenLabs la llama al iniciar la conversación. Devuelve voz, saludo y variables según el país del `caller_id` |
-| `POST /herramientas/consultar-reserva` | Verifica código y apellido; devuelve la reserva y si se puede cambiar |
-| `POST /herramientas/buscar-vuelos` | Opciones para una fecha, con el total calculado según la política; si no hay, busca ±2 días |
-| `POST /herramientas/cambiar-vuelo` | Ejecuta el cambio confirmado y envía el SMS con el enlace de pago |
-| `POST /herramientas/estado-equipaje` | Estado de un reclamo de maleta (referencia + apellido) |
-| `GET/POST /pagar/{token}` | Página de pago simulado (el enlace del SMS) |
-| `POST /admin/reiniciar` | Vuelve los datos al estado inicial entre ensayos |
-| `GET /salud` | Prueba de vida |
+| `POST /webhooks/inicio-conversacion` | Called by ElevenLabs when a call starts. Returns voice, greeting and variables for the country of the `caller_id` |
+| `POST /herramientas/consultar-reserva` | Verifies code and surname; returns the booking and whether it can be changed |
+| `POST /herramientas/buscar-vuelos` | Options for a date with the total already computed by policy; if the date is full, searches ±2 days |
+| `POST /herramientas/cambiar-vuelo` | Executes the confirmed change and sends the SMS with the payment link |
+| `POST /herramientas/estado-equipaje` | Status of a baggage claim (reference + surname) |
+| `GET/POST /pagar/{token}` | Simulated payment page (the SMS link) |
+| `POST /admin/reiniciar` | Resets the data between rehearsals |
+| `GET /salud` | Health check |
 
-Todas las rutas de herramientas y administración exigen el header `X-Agent-Secret`.
+All tool and admin routes require the `X-Agent-Secret` header.
 
-### Correr en local
+### Run locally
 
 ```bash
 cd api
 pip install -r requirements.txt -r requirements-dev.txt
-python -m pytest              # 23 tests: reglas, seguridad, golden path y casos fuera del guion
+python -m pytest              # 36 tests: rules, security, golden path, off-script cases, voice-capture tolerance
 DEMO_NOW=2026-10-13T10:00:00-05:00 uvicorn app.main:app --port 8080
 ```
 
-En local usa almacenamiento en memoria y SMS simulados (se escriben en el log).
+Locally it uses in-memory storage and simulated SMS (written to the log).
 
-### Desplegar en GCP
+### Deploy to GCP
 
-Desde Cloud Shell, en la raíz del repo:
+From Cloud Shell, at the repo root:
 
 ```bash
 bash deploy/deploy.sh
 ```
 
-El script habilita las APIs, crea la base Firestore `aeroandes`, una cuenta de servicio con permisos mínimos y el secreto de las herramientas en Secret Manager; despliega en Cloud Run (`us-east1`, una instancia siempre activa) y siembra los datos. Para SMS reales, exporta antes `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_FROM_NUMBER` y `DEMO_SMS_TO`.
+The script enables the APIs, creates the `aeroandes` Firestore database, a least-privilege service account and the tools secret in Secret Manager; deploys to Cloud Run (`us-east1`, one always-on instance) and seeds the data. For real SMS, export `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_FROM_NUMBER` and `DEMO_SMS_TO` first.
 
-## Datos de prueba
+## Test data
 
-- **Golden path:** reserva `K7Q2MX` (apellido Rojas). Vuelo BOG–MEX del 20 de octubre, tarifa Clásica. El 21 está lleno; el 22 hay dos opciones: mañana (USD 80) o tarde (USD 60).
-- Los demás casos (tarifa Básica, vuelo cancelado, check-in hecho, maleta demorada, mascotas, varios pasajeros) están descritos en el campo `nota_demo` de cada reserva.
+- **Golden path:** booking `K7Q2MX` (surname Rojas). BOG–MEX flight on October 20, Classic fare. The 21st is full; on the 22nd there are two options: morning (USD 80) or afternoon (USD 60).
+- The other cases (Basic fare, airline-cancelled flight, already checked in, delayed bag, pets, multiple passengers) are described in the `nota_demo` field of each booking.
 
-Para regenerar los datos:
+To regenerate the data:
 
 ```bash
 python3 data/generar_datos.py
 ```
 
-## Seguridad
+## Security
 
-Ningún secreto va al repositorio. En la nube se usa Secret Manager; para desarrollo local, copia `.env.example` a `.env`.
+No secrets in the repository. The cloud deployment uses Secret Manager; for local development, copy `.env.example` to `.env`.

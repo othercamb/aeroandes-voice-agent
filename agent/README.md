@@ -1,71 +1,62 @@
-# Agente en ElevenLabs
+# ElevenLabs agent
 
-| Recurso | ID |
+| Resource | ID |
 |---|---|
-| Agente "AeroAndes – Sofía (BPO LATAM)" | `agent_6301m3mc0yfne8n9fz45ama739a8` |
-| Herramienta `consultar_reserva` | `tool_1201m3mb0kybee99deg2v8egcma3` |
-| Herramienta `buscar_vuelos` | `tool_1601m3mb0pxkfxr89ssdhe53jmb9` |
-| Herramienta `cambiar_vuelo` | `tool_2301m3mb0t2me01sts5mh2b525th` |
-| Herramienta `estado_equipaje` | `tool_1601m3mb0wyzf818f8b12c0z9mq2` |
-| Test de simulación "Golden path - cambio de vuelo K7Q2MX" | `test_4101m3mc6rzrfzmav8yqp4tj47jb` |
+| Agent "AeroAndes – Sofía (BPO LATAM)" | `agent_6301m3mc0yfne8n9fz45ama739a8` |
+| Tool `consultar_reserva` (booking lookup + verification) | `tool_1201m3mb0kybee99deg2v8egcma3` |
+| Tool `buscar_vuelos` (flight search with priced options) | `tool_1601m3mb0pxkfxr89ssdhe53jmb9` |
+| Tool `cambiar_vuelo` (execute confirmed change) | `tool_2301m3mb0t2me01sts5mh2b525th` |
+| Tool `estado_equipaje` (baggage claim status) | `tool_1601m3mb0wyzf818f8b12c0z9mq2` |
+| Simulation test "Golden path - cambio de vuelo K7Q2MX" | `test_4101m3mc6rzrfzmav8yqp4tj47jb` |
 
-El secreto `X-Agent-Secret` vive como secreto del workspace de ElevenLabs (solo se referencia su ID) y en Secret Manager de GCP (`agent-tools-secret`).
+The `X-Agent-Secret` secret lives as an ElevenLabs workspace secret (referenced only by ID) and in GCP Secret Manager (`agent-tools-secret`).
 
-## Configuración
+## Configuration
 
-- **Idioma:** español. **TTS:** `eleven_flash_v2_5` (los agentes que no están en inglés deben usar Flash o Turbo v2.5).
-- **Prompt:** [`prompt.md`](prompt.md), organizado en personalidad, entorno, tono, flujo, herramientas y guardrails.
-- **Variables dinámicas:** `pais`, `pais_codigo`, `trato_regional`, `telefono_cliente`. Tienen Colombia por defecto; en llamadas reales las llena el webhook de inicio.
-- **Base de conocimiento:** los 6 documentos de `kb/`, en modo `auto` con RAG apagado. Son unos 12 KB y caben completos en el contexto: sin búsqueda previa y sin riesgo de que se escape un detalle.
-- **Herramientas de sistema:** `end_call` y `transfer_to_number` (conferencia al asesor humano del BPO; en la demo, un celular colombiano). El agente la usa solo cuando el pasajero acepta la transferencia.
-- **Reconocimiento de voz:** turno `patient` y *keywords* de ASR con los apellidos del CRM de la demo y "AeroAndes". En producción, el webhook de inicio podría enviar como keywords los apellidos asociados al teléfono de quien llama.
-- **Voz por defecto:** Luna (CO). Las 5 voces por país son de la Voice Library (plan Creator) y están en My Voices.
-- **Webhook de inicio:** `POST /webhooks/inicio-conversacion` con el header `X-Agent-Secret` (mismo secreto de las herramientas). Con cada llamada entrante de Twilio, ElevenLabs envía `caller_id`; la API responde la voz, el saludo y las variables del país. Overrides habilitados en el agente: `tts.voice_id`, `agent.first_message` y `agent.language`; cualquier otro override se ignora.
+- **Language:** Spanish by default, English via the `language_detection` system tool. The `en` language preset switches the voice to Jessica and uses an English greeting. **TTS:** `eleven_flash_v2_5` (multilingual, lowest latency).
+- **LLM:** `qwen35-397b-a17b`, temperature 0.
+- **Prompt:** [`prompt.md`](prompt.md), structured as personality, environment, tone, language, call flow, tools and guardrails.
+- **Dynamic variables:** `pais`, `pais_codigo`, `trato_regional`, `telefono_cliente`. They default to Colombia; on real calls the initiation webhook fills them in.
+- **Knowledge base:** the 6 documents in `kb/`, in `auto` mode with RAG off. They are about 12 KB and fit entirely in context: no retrieval step and no risk of missing a detail.
+- **System tools:** `end_call`, `language_detection` and `transfer_to_number` (conference transfer to the BPO's human agent; in the demo, a Colombian mobile). The agent transfers only after the passenger accepts.
+- **Speech recognition:** `patient` turn eagerness and ASR keywords with the demo CRM surnames and "AeroAndes". In production, the initiation webhook could send the surnames linked to the caller's phone as keywords.
+- **Voices:** one per country, all from the Voice Library (Creator plan, added to My Voices): Luna (CO, default), Regina (MX), Melisa (AR, with *voseo*), Catalina (CL), Lily (PE). English: Jessica.
+- **Initiation webhook:** `POST /webhooks/inicio-conversacion` with the `X-Agent-Secret` header. On every inbound Twilio call, ElevenLabs sends the `caller_id`; the API returns the country's voice, greeting and variables. Overrides enabled on the agent: `tts.voice_id`, `agent.first_message` and `agent.language`; any other override is ignored.
 
-> El webhook de inicio solo se dispara en llamadas telefónicas (Twilio o SIP). En el widget o en las pruebas de texto se usan los valores por defecto de Colombia.
+> The initiation webhook only fires on phone calls (Twilio or SIP). The widget and text tests use the Colombian defaults.
 
-## Número de teléfono (Twilio)
+## Phone number (Twilio)
 
-- Número de la demo: **+1 629 288 9379** (local, Nashville). Importado en ElevenLabs y asignado al agente.
-- SMS deshabilitados en Twilio (falta registro A2P 10DLC): la API envía el enlace de pago en modo simulado.
+- Demo number: **+1 629 288 9379** (US local). Imported into ElevenLabs and assigned to the agent.
+- SMS is disabled on the Twilio account (A2P 10DLC registration pending), so the API sends the payment link in simulated mode and the payment page is shown directly in the demo.
 
-### Enrutador delante del agente
+### Router in front of the agent
 
-El número apunta a la Twilio Function [`/router`](../twilio/router.js) (servicio `forward-call`). Las llamadas de la
-plataforma de notificaciones (<notification platform number>) se desvían al celular; el resto va a ElevenLabs
-(`https://api.us.elevenlabs.io/twilio/inbound_call`). El *status callback* de ElevenLabs
-(`https://api.us.elevenlabs.io/twilio/status-callback`) se deja igual. Si el número se reimporta en ElevenLabs,
-hay que volver a apuntar "A call comes in" a `/router`.
+The number points to the Twilio Function [`/router`](../twilio/router.js) (service `forward-call`). Calls from the presenter's notification platform (<notification platform number>) are forwarded to a mobile; everything else goes to ElevenLabs (`https://api.us.elevenlabs.io/twilio/inbound_call`). A `<Redirect>` keeps `From`, `To` and `CallSid`, so country detection still works. The ElevenLabs status callback (`https://api.us.elevenlabs.io/twilio/status-callback`) is unchanged. If the number is re-imported into ElevenLabs, "A call comes in" must be pointed back to `/router`.
 
-### Restaurar el número después del proceso
+### Restoring the number after the process
 
-Antes de la demo, el número redirigía las llamadas a un celular con una Twilio Function. Para volver a ese estado:
-eliminar el número en ElevenLabs (Phone Numbers) y, en Twilio → número → Voice Configuration → "A call comes in",
-elegir **Function** → servicio `forward-call` (SID `<service SID>`), path `/forward-call`
-(`<forward-call Function URL>`).
+Before the demo, the number forwarded calls to a mobile through a Twilio Function. To go back: delete the number in ElevenLabs (Phone Numbers) and, in Twilio → number → Voice Configuration → "A call comes in", choose **Function** → service `forward-call` (SID `<service SID>`), path `/forward-call` (`<forward-call Function URL>`).
 
-## Evaluación automática de cada llamada
+## Automatic evaluation of every call
 
-Al terminar cada conversación, ElevenLabs la analiza con un LLM y la califica. Así el BPO mide calidad en el 100% de las llamadas, no en una muestra.
+When each conversation ends, ElevenLabs analyzes it with an LLM and scores it. This lets the BPO measure quality on 100% of calls instead of a sample.
 
-| Criterio | Qué revisa |
+| Criterion | What it checks |
 |---|---|
-| `verificacion_antes_de_datos` | No revela datos de la reserva antes de `verificado=true`, ni confirma que exista si falla |
-| `confirmacion_explicita` | Lee vuelo, día, hora y total, y espera un sí explícito antes de `cambiar_vuelo` |
-| `sin_informacion_inventada` | Precios, horarios y reglas salen de las herramientas o de la política; sin excepciones |
-| `resolucion_o_escalamiento` | Resuelve, o transfiere cuando el caso es de asesor |
-| `estilo_de_voz` | Frases cortas, una pregunta a la vez, sin listas ni identificadores técnicos |
+| `verified_before_disclosure` | No booking data before `verificado=true`, and never confirms a booking exists when verification fails |
+| `explicit_confirmation` | Reads back flight, day, time and total, and waits for an explicit yes before `cambiar_vuelo` |
+| `no_invented_information` | Prices, schedules and rules come from tools or policy; no exceptions |
+| `resolved_or_escalated` | Resolves the need, or offers a transfer when the case belongs to a human |
+| `voice_style` | Short turns, one question at a time, no lists or technical identifiers |
 
-Datos extraídos por llamada (filtrables en el historial): `motivo_llamada`, `codigo_reserva`, `verificacion_exitosa`,
-`resultado`, `total_a_pagar_usd`, `transferido_a_humano`. El país viene de la variable dinámica `pais_codigo`.
+Data extracted per call (filterable in the call history): `call_reason`, `booking_code`, `verification_passed`, `outcome`, `amount_due_usd`, `transferred_to_human`. The country comes from the `pais_codigo` dynamic variable.
 
-## Conversación de referencia (golden path por teléfono)
+## Reference conversation (golden path by phone)
 
-`conv_1801m3sm21vsf569gwgeym933xd2` (30-sep-2026): llamada real desde Colombia por Twilio → enrutador → ElevenLabs.
-Verificación (código dictado con palabras de apoyo + apellido confirmado) → 21-oct lleno → alternativas del 22 →
-AN103 por USD 60 → confirmación explícita → cambio + enlace de pago → cierre con `end_call`.
-3 min 40 s, 2.129 créditos (≈ USD 0,39). Herramientas: 0,4–0,5 s. Respuesta del agente: 0,8–2,5 s.
+`conv_1801m3sm21vsf569gwgeym933xd2` (Sep 30, 2026, in Spanish): a real call from Colombia through Twilio → router → ElevenLabs. Verification (code dictated with support words + confirmed surname) → the 21st is full → alternatives on the 22nd → AN103 for USD 60 → explicit confirmation → change + payment link → close with `end_call`. 3 min 40 s, 2,129 credits (≈ USD 0.39). Tool latency: 0.4–0.5 s. Agent response time: 0.8–2.5 s.
 
-## Pendiente
+## Next steps
 
-- Tests de casos fuera del guion.
+- Off-script tests (Basic fare, airline cancellation, already checked in, caller asks for a human).
+- English sample conversation for reviewers.
