@@ -44,6 +44,13 @@ eliminar el número en ElevenLabs (Phone Numbers) y, en Twilio → número → V
 elegir **Function** → servicio `forward-call` (SID `<service SID>`), path `/forward-call`
 (`<forward-call Function URL>`).
 
+## Conversación de referencia (golden path por teléfono)
+
+`conv_1801m3sm21vsf569gwgeym933xd2` (30-sep-2026): llamada real desde Colombia por Twilio → enrutador → ElevenLabs.
+Verificación (código dictado con palabras de apoyo + apellido confirmado) → 21-oct lleno → alternativas del 22 →
+AN103 por USD 60 → confirmación explícita → cambio + enlace de pago → cierre con `end_call`.
+3 min 40 s, 2.129 créditos (≈ USD 0,39). Herramientas: 0,4–0,5 s. Respuesta del agente: 0,8–2,5 s.
+
 ## Pendiente
 
 - Número de Twilio y transferencia a humano.
