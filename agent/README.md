@@ -58,7 +58,10 @@ Data extracted per call (filterable in the call history): `call_reason`, `bookin
 
 `conv_8701m3t4vdgse5cv6e14bjh1aq5b` (Sep 30, 2026, in English): the caller asks for English right after the Spanish greeting → `language_detection` switches language and voice → same golden path, morning option AN101 for USD 80 → explicit confirmation → change + payment link. 4 min 24 s, 2,547 credits. All 5 evaluation criteria passed, but a transcript review found a numbered list, Spanish spelling words in English ("M as in mama") and a flight date called "today". The prompt and the `voice_style` criterion were tightened afterwards: the automatic evaluation is only as good as its criteria, so they are reviewed against real transcripts.
 
+### Sample conversation for reviewers (English)
+
+**`conv_6801m4cqdpn2e459mzctrmghfy25`** (Oct 7, 2026), after the prompt fixes. Spanish greeting → caller asks for English → `language_detection` → code dictated and read back in the NATO alphabet → the surname is first captured as "Soto", verification fails without revealing whether the booking exists, and the agent keeps the confirmed code and asks only for the surname spelled out ("Romeo, Oscar, Juliet, Alpha, Sierra") → verified → the 21st is full → two options on the 22nd in a single sentence → AN101 for USD 80 → explicit confirmation → change + payment link (with the 2-hour auto-reversal from the policy KB) → `end_call`. 4 min 11 s, 2,452 credits. All 5 criteria passed under the stricter `voice_style`; tool latency 0.3–0.5 s.
+
 ## Next steps
 
 - Off-script tests (Basic fare, airline cancellation, already checked in, caller asks for a human).
-- A clean English sample conversation for reviewers, after the prompt fixes.
