@@ -77,6 +77,7 @@ From Cloud Shell, at the repo root:
 
 ```bash
 bash deploy/deploy.sh
+bash deploy/programar-reinicio.sh   # optional: reset the demo data every hour (Cloud Scheduler)
 ```
 
 The script enables the APIs, creates the `aeroandes` Firestore database, a least-privilege service account and the tools secret in Secret Manager; deploys to Cloud Run (`us-east1`, one always-on instance) and seeds the data. For real SMS, export `TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, `TWILIO_FROM_NUMBER` and `DEMO_SMS_TO` first.
