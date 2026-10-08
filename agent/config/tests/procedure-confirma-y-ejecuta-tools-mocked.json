@@ -1,0 +1,54 @@
+{
+  "dynamic_variables": {
+    "pais": "Colombia",
+    "pais_codigo": "CO",
+    "telefono_cliente": "+573104567890",
+    "trato_regional": "Español de Colombia, cálido y cercano. Tutea con respeto; puede usar 'con gusto'."
+  },
+  "chat_history": [],
+  "type": "simulation",
+  "success_conditions": [
+    "El agente leyó un resumen con vuelo, día, hora y total antes de ejecutar el cambio y pidió confirmación explícita.",
+    "El agente llamó a cambiar_vuelo solo después de que la pasajera dijo 'sí, confirmo'.",
+    "El agente confirmó el cambio y mencionó el enlace de pago por SMS.",
+    "El agente no repitió la misma frase dos veces seguidas.",
+    "Ningún mensaje del agente contiene texto sin sentido, caracteres aleatorios o fragmentos ilegibles."
+  ],
+  "simulation_scenario": "Eres Valentina Rojas, una pasajera colombiana que llama a AeroAndes. Hablas en español de Colombia, con frases cortas. Tu código de reserva es K7Q2MX y tu apellido es Rojas. Quieres cambiar tu vuelo del 20 de octubre al 21 de octubre. Si el 21 está lleno, eliges el vuelo de la tarde del 22 de octubre. Cuando te lean el resumen y te pidan confirmar, di 'sí, confirmo'. Cuando te pregunten si necesitas algo más, di 'no, gracias, eso es todo'.",
+  "simulation_max_turns": 14,
+  "tool_mock_config": {
+    "mocking_strategy": "selected",
+    "fallback_strategy": "raise_error",
+    "mocked_tool_ids": [
+      "tool_1201m3mb0kybee99deg2v8egcma3",
+      "tool_1601m3mb0pxkfxr89ssdhe53jmb9",
+      "tool_2301m3mb0t2me01sts5mh2b525th"
+    ]
+  },
+  "tool_mock_overrides": {
+    "tool_1201m3mb0kybee99deg2v8egcma3": [
+      {
+        "parameter_conditions": [],
+        "mock_result": "{\"verificado\":true,\"codigo_reserva\":\"K7Q2MX\",\"pasajeros\":[\"Valentina Rojas\"],\"tarifa\":\"Clásica\",\"estado_reserva\":\"CONFIRMADA\",\"maletas_bodega_incluidas\":1,\"vuelo\":{\"vuelo_id\":\"AN101-2026-10-20\",\"numero\":\"AN101\",\"ruta\":\"Bogotá a Ciudad de México\",\"fecha\":\"2026-10-20\",\"hora_salida\":\"07:10\",\"hora_llegada\":\"11:05\",\"estado\":\"PROGRAMADO\"},\"cambio\":{\"permitido\":true,\"codigo\":\"PERMITIDO\",\"explicacion\":\"El cambio está permitido según la tarifa.\",\"sin_cargo\":false,\"requiere_asesor\":false}}",
+        "is_error": false
+      }
+    ],
+    "tool_1601m3mb0pxkfxr89ssdhe53jmb9": [
+      {
+        "parameter_conditions": [],
+        "mock_result": "{\"verificado\":true,\"permitido\":true,\"fecha_pedida\":\"2026-10-21\",\"vuelos_llenos_en_fecha_pedida\":[\"AN101\",\"AN103\"],\"son_alternativas_cercanas\":true,\"opciones\":[{\"vuelo_id\":\"AN101-2026-10-22\",\"numero\":\"AN101\",\"fecha\":\"2026-10-22\",\"hora_salida\":\"07:10\",\"total_a_pagar_usd\":80},{\"vuelo_id\":\"AN103-2026-10-22\",\"numero\":\"AN103\",\"fecha\":\"2026-10-22\",\"hora_salida\":\"15:40\",\"total_a_pagar_usd\":60}],\"indicacion\":\"Lee máximo dos o tres opciones con hora y total. No ejecutes el cambio hasta que el cliente elija y confirme explícitamente.\"}",
+        "is_error": false
+      }
+    ],
+    "tool_2301m3mb0t2me01sts5mh2b525th": [
+      {
+        "parameter_conditions": [],
+        "mock_result": "{\"ejecutado\":true,\"codigo_reserva\":\"K7Q2MX\",\"vuelo_nuevo\":{\"vuelo_id\":\"AN103-2026-10-22\",\"numero\":\"AN103\",\"fecha\":\"2026-10-22\",\"hora_salida\":\"15:40\"},\"total_a_pagar_usd\":60,\"enlace_pago_enviado\":true,\"indicacion\":\"Confirma el cambio y avisa que le llegó un SMS con el enlace de pago, que vence en 2 horas.\"}",
+        "is_error": false
+      }
+    ]
+  },
+  "is_auto_generated": false,
+  "id": "test_0901m4cv1ej6ech88xz02avm6err",
+  "name": "Procedure - confirma y ejecuta (tools mocked)"
+}

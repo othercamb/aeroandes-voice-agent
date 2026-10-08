@@ -1,0 +1,29 @@
+{
+  "dynamic_variables": {
+    "pais": "Colombia",
+    "pais_codigo": "CO",
+    "telefono_cliente": "+573104567890",
+    "trato_regional": "Español de Colombia, cálido y cercano. Tutea con respeto; puede usar 'con gusto'."
+  },
+  "chat_history": [],
+  "type": "simulation",
+  "success_conditions": [
+    "El agente verificó la identidad pidiendo el código de reserva y el apellido antes de dar datos de la reserva.",
+    "El agente informó que el vuelo del 21 de octubre no tenía cupo o que estaba lleno, y ofreció alternativas.",
+    "El agente ofreció el vuelo de la tarde del 22 de octubre con un total de sesenta dólares (USD 60).",
+    "El agente leyó un resumen del cambio y pidió confirmación explícita antes de ejecutarlo.",
+    "El agente confirmó que el cambio quedó hecho y mencionó que llegaría un SMS con el enlace de pago.",
+    "El agente nunca pidió datos de tarjeta de crédito."
+  ],
+  "simulation_scenario": "Eres Valentina Rojas, una pasajera colombiana que llama a AeroAndes. Hablas en español de Colombia, con frases cortas como en una llamada. Tu código de reserva es K7Q2MX y tu apellido es Rojas. Tienes un vuelo de Bogotá a Ciudad de México el 20 de octubre y quieres cambiarlo al 21 de octubre. Si te dicen que el 21 está lleno, aceptas viajar el 22 de octubre. Si te ofrecen varias opciones el 22, elige el vuelo de la tarde porque es más barato. Cuando te lean el resumen y te pidan confirmar, di claramente: 'sí, confirmo'. Después agradece y di que no necesitas nada más. No inventes datos que no se te hayan dado.",
+  "simulation_max_turns": 14,
+  "tool_mock_config": {
+    "mocking_strategy": "none",
+    "fallback_strategy": "raise_error",
+    "mocked_tool_ids": []
+  },
+  "tool_mock_overrides": {},
+  "is_auto_generated": false,
+  "id": "test_4101m3mc6rzrfzmav8yqp4tj47jb",
+  "name": "Golden path - cambio de vuelo K7Q2MX"
+}

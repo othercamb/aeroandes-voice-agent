@@ -1,0 +1,71 @@
+{
+  "procedure_id": "agtprc_2501m4crph1aet08x852eb4dhqjp",
+  "version_id": "agtprcv_4301m4egyhdbfxgtx62vhktpy12s",
+  "name": "Confirmar y ejecutar cambio de vuelo",
+  "content": {
+    "trigger": "El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.",
+    "steps": [
+      {
+        "type": "ask",
+        "instruction": "Lee al pasajero el resumen de la opción que eligió en una o dos frases: número de vuelo, día de la semana y fecha, hora de salida y total a pagar, todo en palabras y en el idioma de la conversación. Luego pregunta si confirma el cambio."
+      },
+      {
+        "type": "branch",
+        "branches": [
+          {
+            "condition": {
+              "type": "llm",
+              "condition": "El pasajero confirmó explícitamente el cambio y el total (por ejemplo: sí, confirmo, dale, yes, I confirm)."
+            },
+            "steps": [
+              {
+                "type": "tool_call",
+                "tool_id": "tool_2301m3mb0t2me01sts5mh2b525th",
+                "tool_name": "cambiar_vuelo",
+                "instruction": "Ejecuta el cambio con el vuelo_id exacto que devolvió buscar_vuelos para la opción elegida y con el código y apellido ya verificados.",
+                "schema_overrides": {
+                  "request_body.confirmacion_cliente": {
+                    "source": "constant",
+                    "constant_value": true
+                  }
+                },
+                "on_failure": {
+                  "fallback": [
+                    {
+                      "type": "tell",
+                      "instruction": "Discúlpate en una frase porque no se pudo completar el cambio y ofrece transferir a un asesor humano."
+                    }
+                  ],
+                  "branches": []
+                }
+              },
+              {
+                "type": "tell",
+                "instruction": "Según la respuesta de cambiar_vuelo, en una o dos frases cortas: si ejecutado es verdadero, confirma el vuelo, el día y la hora, y avisa que le llegó un SMS con el enlace de pago, que vence en dos horas (o la confirmación, si no tiene costo). Si ejecutado es falso, explica el motivo con tus palabras y sigue el campo indicacion. No hagas ninguna pregunta."
+              },
+              {
+                "type": "sub_procedure",
+                "procedure_id": "agtprc_1901m4e2w0gxez3rdtypfz11bwa2"
+              }
+            ]
+          },
+          {
+            "condition": {
+              "type": "llm",
+              "condition": "El pasajero no confirmó: dudó, dijo que no, quiere otra opción u otra fecha."
+            },
+            "steps": [
+              {
+                "type": "tell",
+                "instruction": "No ejecutes ningún cambio. Di en una frase que no hay problema y que el cambio no se hizo."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "type": "deterministic",
+  "trigger": "El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.",
+  "guardrails": []
+}

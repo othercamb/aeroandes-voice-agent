@@ -3,8 +3,8 @@
 // celular (Function forward-call); todas las demás llamadas van a ElevenLabs.
 //
 // Variables de entorno del servicio:
-//   NOTIF_FROM      números que se desvían al celular, separados por coma (<notification platform number>)
-//   FORWARD_URL     <forward-call Function URL>
+//   NOTIF_FROM      números que se desvían al celular, separados por coma (E.164)
+//   FORWARD_URL     URL de la Function forward-call del mismo servicio
 //   ELEVENLABS_URL  https://api.us.elevenlabs.io/twilio/inbound_call
 exports.handler = function (context, event, callback) {
   const twiml = new Twilio.twiml.VoiceResponse();

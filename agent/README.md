@@ -67,11 +67,11 @@ Lesson for customers: with structured procedures, model choice is tested against
 
 ### Router in front of the agent
 
-The number points to the Twilio Function [`/router`](../twilio/router.js) (service `forward-call`). Calls from the presenter's notification platform (<notification platform number>) are forwarded to a mobile; everything else goes to ElevenLabs (`https://api.us.elevenlabs.io/twilio/inbound_call`). A `<Redirect>` keeps `From`, `To` and `CallSid`, so country detection still works. The ElevenLabs status callback (`https://api.us.elevenlabs.io/twilio/status-callback`) is unchanged. If the number is re-imported into ElevenLabs, "A call comes in" must be pointed back to `/router`.
+The number points to the Twilio Function [`/router`](../twilio/router.js) (service `forward-call`). Calls from the presenter's notification platform  are forwarded to a mobile; everything else goes to ElevenLabs (`https://api.us.elevenlabs.io/twilio/inbound_call`). A `<Redirect>` keeps `From`, `To` and `CallSid`, so country detection still works. The ElevenLabs status callback (`https://api.us.elevenlabs.io/twilio/status-callback`) is unchanged. If the number is re-imported into ElevenLabs, "A call comes in" must be pointed back to `/router`.
 
 ### Restoring the number after the process
 
-Before the demo, the number forwarded calls to a mobile through a Twilio Function. To go back: delete the number in ElevenLabs (Phone Numbers) and, in Twilio → number → Voice Configuration → "A call comes in", choose **Function** → service `forward-call` (SID `<service SID>`), path `/forward-call` (`<forward-call Function URL>`).
+Before the demo, the number forwarded calls to a mobile through a Twilio Function. To go back: delete the number in ElevenLabs (Phone Numbers) and, in Twilio → number → Voice Configuration → "A call comes in", choose **Function** → service `forward-call`, path `/forward-call`.
 
 ## Automatic evaluation of every call
 

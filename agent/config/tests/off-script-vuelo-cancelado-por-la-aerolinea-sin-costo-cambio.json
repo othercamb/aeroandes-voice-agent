@@ -1,0 +1,38 @@
+{
+  "dynamic_variables": {
+    "pais": "México",
+    "pais_codigo": "MX",
+    "telefono_cliente": "+525512345678",
+    "trato_regional": "Español de México, amable y respetuoso. Usa 'usted' y expresiones como 'con mucho gusto'."
+  },
+  "chat_history": [],
+  "type": "simulation",
+  "success_conditions": [
+    "El agente se disculpó por la cancelación antes de seguir con el trámite.",
+    "El agente explicó que la reprogramación no tiene costo y no mencionó cargos ni enlaces de pago.",
+    "El agente leyó un resumen y obtuvo una confirmación explícita antes de llamar a cambiar_vuelo.",
+    "El agente trató a la pasajera de usted, de forma consistente con el español de México.",
+    "Ningún mensaje del agente contiene listas, numeración, texto sin sentido o identificadores técnicos."
+  ],
+  "simulation_scenario": "Eres Daniela Martínez, pasajera mexicana, algo molesta. Frases cortas. Tu código es F9CN3E (dilo como 'F de foca, nueve, C de casa, N de Nicolás, tres, E de elefante') y tu apellido es Martínez. Llamas porque te llegó un aviso de que cancelaron tu vuelo del 16 de octubre y quieres viajar el 17 de octubre. Si te ofrecen opciones, elige la primera. Cuando te pidan confirmar, di 'sí, confirmo'. Si te preguntan si necesitas algo más, di que no y despídete.",
+  "simulation_max_turns": 14,
+  "tool_mock_config": {
+    "mocking_strategy": "selected",
+    "fallback_strategy": "raise_error",
+    "mocked_tool_ids": [
+      "tool_2301m3mb0t2me01sts5mh2b525th"
+    ]
+  },
+  "tool_mock_overrides": {
+    "tool_2301m3mb0t2me01sts5mh2b525th": [
+      {
+        "parameter_conditions": [],
+        "mock_result": "{\"ejecutado\":true,\"codigo_reserva\":\"F9CN3E\",\"total_a_pagar_usd\":0,\"enlace_pago_enviado\":false,\"indicacion\":\"Confirma el cambio. No tiene costo: no menciones pagos.\"}",
+        "is_error": false
+      }
+    ]
+  },
+  "is_auto_generated": false,
+  "id": "test_1101m4ejemdeez7vvsw53tngd4q2",
+  "name": "Off-script - vuelo cancelado por la aerolinea, sin costo (cambio mockeado)"
+}

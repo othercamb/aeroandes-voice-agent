@@ -1,0 +1,49 @@
+{
+  "procedure_id": "agtprc_1901m4e2w0gxez3rdtypfz11bwa2",
+  "version_id": "agtprcv_6901m4ejpt2ffmgam4jawysq3gk6",
+  "name": "Cerrar después del cambio",
+  "content": {
+    "trigger": "",
+    "steps": [
+      {
+        "type": "ask",
+        "instruction": "Pregunta solamente, en una frase corta y en el idioma de la conversación, si hay algo más en lo que puedas ayudar. Después espera la respuesta del pasajero."
+      },
+      {
+        "type": "branch",
+        "branches": [
+          {
+            "condition": {
+              "type": "llm",
+              "condition": "Después de la pregunta de si hay algo más, el pasajero respondió que no necesita nada más o se despidió (por ejemplo: no, eso es todo, gracias, no thanks, that's all, bye)."
+            },
+            "steps": [
+              {
+                "type": "say",
+                "message": "Gracias por llamar a AeroAndes. ¡Feliz día!",
+                "message_translations": {
+                  "en": {
+                    "value": "Thank you for calling AeroAndes. Have a great day!"
+                  }
+                }
+              },
+              {
+                "type": "system_tool",
+                "system_tool_name": "end_call"
+              }
+            ]
+          }
+        ],
+        "fallback": [
+          {
+            "type": "tell",
+            "instruction": "Di en una frase corta que con gusto le ayudas con eso."
+          }
+        ]
+      }
+    ]
+  },
+  "type": "deterministic",
+  "trigger": "",
+  "guardrails": []
+}

@@ -1,0 +1,85 @@
+{
+  "id": "tool_2301m3mb0t2me01sts5mh2b525th",
+  "tool_config": {
+    "type": "webhook",
+    "name": "cambiar_vuelo",
+    "description": "Ejecuta el cambio de vuelo y envía al pasajero un SMS con el enlace de pago (o la confirmación si no tiene costo). Úsala SOLO después de leerle al pasajero el vuelo nuevo (número, fecha y hora) y el total, y de que diga explícitamente que confirma. Nunca la uses por suposición.",
+    "response_timeout_secs": 15,
+    "disable_interruptions": true,
+    "interruption_mode": "disable_during_tool",
+    "force_pre_tool_speech": true,
+    "pre_tool_speech": "force",
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "tool_error_handling_mode": "auto",
+    "dynamic_variables": {
+      "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate",
+    "api_schema": {
+      "request_headers": {
+        "X-Agent-Secret": {
+          "secret_id": "<redacted>"
+        }
+      },
+      "kind": "webhook",
+      "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/cambiar-vuelo",
+      "method": "POST",
+      "path_params_schema": {},
+      "request_body_schema": {
+        "description": "",
+        "dynamic_variable": "",
+        "is_omitted": false,
+        "type": "object",
+        "required": [
+          "codigo_reserva",
+          "apellido",
+          "vuelo_id",
+          "confirmacion_cliente"
+        ],
+        "properties": {
+          "codigo_reserva": {
+            "type": "string",
+            "description": "Código de reserva ya verificado, en mayúsculas y sin espacios.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          },
+          "apellido": {
+            "type": "string",
+            "description": "Apellido ya verificado.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          },
+          "vuelo_id": {
+            "type": "string",
+            "description": "El campo vuelo_id exacto de la opción elegida, tal como lo devolvió buscar_vuelos (por ejemplo AN103-2026-10-22).",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          },
+          "confirmacion_cliente": {
+            "type": "boolean",
+            "description": "true solo si el pasajero dijo explícitamente que confirma el cambio y el total. En cualquier otro caso, false.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          }
+        }
+      },
+      "content_type": "application/json",
+      "auth_resolved_params": []
+    },
+    "follow_redirects": false,
+    "follow_redirects_allowed_domains": []
+  }
+}

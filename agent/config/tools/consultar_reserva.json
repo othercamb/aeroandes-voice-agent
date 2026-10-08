@@ -1,0 +1,65 @@
+{
+  "id": "tool_1201m3mb0kybee99deg2v8egcma3",
+  "tool_config": {
+    "type": "webhook",
+    "name": "consultar_reserva",
+    "description": "Verifica la identidad del pasajero y devuelve su reserva: pasajeros, vuelo, tarifa y si el vuelo se puede cambiar (con el motivo). Úsala siempre antes de dar cualquier dato de una reserva o de buscar vuelos. Requiere el código de reserva y el apellido. NUNCA la llames antes de haber leído el código en voz alta con palabras de apoyo y de que el pasajero haya dicho que está correcto, aunque te haya dado el código y el apellido juntos.",
+    "response_timeout_secs": 10,
+    "disable_interruptions": false,
+    "interruption_mode": "allow",
+    "force_pre_tool_speech": true,
+    "pre_tool_speech": "force",
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "tool_error_handling_mode": "auto",
+    "dynamic_variables": {
+      "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate",
+    "api_schema": {
+      "request_headers": {
+        "X-Agent-Secret": {
+          "secret_id": "<redacted>"
+        }
+      },
+      "kind": "webhook",
+      "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/consultar-reserva",
+      "method": "POST",
+      "path_params_schema": {},
+      "request_body_schema": {
+        "description": "",
+        "dynamic_variable": "",
+        "is_omitted": false,
+        "type": "object",
+        "required": [
+          "codigo_reserva",
+          "apellido"
+        ],
+        "properties": {
+          "apellido": {
+            "type": "string",
+            "description": "Apellido de uno de los pasajeros, tal como lo dijo el pasajero.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          },
+          "codigo_reserva": {
+            "type": "string",
+            "description": "Código de reserva de 6 caracteres alfanuméricos, en mayúsculas y sin espacios (por ejemplo K7Q2MX), exactamente en el orden en que el pasajero lo dictó y lo confirmó. No cambies el orden de ningún carácter.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          }
+        }
+      },
+      "content_type": "application/json",
+      "auth_resolved_params": []
+    },
+    "follow_redirects": false,
+    "follow_redirects_allowed_domains": []
+  }
+}

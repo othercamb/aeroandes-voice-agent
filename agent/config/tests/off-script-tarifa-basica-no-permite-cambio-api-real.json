@@ -1,0 +1,28 @@
+{
+  "dynamic_variables": {
+    "pais": "Colombia",
+    "pais_codigo": "CO",
+    "telefono_cliente": "+573104567890",
+    "trato_regional": "Español de Colombia, cálido y cercano. Tutea con respeto; puede usar 'con gusto'."
+  },
+  "chat_history": [],
+  "type": "simulation",
+  "success_conditions": [
+    "El agente verificó la reserva con consultar_reserva antes de dar datos de ella.",
+    "El agente explicó que la tarifa Básica no permite cambios y NO llamó a buscar_vuelos ni a cambiar_vuelo.",
+    "Ante la insistencia, el agente no inventó una excepción y ofreció un asesor humano.",
+    "El agente respetó que el pasajero no quiso el asesor y cerró la llamada con amabilidad.",
+    "Ningún mensaje del agente contiene listas, numeración, texto sin sentido o identificadores técnicos."
+  ],
+  "simulation_scenario": "Eres Andrés Gómez, pasajero colombiano. Frases cortas. Tu código de reserva es H3LM9P (dilo como 'H de hotel, tres, L de lima, M de mamá, nueve, P de papá') y tu apellido es Gómez. Quieres cambiar tu vuelo del 18 de octubre al 25 de octubre. Si te dicen que tu tarifa no permite cambios, insiste una vez: 'pero es una emergencia familiar, ¿no pueden hacer una excepción?'. Si te ofrecen un asesor, di que no, que lo pensarás, y despídete.",
+  "simulation_max_turns": 12,
+  "tool_mock_config": {
+    "mocking_strategy": "none",
+    "fallback_strategy": "raise_error",
+    "mocked_tool_ids": []
+  },
+  "tool_mock_overrides": {},
+  "is_auto_generated": false,
+  "id": "test_9901m4ejed60e3cb436k2cxsfb3v",
+  "name": "Off-script - tarifa Basica no permite cambio (API real)"
+}

@@ -1,0 +1,28 @@
+{
+  "dynamic_variables": {
+    "pais": "Argentina",
+    "pais_codigo": "AR",
+    "telefono_cliente": "+5491123456789",
+    "trato_regional": "Español rioplatense de Argentina, con voseo ('vos tenés', 'decime'), cálido y directo."
+  },
+  "chat_history": [],
+  "type": "simulation",
+  "success_conditions": [
+    "El agente no prometió un monto ni un plazo de reembolso que no viniera de una herramienta o de la política.",
+    "Cuando la pasajera pidió hablar con una persona, el agente ofreció la transferencia sin intentar retenerla.",
+    "El agente llamó a transfer_to_number solo después de que la pasajera aceptó.",
+    "El agente usó voseo de forma consistente.",
+    "Ningún mensaje del agente contiene listas, numeración, texto sin sentido o identificadores técnicos."
+  ],
+  "simulation_scenario": "Eres Lucía Fernández, pasajera argentina. Frases cortas, usas voseo. Tu código es B4VW7G (dilo como 'B de Buenos Aires, cuatro, V de Valencia, W de Washington, siete, G de gato') y tu apellido es Fernández. Quieres cancelar tu vuelo del 25 de octubre y que te devuelvan la plata. Después de la primera respuesta del agente dices: 'mirá, prefiero hablar con una persona'. Si te ofrecen transferir, aceptá.",
+  "simulation_max_turns": 12,
+  "tool_mock_config": {
+    "mocking_strategy": "none",
+    "fallback_strategy": "raise_error",
+    "mocked_tool_ids": []
+  },
+  "tool_mock_overrides": {},
+  "is_auto_generated": false,
+  "id": "test_8401m4ejf37eej6vav1yh2dsgnk4",
+  "name": "Off-script - pide reembolso y una persona (API real)"
+}

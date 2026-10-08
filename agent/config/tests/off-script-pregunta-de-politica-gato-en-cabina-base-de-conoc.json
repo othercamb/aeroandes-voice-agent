@@ -1,0 +1,28 @@
+{
+  "dynamic_variables": {
+    "pais": "Colombia",
+    "pais_codigo": "CO",
+    "telefono_cliente": "+573104567890",
+    "trato_regional": "Español de Colombia, cálido y cercano. Tutea con respeto; puede usar 'con gusto'."
+  },
+  "chat_history": [],
+  "type": "simulation",
+  "success_conditions": [
+    "El agente respondió la pregunta general de política sin exigir el código de reserva.",
+    "Los requisitos y valores que dio coinciden con la base de conocimiento de mascotas y no inventó cifras.",
+    "Para el caso de 8 kg, el agente aplicó el límite de peso de la política (o explicó la alternativa) sin inventar una excepción.",
+    "El agente respondió en frases cortas, sin listas ni numeración.",
+    "Ningún mensaje del agente contiene texto sin sentido."
+  ],
+  "simulation_scenario": "Eres Mariana Ospina, pasajera colombiana. Frases cortas. Solo quieres saber si puedes viajar con tu gato en la cabina, cuánto cuesta y qué necesitas. No das código de reserva a menos que el agente te diga que es indispensable. Si te piden el código, di: 'es solo una pregunta general'. Cuando te respondan, pregunta '¿y si pesa ocho kilos con el guacal?'. Luego agradece y despídete.",
+  "simulation_max_turns": 10,
+  "tool_mock_config": {
+    "mocking_strategy": "none",
+    "fallback_strategy": "raise_error",
+    "mocked_tool_ids": []
+  },
+  "tool_mock_overrides": {},
+  "is_auto_generated": false,
+  "id": "test_1601m4ejf85ff1frph6bhvj65ejv",
+  "name": "Off-script - pregunta de politica: gato en cabina (base de conocimiento)"
+}

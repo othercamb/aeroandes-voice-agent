@@ -1,0 +1,65 @@
+{
+  "id": "tool_1601m3mb0wyzf818f8b12c0z9mq2",
+  "tool_config": {
+    "type": "webhook",
+    "name": "estado_equipaje",
+    "description": "Consulta el estado de un reclamo de maleta demorada, dañada o perdida. Requiere la referencia del reclamo (10 caracteres, por ejemplo SCLAN00482) y el apellido del pasajero. No aprueba indemnizaciones.",
+    "response_timeout_secs": 10,
+    "disable_interruptions": false,
+    "interruption_mode": "allow",
+    "force_pre_tool_speech": false,
+    "pre_tool_speech": "auto",
+    "assignments": [],
+    "tool_call_sound_behavior": "auto",
+    "tool_error_handling_mode": "auto",
+    "dynamic_variables": {
+      "dynamic_variable_placeholders": {}
+    },
+    "execution_mode": "immediate",
+    "api_schema": {
+      "request_headers": {
+        "X-Agent-Secret": {
+          "secret_id": "<redacted>"
+        }
+      },
+      "kind": "webhook",
+      "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/estado-equipaje",
+      "method": "POST",
+      "path_params_schema": {},
+      "request_body_schema": {
+        "description": "",
+        "dynamic_variable": "",
+        "is_omitted": false,
+        "type": "object",
+        "required": [
+          "referencia",
+          "apellido"
+        ],
+        "properties": {
+          "referencia": {
+            "type": "string",
+            "description": "Referencia del reclamo de 10 caracteres, en mayúsculas y sin espacios.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          },
+          "apellido": {
+            "type": "string",
+            "description": "Apellido del pasajero.",
+            "is_system_provided": false,
+            "dynamic_variable": "",
+            "allowed_values_dynamic_variable": "",
+            "constant_value": "",
+            "is_omitted": false
+          }
+        }
+      },
+      "content_type": "application/json",
+      "auth_resolved_params": []
+    },
+    "follow_redirects": false,
+    "follow_redirects_allowed_domains": []
+  }
+}

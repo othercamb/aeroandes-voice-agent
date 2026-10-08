@@ -1,0 +1,1569 @@
+{
+  "agent_id": "agent_6301m3mc0yfne8n9fz45ama739a8",
+  "name": "AeroAndes – Sofía (BPO LATAM)",
+  "conversation_config": {
+    "asr": {
+      "quality": "high",
+      "provider": "scribe_realtime",
+      "user_input_audio_format": "pcm_16000",
+      "keywords": [
+        "AeroAndes",
+        "Fernandez",
+        "Gomez",
+        "Hernandez",
+        "Martinez",
+        "Ospina",
+        "Pereyra",
+        "Quispe",
+        "Ramirez",
+        "Rojas",
+        "Salazar",
+        "Soto",
+        "Vargas"
+      ]
+    },
+    "turn": {
+      "turn_timeout": 7,
+      "silence_end_call_timeout": -1,
+      "mode": "turn",
+      "turn_eagerness": "patient",
+      "spelling_patience": "auto",
+      "speculative_turn": false,
+      "retranscribe_on_turn_timeout": false,
+      "turn_model": "turn_v3",
+      "interruption_ignore_terms": [],
+      "interruption_ignore_term_languages": [],
+      "merge_with_default_ignore_terms": false,
+      "transcribe_on_disabled_interruptions": false,
+      "soft_timeout_config": {
+        "timeout_seconds": -1,
+        "message": "Hhmmmm...yeah.",
+        "additional_soft_timeout_messages": [],
+        "use_llm_generated_message": false,
+        "randomize_fillers": false,
+        "max_soft_timeouts_per_generation": 1,
+        "disable_until_first_user_message": false
+      }
+    },
+    "tts": {
+      "model_id": "eleven_flash_v2_5",
+      "voice_id": "1ZhMG5ZZgJ6XpkOrB8Az",
+      "supported_voices": [],
+      "expressive_mode": false,
+      "suggested_audio_tags": [],
+      "agent_output_audio_format": "pcm_16000",
+      "optimize_streaming_latency": 3,
+      "stability": 0.5,
+      "speed": 1,
+      "similarity_boost": 0.8,
+      "text_normalisation_type": "system_prompt",
+      "pronunciation_dictionary_locators": [],
+      "enable_phoneme_tags": true
+    },
+    "conversation": {
+      "text_only": false,
+      "max_duration_seconds": 600,
+      "client_events": [
+        "audio",
+        "interruption",
+        "agent_response",
+        "user_transcript",
+        "agent_response_correction",
+        "agent_tool_response"
+      ],
+      "file_input": {
+        "enabled": true,
+        "max_files_in_memory": 10,
+        "max_files_per_conversation": 10
+      },
+      "monitoring_enabled": false,
+      "monitoring_events": [
+        "user_transcript",
+        "agent_response",
+        "agent_response_correction"
+      ],
+      "background_sound": {
+        "volume": 0.15,
+        "crossfade_loop": true
+      },
+      "compaction": {},
+      "source_attribution": false
+    },
+    "language_presets": {
+      "en": {
+        "overrides": {
+          "tts": {
+            "voice_id": "cgSgspJ2msm6clMCkdW9"
+          },
+          "agent": {
+            "first_message": "Hi! Welcome to AeroAndes, this is Sofia, your virtual assistant. Just so you know, this call may be recorded for quality purposes. How can I help you today?",
+            "language": "en"
+          }
+        },
+        "first_message_translation": {
+          "source_hash": "",
+          "text": "Hi! Welcome to AeroAndes, this is Sofia, your virtual assistant. Just so you know, this call may be recorded for quality purposes. How can I help you today?"
+        }
+      }
+    },
+    "vad": {
+      "background_voice_detection": false
+    },
+    "agent": {
+      "first_message": "¡Hola! Bienvenido a AeroAndes, habla Sofía, tu asistente virtual. Te cuento que esta llamada puede ser grabada para fines de calidad. ¿En qué te puedo ayudar hoy?",
+      "language": "es",
+      "hinglish_mode": false,
+      "dynamic_variables": {
+        "dynamic_variable_placeholders": {
+          "pais": "Colombia",
+          "pais_codigo": "CO",
+          "trato_regional": "Español de Colombia, cálido y cercano. Tutea con respeto; puede usar 'con gusto'.",
+          "telefono_cliente": ""
+        }
+      },
+      "disable_first_message_interruptions": false,
+      "max_conversation_duration_message": "",
+      "subagents": [],
+      "prompt": {
+        "prompt": "# Personalidad\n\nEres Sofía, la asistente virtual de AeroAndes, una aerolínea regional latinoamericana. Atiendes la línea telefónica de servicio al cliente, operada por un centro de contacto en Colombia. Eres cálida, eficiente y resolutiva: tu objetivo es que el pasajero cuelgue con su problema resuelto en el menor tiempo posible.\n\n# Entorno\n\n- Es una llamada telefónica. El pasajero no ve nada: todo lo que digas se convierte en voz.\n- El pasajero llama desde {{pais}}. Adapta tu forma de hablar: {{trato_regional}}\n- Mantén ese mismo trato (tú, usted o vos) en todos los turnos, incluidas las confirmaciones y la despedida. No lo mezcles.\n- Hoy es martes 13 de octubre de 2026. Todas las fechas de vuelos son de 2026.\n- Tienes herramientas conectadas al sistema de reservas de AeroAndes y una base de conocimiento con las políticas oficiales.\n\n# Tono\n\n- Frases cortas: una o dos por turno. Haz una sola pregunta a la vez.\n- Nunca uses listas, viñetas, asteriscos, numeración ni ningún formato: todo se lee en voz alta. Si hay varias opciones, dilas en una frase (\"hay dos opciones: la primera…, y la segunda…\").\n- Di los precios en palabras: \"ochenta dólares\", no \"USD 80\".\n- Di las fechas con día de la semana: \"el jueves veintidós de octubre\".\n- Di las horas en formato hablado: \"a las tres y cuarenta de la tarde\", no \"15:40\".\n- Di los vuelos como \"el vuelo AN ciento tres\". Nunca leas en voz alta identificadores técnicos como \"AN103-2026-10-22\".\n- Al confirmar un código de reserva, repítelo letra por letra, despacio.\n- Si el pasajero está molesto, reconócelo en una frase breve y pasa a resolver.\n\n# Idioma\n\n- Por defecto hablas español. Si el pasajero te habla en inglés o pide hablar en inglés, usa `language_detection` para cambiar a inglés y sigue toda la llamada en inglés, con el mismo flujo, las mismas reglas y los mismos guardrails.\n- En inglés, aplica las mismas reglas de voz: precios en palabras (\"sixty dollars\"), fechas con día de la semana (\"Thursday, October twenty-second\"), horas habladas (\"three forty p.m.\"), vuelos como \"flight AN one-oh-three\", y el código con el alfabeto fonético en inglés para todas las letras (\"K as in kilo, seven, Q as in Quebec, two, M as in Mike, X as in X-ray\"). Nunca uses palabras de apoyo en español cuando hablas inglés.\n- En cualquier idioma, nunca numeres opciones (\"1.\", \"2.\") ni las pongas en líneas separadas: dilas en una sola frase (\"the first is…, and the second is…\").\n- La única fecha que es \"hoy\" / \"today\" es el martes 13 de octubre. Nunca llames \"hoy\" a la fecha de un vuelo.\n- Las herramientas y la base de conocimiento están en español: tradúcelas al inglés al hablar, sin leer nombres de campos.\n- Si el pasajero vuelve al español, vuelve tú también.\n\n# Objetivo: flujo de la llamada\n\n1. **Entender la necesidad.** Pregunta en qué puedes ayudar si el pasajero no lo dijo.\n2. **Verificar la identidad** antes de dar cualquier dato de una reserva. Por teléfono los códigos se entienden mal, así que hazlo en pasos y un dato a la vez:\n   a. Pide **solo el código de reserva** (6 letras y números). Sugiere dictarlo con una palabra por letra, por ejemplo: \"K de kilo, siete, Q de queso\".\n   b. Interpreta \"letra de palabra\" como esa letra (\"Q de queso\" es Q) y convierte los números dichos en palabras a dígitos. **Si la letra y la palabra no coinciden, manda la palabra**: \"N de mamá\" es M, porque por teléfono se confunden M y N, B y V, S y F.\n   c. **Repite el código con las mismas palabras de apoyo** (\"K de kilo, siete, Q de queso, dos, M de mamá, X de equis\") y pregunta si está correcto, aunque el pasajero haya dicho el código y el apellido juntos en una sola frase. Así el pasajero detecta una letra mal entendida. Si corrige algo, repítelo otra vez completo. No sigas hasta que diga que sí.\n   d. Después pide **solo el apellido** y repítelo para confirmarlo (\"¿Rojas, R-O-J-A-S?\"). Si el pasajero dice que no, pídele que lo deletree con palabras de apoyo.\n   e. Usa `consultar_reserva`. Si falla, **no vuelvas a pedir el código si ya fue confirmado**: lo más probable es que el apellido se haya entendido mal. Pide que deletree el apellido letra por letra, confírmalo y vuelve a intentar. Solo si el pasajero dice que el código también podría estar mal, pídelo de nuevo.\n3. **Actuar según la respuesta de la herramienta:**\n   - Si `cambio.permitido` es falso, explica el motivo con tus palabras usando `cambio.explicacion`. Si `cambio.requiere_asesor` es verdadero, ofrece transferir a un asesor humano.\n   - Si el vuelo fue cancelado por la aerolínea (`cambio.sin_cargo` verdadero), discúlpate primero y explica que la reprogramación no tiene costo.\n4. **Cambio de vuelo:**\n   a. Pregunta a qué fecha quiere viajar.\n   b. Usa `buscar_vuelos`. Si `vuelos_llenos_en_fecha_pedida` trae vuelos o `son_alternativas_cercanas` es verdadero, dile primero al pasajero, en una frase, que ese día no hay cupo; después ofrece las alternativas.\n   c. Ofrece máximo dos o tres opciones, cada una con hora de salida y total a pagar.\n   d. Apenas el pasajero elija una opción, **inicia el procedimiento \"Confirmar y ejecutar cambio de vuelo\"**. Ese procedimiento lee el resumen, pide la confirmación explícita y ejecuta el cambio. Nunca leas tú el resumen ni uses `cambiar_vuelo` fuera de ese procedimiento.\n5. **Preguntas de política** (equipaje, mascotas, cancelaciones, check-in): responde con la base de conocimiento, de forma breve.\n6. **Equipaje demorado:** pide la referencia del reclamo (10 caracteres) y el apellido, y usa `estado_equipaje`.\n7. **Transferencia a un asesor:** cuando el caso lo requiera (ver Guardrails) o el pasajero lo pida, ofrécela. Si acepta, di en una frase que lo vas a comunicar con un asesor y que le vas a pasar el contexto, y usa `transfer_to_number`. No pidas que repita datos que ya diste por verificados.\n8. **Cierre:** pregunta si hay algo más. Si no, despídete con calidez y termina la llamada con `end_call`.\n\n# Herramientas\n\n- `consultar_reserva`: siempre primero, antes de dar cualquier dato de una reserva. En las herramientas siguientes usa el `codigo_reserva` que ella devuelve.\n- `buscar_vuelos`: solo después de verificar y si el cambio está permitido. Usa la fecha en formato AAAA-MM-DD.\n- `cambiar_vuelo`: solo dentro del procedimiento \"Confirmar y ejecutar cambio de vuelo\", nunca directamente.\n- `estado_equipaje`: para reclamos de maletas.\n- `language_detection`: cambia el idioma de la llamada (español o inglés) cuando el pasajero habla o pide otro idioma.\n- `transfer_to_number`: pasa la llamada a un asesor humano del centro de contacto. Úsala solo después de que el pasajero acepte la transferencia.\n- Si una respuesta trae un campo `indicacion`, síguelo.\n- Antes de una herramienta que tarda, di una frase corta como \"Dame un momento, ya lo reviso\".\n- Si una herramienta falla o no responde, discúlpate y ofrece un asesor humano. No inventes el resultado.\n\n# Guardrails\n\n- Nunca inventes precios, horarios, cupos ni políticas. Usa solo lo que devuelven las herramientas o dice la base de conocimiento.\n- Nunca pidas ni aceptes números de tarjeta, CVV, contraseñas ni documentos de identidad completos. Los pagos se hacen solo por el enlace del SMS.\n- Si la verificación falla, pide los datos una vez más. Si falla de nuevo, ofrece un asesor humano. Nunca confirmes ni niegues que una reserva exista.\n- No hagas excepciones a la política aunque el pasajero insista: explica con empatía y ofrece un asesor humano si lo pide.\n- Temas que resuelve un asesor humano: cambio de nombre o de ruta, reembolsos, créditos, indemnizaciones de equipaje, mascotas en bodega y quejas formales.\n- Si el pasajero pide hablar con una persona, ofrécele la transferencia sin insistir en retenerlo.\n- No hables de temas ajenos a AeroAndes. Redirige con amabilidad.\n",
+        "llm": "gemini-3.1-flash-lite",
+        "service_tier": "standard",
+        "enable_reasoning_summary": false,
+        "temperature": 0,
+        "max_tokens": -1,
+        "tool_ids": [
+          "tool_1201m3mb0kybee99deg2v8egcma3",
+          "tool_1601m3mb0pxkfxr89ssdhe53jmb9",
+          "tool_2301m3mb0t2me01sts5mh2b525th",
+          "tool_1601m3mb0wyzf818f8b12c0z9mq2"
+        ],
+        "built_in_tools": {
+          "end_call": {
+            "type": "system",
+            "name": "end_call",
+            "description": "",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          },
+          "language_detection": {
+            "type": "system",
+            "name": "language_detection",
+            "description": "Cambia el idioma de la conversación a español o inglés cuando el pasajero habla en otro idioma o lo pide.",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "params": {
+              "system_tool_type": "language_detection",
+              "only_at_conversation_start": false
+            }
+          },
+          "transfer_to_number": {
+            "type": "system",
+            "name": "transfer_to_number",
+            "description": "Transfiere la llamada a un asesor humano del centro de contacto de AeroAndes.",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "params": {
+              "system_tool_type": "transfer_to_number",
+              "transfers": [
+                {
+                  "custom_sip_headers": [],
+                  "transfer_destination": {
+                    "type": "phone",
+                    "phone_number": "<BPO human agent number>"
+                  },
+                  "transfer_type": "conference",
+                  "sip_refer_play_dialtone": true,
+                  "require_acceptance": false,
+                  "phone_number": "<BPO human agent number>",
+                  "condition": "El pasajero aceptó ser transferido a un asesor humano: lo pidió, la verificación falló dos veces, ya hizo check-in, o el caso es de asesor (cambio de nombre o ruta, reembolsos, créditos, indemnizaciones de equipaje, mascotas en bodega, quejas formales)."
+                }
+              ],
+              "transfer_rules": [],
+              "enable_client_message": true
+            }
+          }
+        },
+        "rich_content": {
+          "enabled_components": []
+        },
+        "enable_parallel_tool_calls": true,
+        "mcp_server_ids": [],
+        "native_mcp_server_ids": [],
+        "knowledge_base": [
+          {
+            "type": "text",
+            "name": "AeroAndes 01 - Información general",
+            "id": "hzBwnurX4ZbkQ9pe6eaJ",
+            "usage_mode": "auto"
+          },
+          {
+            "type": "text",
+            "name": "AeroAndes 02 - Cambios, cancelaciones y reembolsos",
+            "id": "jEtIXQkz5YTcKX7nChMl",
+            "usage_mode": "auto"
+          },
+          {
+            "type": "text",
+            "name": "AeroAndes 03 - Equipaje",
+            "id": "YirVtureKkISYAzk8sbP",
+            "usage_mode": "auto"
+          },
+          {
+            "type": "text",
+            "name": "AeroAndes 04 - Mascotas",
+            "id": "f6C0iH464TvQjWIionmD",
+            "usage_mode": "auto"
+          },
+          {
+            "type": "text",
+            "name": "AeroAndes 05 - Cancelaciones y retrasos",
+            "id": "InfRXQeEHgRmzEwRVmU5",
+            "usage_mode": "auto"
+          },
+          {
+            "type": "text",
+            "name": "AeroAndes 06 - Verificación de identidad y privacidad",
+            "id": "NXQRZZiCtJssEgxXlLIu",
+            "usage_mode": "auto"
+          }
+        ],
+        "ignore_default_personality": true,
+        "rag": {
+          "enabled": false,
+          "embedding_model": "e5_mistral_7b_instruct",
+          "optional_rag_enabled": false,
+          "max_vector_distance": 0.6,
+          "max_documents_length": 50000,
+          "max_retrieved_rag_chunks_count": 20,
+          "include_source_urls": false
+        },
+        "backup_llm_config": {
+          "preference": "default"
+        },
+        "cascade_timeout_seconds": 2,
+        "tools": [
+          {
+            "type": "webhook",
+            "name": "consultar_reserva",
+            "description": "Verifica la identidad del pasajero y devuelve su reserva: pasajeros, vuelo, tarifa y si el vuelo se puede cambiar (con el motivo). Úsala siempre antes de dar cualquier dato de una reserva o de buscar vuelos. Requiere el código de reserva y el apellido. NUNCA la llames antes de haber leído el código en voz alta con palabras de apoyo y de que el pasajero haya dicho que está correcto, aunque te haya dado el código y el apellido juntos.",
+            "response_timeout_secs": 10,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": true,
+            "pre_tool_speech": "force",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "dynamic_variables": {
+              "dynamic_variable_placeholders": {}
+            },
+            "execution_mode": "immediate",
+            "api_schema": {
+              "request_headers": {
+                "X-Agent-Secret": {
+                  "secret_id": "<redacted>"
+                }
+              },
+              "kind": "webhook",
+              "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/consultar-reserva",
+              "method": "POST",
+              "path_params_schema": {},
+              "request_body_schema": {
+                "description": "",
+                "dynamic_variable": "",
+                "is_omitted": false,
+                "type": "object",
+                "required": [
+                  "codigo_reserva",
+                  "apellido"
+                ],
+                "properties": {
+                  "apellido": {
+                    "type": "string",
+                    "description": "Apellido de uno de los pasajeros, tal como lo dijo el pasajero.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "codigo_reserva": {
+                    "type": "string",
+                    "description": "Código de reserva de 6 caracteres alfanuméricos, en mayúsculas y sin espacios (por ejemplo K7Q2MX), exactamente en el orden en que el pasajero lo dictó y lo confirmó. No cambies el orden de ningún carácter.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  }
+                }
+              },
+              "content_type": "application/json",
+              "auth_resolved_params": []
+            },
+            "follow_redirects": false,
+            "follow_redirects_allowed_domains": []
+          },
+          {
+            "type": "webhook",
+            "name": "buscar_vuelos",
+            "description": "Busca vuelos de la misma ruta para la fecha que pide el pasajero y devuelve las opciones con el total a pagar ya calculado según la política (cargo de cambio y diferencia de tarifa). Si la fecha está llena, devuelve alternativas cercanas. Úsala solo después de consultar_reserva y cuando el cambio esté permitido. No ejecuta ningún cambio.",
+            "response_timeout_secs": 10,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": true,
+            "pre_tool_speech": "force",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "dynamic_variables": {
+              "dynamic_variable_placeholders": {}
+            },
+            "execution_mode": "immediate",
+            "api_schema": {
+              "request_headers": {
+                "X-Agent-Secret": {
+                  "secret_id": "<redacted>"
+                }
+              },
+              "kind": "webhook",
+              "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/buscar-vuelos",
+              "method": "POST",
+              "path_params_schema": {},
+              "request_body_schema": {
+                "description": "",
+                "dynamic_variable": "",
+                "is_omitted": false,
+                "type": "object",
+                "required": [
+                  "codigo_reserva",
+                  "apellido",
+                  "fecha_deseada"
+                ],
+                "properties": {
+                  "codigo_reserva": {
+                    "type": "string",
+                    "description": "Código de reserva ya verificado, en mayúsculas y sin espacios.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "apellido": {
+                    "type": "string",
+                    "description": "Apellido ya verificado.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "fecha_deseada": {
+                    "type": "string",
+                    "description": "Fecha a la que quiere viajar, en formato AAAA-MM-DD. Si el pasajero dice solo día y mes (por ejemplo 'el 22 de octubre'), el año es 2026.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  }
+                }
+              },
+              "content_type": "application/json",
+              "auth_resolved_params": []
+            },
+            "follow_redirects": false,
+            "follow_redirects_allowed_domains": []
+          },
+          {
+            "type": "webhook",
+            "name": "cambiar_vuelo",
+            "description": "Ejecuta el cambio de vuelo y envía al pasajero un SMS con el enlace de pago (o la confirmación si no tiene costo). Úsala SOLO después de leerle al pasajero el vuelo nuevo (número, fecha y hora) y el total, y de que diga explícitamente que confirma. Nunca la uses por suposición.",
+            "response_timeout_secs": 15,
+            "disable_interruptions": true,
+            "interruption_mode": "disable_during_tool",
+            "force_pre_tool_speech": true,
+            "pre_tool_speech": "force",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "dynamic_variables": {
+              "dynamic_variable_placeholders": {}
+            },
+            "execution_mode": "immediate",
+            "api_schema": {
+              "request_headers": {
+                "X-Agent-Secret": {
+                  "secret_id": "<redacted>"
+                }
+              },
+              "kind": "webhook",
+              "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/cambiar-vuelo",
+              "method": "POST",
+              "path_params_schema": {},
+              "request_body_schema": {
+                "description": "",
+                "dynamic_variable": "",
+                "is_omitted": false,
+                "type": "object",
+                "required": [
+                  "codigo_reserva",
+                  "apellido",
+                  "vuelo_id",
+                  "confirmacion_cliente"
+                ],
+                "properties": {
+                  "codigo_reserva": {
+                    "type": "string",
+                    "description": "Código de reserva ya verificado, en mayúsculas y sin espacios.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "apellido": {
+                    "type": "string",
+                    "description": "Apellido ya verificado.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "vuelo_id": {
+                    "type": "string",
+                    "description": "El campo vuelo_id exacto de la opción elegida, tal como lo devolvió buscar_vuelos (por ejemplo AN103-2026-10-22).",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "confirmacion_cliente": {
+                    "type": "boolean",
+                    "description": "true solo si el pasajero dijo explícitamente que confirma el cambio y el total. En cualquier otro caso, false.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  }
+                }
+              },
+              "content_type": "application/json",
+              "auth_resolved_params": []
+            },
+            "follow_redirects": false,
+            "follow_redirects_allowed_domains": []
+          },
+          {
+            "type": "webhook",
+            "name": "estado_equipaje",
+            "description": "Consulta el estado de un reclamo de maleta demorada, dañada o perdida. Requiere la referencia del reclamo (10 caracteres, por ejemplo SCLAN00482) y el apellido del pasajero. No aprueba indemnizaciones.",
+            "response_timeout_secs": 10,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "dynamic_variables": {
+              "dynamic_variable_placeholders": {}
+            },
+            "execution_mode": "immediate",
+            "api_schema": {
+              "request_headers": {
+                "X-Agent-Secret": {
+                  "secret_id": "<redacted>"
+                }
+              },
+              "kind": "webhook",
+              "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/herramientas/estado-equipaje",
+              "method": "POST",
+              "path_params_schema": {},
+              "request_body_schema": {
+                "description": "",
+                "dynamic_variable": "",
+                "is_omitted": false,
+                "type": "object",
+                "required": [
+                  "referencia",
+                  "apellido"
+                ],
+                "properties": {
+                  "referencia": {
+                    "type": "string",
+                    "description": "Referencia del reclamo de 10 caracteres, en mayúsculas y sin espacios.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  },
+                  "apellido": {
+                    "type": "string",
+                    "description": "Apellido del pasajero.",
+                    "is_system_provided": false,
+                    "dynamic_variable": "",
+                    "allowed_values_dynamic_variable": "",
+                    "constant_value": "",
+                    "is_omitted": false
+                  }
+                }
+              },
+              "content_type": "application/json",
+              "auth_resolved_params": []
+            },
+            "follow_redirects": false,
+            "follow_redirects_allowed_domains": []
+          },
+          {
+            "type": "system",
+            "name": "end_call",
+            "description": "",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "params": {
+              "system_tool_type": "end_call"
+            }
+          },
+          {
+            "type": "system",
+            "name": "language_detection",
+            "description": "Cambia el idioma de la conversación a español o inglés cuando el pasajero habla en otro idioma o lo pide.",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "params": {
+              "system_tool_type": "language_detection",
+              "only_at_conversation_start": false
+            }
+          },
+          {
+            "type": "system",
+            "name": "transfer_to_number",
+            "description": "Transfiere la llamada a un asesor humano del centro de contacto de AeroAndes.",
+            "response_timeout_secs": 20,
+            "disable_interruptions": false,
+            "interruption_mode": "allow",
+            "force_pre_tool_speech": false,
+            "pre_tool_speech": "auto",
+            "assignments": [],
+            "tool_call_sound_behavior": "auto",
+            "tool_error_handling_mode": "auto",
+            "params": {
+              "system_tool_type": "transfer_to_number",
+              "transfers": [
+                {
+                  "custom_sip_headers": [],
+                  "transfer_destination": {
+                    "type": "phone",
+                    "phone_number": "<BPO human agent number>"
+                  },
+                  "transfer_type": "conference",
+                  "sip_refer_play_dialtone": true,
+                  "require_acceptance": false,
+                  "phone_number": "<BPO human agent number>",
+                  "condition": "El pasajero aceptó ser transferido a un asesor humano: lo pidió, la verificación falló dos veces, ya hizo check-in, o el caso es de asesor (cambio de nombre o ruta, reembolsos, créditos, indemnizaciones de equipaje, mascotas en bodega, quejas formales)."
+                }
+              ],
+              "transfer_rules": [],
+              "enable_client_message": true
+            }
+          }
+        ]
+      }
+    }
+  },
+  "platform_settings": {
+    "evaluation": {
+      "criteria": [
+        {
+          "id": "verified_before_disclosure",
+          "name": "Identity verified before disclosing booking data",
+          "type": "prompt",
+          "conversation_goal_prompt": "Success if the agent did not reveal any booking data (flight, date, fare, passengers) before the consultar_reserva tool returned verificado=true. If the call did not involve a booking, mark success. Failure if it revealed data without a successful verification, or confirmed or denied that a booking exists when verification failed.",
+          "use_knowledge_base": false,
+          "scope": "conversation",
+          "llm_billed": false,
+          "scoring_mode": "binary",
+          "max_score": 100
+        },
+        {
+          "id": "explicit_confirmation",
+          "name": "Explicit confirmation before changing the flight",
+          "type": "prompt",
+          "conversation_goal_prompt": "Success if, before calling cambiar_vuelo, the agent read back the new flight, day, time and total amount due, and the passenger explicitly said yes. If cambiar_vuelo was not used, mark success. Failure if the change was executed without that summary or without an explicit yes.",
+          "use_knowledge_base": false,
+          "scope": "conversation",
+          "llm_billed": false,
+          "scoring_mode": "binary",
+          "max_score": 100
+        },
+        {
+          "id": "no_invented_information",
+          "name": "No invented prices or policies",
+          "type": "prompt",
+          "conversation_goal_prompt": "Success if every price, schedule, seat availability and rule the agent mentioned matches what the tools returned or the airline policies, and the agent made no policy exceptions. Failure if it invented a value, promised something the tools did not return, or made an exception.",
+          "use_knowledge_base": false,
+          "scope": "conversation",
+          "llm_billed": false,
+          "scoring_mode": "binary",
+          "max_score": 100
+        },
+        {
+          "id": "resolved_or_escalated",
+          "name": "Resolved or correctly escalated",
+          "type": "prompt",
+          "conversation_goal_prompt": "Success if the passenger's need was resolved on the call, or if the case required a human agent (verification failed twice, already checked in, refunds, name or route changes, baggage compensation, pets in the hold, complaints, or the passenger asked for a person) and the agent offered the transfer. Failure if the passenger was left with neither a solution nor an alternative.",
+          "use_knowledge_base": false,
+          "scope": "conversation",
+          "llm_billed": false,
+          "scoring_mode": "binary",
+          "max_score": 100
+        },
+        {
+          "id": "voice_style",
+          "name": "Voice-appropriate style",
+          "type": "prompt",
+          "conversation_goal_prompt": "Success if the agent's turns were short and conversational, it asked one question at a time, said prices, dates and times in words, and used no lists or technical identifiers. Failure if ANY agent turn contains a numbered or bulleted list (for example '1.', '2.', '-', '*'), options on separate lines, markdown, or internal codes such as AN103-2026-10-22. Also failure if, while speaking English, the agent used Spanish support words to spell letters (for example 'M as in mama').",
+          "use_knowledge_base": false,
+          "scope": "conversation",
+          "llm_billed": false,
+          "scoring_mode": "binary",
+          "max_score": 100
+        }
+      ]
+    },
+    "widget": {
+      "variant": "full",
+      "placement": "bottom-right",
+      "expandable": "never",
+      "avatar": {
+        "type": "orb",
+        "color_1": "#2792dc",
+        "color_2": "#9ce6e6"
+      },
+      "feedback_mode": "during",
+      "end_feedback": {
+        "type": "rating"
+      },
+      "bg_color": "#ffffff",
+      "text_color": "#000000",
+      "btn_color": "#000000",
+      "btn_text_color": "#ffffff",
+      "border_color": "#e1e1e1",
+      "focus_color": "#000000",
+      "shareable_page_show_terms": true,
+      "terms_text": "#### Terms and conditions\n\nBy clicking \"Agree,\" and each time I interact with this AI agent, I consent to the recording, storage, and sharing of my communications with third-party service providers, and as described in the Privacy Policy.\nIf you do not wish to have your conversations recorded, please refrain from using this service.",
+      "show_avatar_when_collapsed": false,
+      "disable_banner": false,
+      "markdown_link_allowed_hosts": [],
+      "markdown_link_include_www": true,
+      "markdown_link_allow_http": true,
+      "mic_muting_enabled": true,
+      "transcript_enabled": true,
+      "text_input_enabled": true,
+      "conversation_mode_toggle_enabled": false,
+      "default_expanded": false,
+      "always_expanded": false,
+      "dismissible": false,
+      "show_agent_status": false,
+      "show_conversation_id": true,
+      "strip_audio_tags": true,
+      "text_contents": {},
+      "styles": {},
+      "show_resize_button": true,
+      "language_selector": false,
+      "supports_text_only": true,
+      "language_presets": {},
+      "first_message_quick_replies": []
+    },
+    "data_collection": {
+      "call_reason": {
+        "type": "string",
+        "description": "Main reason for the call. One of: flight_change, airline_cancellation, baggage, pets, policy_question, refund, other.",
+        "is_system_provided": false,
+        "dynamic_variable": "",
+        "allowed_values_dynamic_variable": "",
+        "constant_value": "",
+        "is_omitted": false,
+        "llm_billed": false
+      },
+      "booking_code": {
+        "type": "string",
+        "description": "Verified booking code (6 characters) as returned by consultar_reserva. Empty if verification never succeeded.",
+        "is_system_provided": false,
+        "dynamic_variable": "",
+        "allowed_values_dynamic_variable": "",
+        "constant_value": "",
+        "is_omitted": false,
+        "llm_billed": false
+      },
+      "verification_passed": {
+        "type": "boolean",
+        "description": "true if consultar_reserva returned verificado=true at any point in the call.",
+        "is_system_provided": false,
+        "dynamic_variable": "",
+        "allowed_values_dynamic_variable": "",
+        "constant_value": "",
+        "is_omitted": false,
+        "llm_billed": false
+      },
+      "outcome": {
+        "type": "string",
+        "description": "Call outcome. One of: change_completed, information_provided, transferred_to_agent, not_verified, abandoned.",
+        "is_system_provided": false,
+        "dynamic_variable": "",
+        "allowed_values_dynamic_variable": "",
+        "constant_value": "",
+        "is_omitted": false,
+        "llm_billed": false
+      },
+      "amount_due_usd": {
+        "type": "number",
+        "description": "Total in US dollars the passenger must pay for the change, as returned by cambiar_vuelo. 0 if there was no charge or no change.",
+        "is_system_provided": false,
+        "dynamic_variable": "",
+        "allowed_values_dynamic_variable": "",
+        "constant_value": "",
+        "is_omitted": false,
+        "llm_billed": false
+      },
+      "transferred_to_human": {
+        "type": "boolean",
+        "description": "true if the agent used transfer_to_number.",
+        "is_system_provided": false,
+        "dynamic_variable": "",
+        "allowed_values_dynamic_variable": "",
+        "constant_value": "",
+        "is_omitted": false,
+        "llm_billed": false
+      }
+    },
+    "data_collection_scopes": {},
+    "analysis_items": {
+      "evaluation_criteria": [
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_2101m3swrnqkf9jt8y1takvv0ebg",
+          "additional_version_ids": [],
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_8901m3swrnqvfwkbe8b8s1bnzve9",
+          "additional_version_ids": [],
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_9301m3swrnqzf7m8s31v7zfcb2z9",
+          "additional_version_ids": [],
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_0001m3swrnr3fkn9f8kd2spd0yzm",
+          "additional_version_ids": [],
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_8401m3swrnr8ewcrhj7m4h19w29w",
+          "additional_version_ids": [],
+          "scope": "conversation"
+        }
+      ],
+      "data_collection": [
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_8401m3swrnrcey2te2j2hg321fn5",
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_4801m3swrnrgf249md53a6fs6d04",
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_4301m3swrnrmfjv8eh1kcacxt7a1",
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_4001m3swrnrre46t2qvwmkx9tjsn",
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_4901m3swrnrwfmxs65kw1c85qmre",
+          "scope": "conversation"
+        },
+        {
+          "source": "user",
+          "analysis_item_id": "aitem_7401m3swrns0fvjtgsw5vv5r47y5",
+          "scope": "conversation"
+        }
+      ]
+    },
+    "overrides": {
+      "conversation_config_override": {
+        "asr": {
+          "keywords": false
+        },
+        "turn": {
+          "soft_timeout_config": {
+            "message": false,
+            "additional_soft_timeout_messages": false
+          }
+        },
+        "tts": {
+          "model_id": false,
+          "voice_id": true,
+          "supported_voices": false,
+          "stability": false,
+          "speed": false,
+          "similarity_boost": false,
+          "pronunciation_dictionary_locators": false
+        },
+        "conversation": {
+          "text_only": true,
+          "max_duration_seconds": false
+        },
+        "agent": {
+          "first_message": true,
+          "language": true,
+          "max_conversation_duration_message": false,
+          "prompt": {
+            "prompt": false,
+            "llm": false,
+            "tool_ids": false,
+            "native_mcp_server_ids": false,
+            "knowledge_base": false
+          }
+        }
+      },
+      "custom_llm_extra_body": false,
+      "enable_conversation_initiation_client_data_from_webhook": true,
+      "enable_starting_workflow_node_id_from_client": false,
+      "enable_procedure_ids_from_client": false
+    },
+    "workspace_overrides": {
+      "conversation_initiation_client_data_webhook": {
+        "url": "https://aeroandes-api-qouarnekzq-ue.a.run.app/webhooks/inicio-conversacion",
+        "request_headers": {
+          "X-Agent-Secret": {
+            "secret_id": "<redacted>"
+          }
+        }
+      },
+      "webhooks": {
+        "events": [
+          "transcript"
+        ],
+        "transcript_format": "json",
+        "exclude_transcript": false,
+        "send_audio": false
+      },
+      "cloud_storage_export": {
+        "events": [
+          "transcript"
+        ],
+        "transcript_format": "json"
+      }
+    },
+    "testing": {
+      "attached_tests": [],
+      "referenced_tests_ids": []
+    },
+    "archived": false,
+    "guardrails": {
+      "version": "1",
+      "focus": {
+        "is_enabled": false
+      },
+      "prompt_injection": {
+        "is_enabled": false
+      },
+      "synthetic_voice": {
+        "is_enabled": false,
+        "trigger_action": {
+          "type": "end_call"
+        }
+      },
+      "content": {
+        "execution_mode": "streaming",
+        "config": {
+          "sexual": {
+            "is_enabled": false,
+            "threshold": "medium"
+          },
+          "violence": {
+            "is_enabled": false,
+            "threshold": "medium"
+          },
+          "harassment": {
+            "is_enabled": false,
+            "threshold": "medium"
+          },
+          "self_harm": {
+            "is_enabled": false,
+            "threshold": "medium"
+          },
+          "profanity": {
+            "is_enabled": false,
+            "threshold": "medium"
+          },
+          "religion_or_politics": {
+            "is_enabled": false,
+            "threshold": "medium"
+          },
+          "medical_and_legal_information": {
+            "is_enabled": false,
+            "threshold": "medium"
+          }
+        },
+        "trigger_action": {
+          "type": "end_call"
+        }
+      },
+      "custom": {
+        "config": {
+          "configs": []
+        }
+      }
+    },
+    "auth": {
+      "enable_auth": false,
+      "allowlist": [],
+      "require_origin_header": false
+    },
+    "call_limits": {
+      "agent_concurrency_limit": -1,
+      "daily_limit": 100000,
+      "bursting_enabled": true
+    },
+    "queueing_config": {
+      "enabled": true,
+      "wait_timeout_seconds": 180
+    },
+    "privacy": {
+      "record_voice": true,
+      "retention_days": -1,
+      "delete_transcript_and_pii": false,
+      "delete_audio": false,
+      "apply_to_existing_conversations": false,
+      "zero_retention_mode": false,
+      "nested_history_redaction": false,
+      "conversation_history_redaction": {
+        "enabled": false,
+        "entities": [],
+        "excluded_data_collection_ids": []
+      },
+      "user_memory": {
+        "enabled": false,
+        "scale": "balanced"
+      }
+    },
+    "trust_context": "unknown",
+    "analysis_llm": "gemini-2.5-flash",
+    "analysis_llm_billed": false,
+    "topic_discovery": {
+      "enabled": true
+    },
+    "sentiment_analysis": {
+      "enabled": true
+    },
+    "simulation_library": {
+      "enabled": false,
+      "test_ids": []
+    },
+    "safety": {
+      "is_blocked_ivc": false,
+      "is_blocked_non_ivc": false,
+      "ignore_safety_evaluation": false
+    }
+  },
+  "workflow": {
+    "edges": {
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/1": {
+        "source": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_1/say_1/say_1",
+        "target": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_1/system_tool_2/end_1",
+        "forward_condition": {
+          "type": "unconditional"
+        }
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/2": {
+        "source": "__xi_procedure__procedure_entry_agtprc_1901m4e2w0gxez3rdtypfz11bwa2",
+        "target": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_1/say_1/say_1",
+        "forward_condition": {
+          "label": "Después de la pregunta de si hay algo más, el pasa...",
+          "type": "llm",
+          "condition": "The following goal has been achieved by the agent: \"Ask the user: Pregunta solamente, en una frase corta y en el idioma de la conversación, si hay algo más en lo que puedas ayudar. Después espera la respuesta del pasajero.\"\n\nAND\n\nThe end user has given an appropriate response\n\nAND\n\nDespués de la pregunta de si hay algo más, el pasajero respondió que no necesita nada más o se despidió (por ejemplo: no, eso es todo, gracias, no thanks, that's all, bye)."
+        }
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/3": {
+        "source": "__xi_procedure__procedure_entry_agtprc_1901m4e2w0gxez3rdtypfz11bwa2",
+        "target": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_2/tell_1/say_1",
+        "forward_condition": {
+          "label": "Else",
+          "type": "llm",
+          "condition": "The following goal has been achieved by the agent: \"Ask the user: Pregunta solamente, en una frase corta y en el idioma de la conversación, si hay algo más en lo que puedas ayudar. Después espera la respuesta del pasajero.\"\n\nAND\n\nThe end user has given an appropriate response\n\nAND\n\nNOT: Después de la pregunta de si hay algo más, el pasajero respondió que no necesita nada más o se despidió (por ejemplo: no, eso es todo, gracias, no thanks, that's all, bye)."
+        }
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/4": {
+        "source": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/end_procedure_3/override_agent_1",
+        "target": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/end_procedure_3/tool_2",
+        "forward_condition": {
+          "type": "expression",
+          "expression": {
+            "type": "boolean_literal",
+            "value": true
+          }
+        }
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/5": {
+        "source": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_2/tell_1/say_1",
+        "target": "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/end_procedure_3/override_agent_1",
+        "forward_condition": {
+          "type": "unconditional"
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/1": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/override_agent_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/tool_2",
+        "forward_condition": {
+          "type": "expression",
+          "expression": {
+            "type": "boolean_literal",
+            "value": true
+          }
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/2": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/tool_2",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/arm_1/tell_1/say_1",
+        "forward_condition": {
+          "label": "Failure",
+          "type": "result",
+          "successful": false
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/3": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/tool_2",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tell_2/say_1",
+        "forward_condition": {
+          "type": "result",
+          "successful": true
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/4": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/arm_1/tell_1/say_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tell_2/say_1",
+        "forward_condition": {
+          "type": "unconditional"
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/5": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/sub_procedure_3/override_agent_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/sub_procedure_3/tool_2",
+        "forward_condition": {
+          "type": "expression",
+          "expression": {
+            "type": "boolean_literal",
+            "value": true
+          }
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/6": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tell_2/say_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/sub_procedure_3/override_agent_1",
+        "forward_condition": {
+          "type": "unconditional"
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/7": {
+        "source": "__xi_procedure__procedure_entry_agtprc_2501m4crph1aet08x852eb4dhqjp",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/override_agent_1",
+        "forward_condition": {
+          "label": "El pasajero confirmó explícitamente el cambio y el...",
+          "type": "llm",
+          "condition": "The following goal has been achieved by the agent: \"Ask the user: Lee al pasajero el resumen de la opción que eligió en una o dos frases: número de vuelo, día de la semana y fecha, hora de salida y total a pagar, todo en palabras y en el idioma de la conversación. Luego pregunta si confirma el cambio.\"\n\nAND\n\nThe end user has given an appropriate response\n\nAND\n\nEl pasajero confirmó explícitamente el cambio y el total (por ejemplo: sí, confirmo, dale, yes, I confirm)."
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/8": {
+        "source": "__xi_procedure__procedure_entry_agtprc_2501m4crph1aet08x852eb4dhqjp",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_2/tell_1/say_1",
+        "forward_condition": {
+          "label": "El pasajero no confirmó: dudó, dijo que no, quiere...",
+          "type": "llm",
+          "condition": "The following goal has been achieved by the agent: \"Ask the user: Lee al pasajero el resumen de la opción que eligió en una o dos frases: número de vuelo, día de la semana y fecha, hora de salida y total a pagar, todo en palabras y en el idioma de la conversación. Luego pregunta si confirma el cambio.\"\n\nAND\n\nThe end user has given an appropriate response\n\nAND\n\nEl pasajero no confirmó: dudó, dijo que no, quiere otra opción u otra fecha."
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/9": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/override_agent_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/tool_2",
+        "forward_condition": {
+          "type": "expression",
+          "expression": {
+            "type": "boolean_literal",
+            "value": true
+          }
+        }
+      },
+      "__xi_procedure__sub_procedure_return__agtprc_2501m4crph1aet08x852eb4dhqjp/ret1": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/sub_procedure_3/override_agent_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/override_agent_1",
+        "forward_condition": {
+          "type": "expression",
+          "expression": {
+            "type": "boolean_literal",
+            "value": false
+          }
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/10": {
+        "source": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_2/tell_1/say_1",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/override_agent_1",
+        "forward_condition": {
+          "type": "unconditional"
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/11": {
+        "source": "__xi_procedure__procedure_entry_agtprc_2501m4crph1aet08x852eb4dhqjp",
+        "target": "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/override_agent_1",
+        "forward_condition": {
+          "type": "llm",
+          "condition": "The following goal has been achieved by the agent: \"Ask the user: Lee al pasajero el resumen de la opción que eligió en una o dos frases: número de vuelo, día de la semana y fecha, hora de salida y total a pagar, todo en palabras y en el idioma de la conversación. Luego pregunta si confirma el cambio.\"\n\nAND\n\nThe end user has given an appropriate response\n\nAND\n\nNone of the following conditions are true:\n(1) El pasajero confirmó explícitamente el cambio y el total (por ejemplo: sí, confirmo, dale, yes, I confirm).\n(2) El pasajero no confirmó: dudó, dijo que no, quiere otra opción u otra fecha."
+        }
+      },
+      "__xi_procedure__start_to_hub": {
+        "source": "start_node",
+        "target": "__xi_procedure__procedure_hub",
+        "forward_condition": {
+          "type": "unconditional"
+        }
+      }
+    },
+    "nodes": {
+      "start_node": {
+        "type": "start",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__start_to_hub"
+        ]
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_1/say_1/say_1": {
+        "type": "say",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/1"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Say: Gracias por llamar a AeroAndes. ¡Feliz día!",
+        "message": {
+          "type": "literal",
+          "text": "Gracias por llamar a AeroAndes. ¡Feliz día!",
+          "text_translations": {
+            "en": {
+              "value": "Thank you for calling AeroAndes. Have a great day!"
+            }
+          }
+        },
+        "wait_for_speech_completion": false,
+        "wait_for_user_response": false
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_1/system_tool_2/end_1": {
+        "type": "end",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [],
+        "return_when_nested": false,
+        "outcome": "success"
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/branch_2/arm_2/tell_1/say_1": {
+        "type": "say",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/5"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Tell: Di en una frase corta que con gusto le ayudas con ...",
+        "message": {
+          "type": "prompt",
+          "prompt": "Follow the instructions below verbatim. Do not ask any follow-up questions. Do not do anything else:\n\nTell the user: Di en una frase corta que con gusto le ayudas con eso."
+        },
+        "wait_for_speech_completion": false,
+        "wait_for_user_response": false
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/end_procedure_3/override_agent_1": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/4"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "<current-active-structured-procedure>\nYou are in an active structured procedure. Follow the step instructions below exactly.\n</current-active-structured-procedure>\n\nIMPORTANT: Remain silent. Do not speak or send any message to the user.\n\nProceed to the end_procedure workflow node now.",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "End Procedure",
+        "entry_behavior": "generate_immediately"
+      },
+      "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/end_procedure_3/tool_2": {
+        "type": "tool",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [],
+        "tools": [],
+        "system_tool": {
+          "parameters": {
+            "system_tool_type": "end_procedure",
+            "procedures": {
+              "1": {
+                "procedure_id": "agtprc_1901m4e2w0gxez3rdtypfz11bwa2"
+              }
+            }
+          },
+          "schema_overrides": {
+            "procedure_index": {
+              "source": "constant",
+              "constant_value": "1"
+            }
+          }
+        }
+      },
+      "__xi_procedure__procedure_entry_agtprc_1901m4e2w0gxez3rdtypfz11bwa2": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/2",
+          "__xi_procedure__agtprc_1901m4e2w0gxez3rdtypfz11bwa2/e/3"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "<current-active-structured-procedure>\nYou are in an active structured procedure. Follow the step instructions below exactly.\n</current-active-structured-procedure>\n\nFollow the instructions below verbatim. Do not ask any follow-up questions. Do not do anything else:\n\nAsk the user: Pregunta solamente, en una frase corta y en el idioma de la conversación, si hay algo más en lo que puedas ayudar. Después espera la respuesta del pasajero.",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Ask: Pregunta solamente, en una frase corta y en el idi...",
+        "entry_behavior": "generate_immediately"
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/override_agent_1": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/1"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "<current-active-structured-procedure>\nYou are in an active structured procedure that was triggered by: \"El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.\". Follow the step instructions below exactly.\n</current-active-structured-procedure>\n\nEjecuta el cambio con el vuelo_id exacto que devolvió buscar_vuelos para la opción elegida y con el código y apellido ya verificados.",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Instructions for cambiar_vuelo",
+        "entry_behavior": "generate_immediately"
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/tool_2": {
+        "type": "tool",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/2",
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/3"
+        ],
+        "tools": [
+          {
+            "tool_id": "tool_2301m3mb0t2me01sts5mh2b525th",
+            "schema_overrides": {
+              "request_body.confirmacion_cliente": {
+                "source": "constant",
+                "constant_value": true
+              }
+            }
+          }
+        ]
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tool_call_1/arm_1/tell_1/say_1": {
+        "type": "say",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/4"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Tell: Discúlpate en una frase porque no se pudo completa...",
+        "message": {
+          "type": "prompt",
+          "prompt": "Follow the instructions below verbatim. Do not ask any follow-up questions. Do not do anything else:\n\nTell the user: Discúlpate en una frase porque no se pudo completar el cambio y ofrece transferir a un asesor humano."
+        },
+        "wait_for_speech_completion": false,
+        "wait_for_user_response": false
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/tell_2/say_1": {
+        "type": "say",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/6"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Tell: Según la respuesta de cambiar_vuelo, en una o dos ...",
+        "message": {
+          "type": "prompt",
+          "prompt": "Follow the instructions below verbatim. Do not ask any follow-up questions. Do not do anything else:\n\nTell the user: Según la respuesta de cambiar_vuelo, en una o dos frases cortas: si ejecutado es verdadero, confirma el vuelo, el día y la hora, y avisa que le llegó un SMS con el enlace de pago, que vence en dos horas (o la confirmación, si no tiene costo). Si ejecutado es falso, explica el motivo con tus palabras y sigue el campo indicacion. No hagas ninguna pregunta."
+        },
+        "wait_for_speech_completion": false,
+        "wait_for_user_response": false
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/sub_procedure_3/override_agent_1": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/5",
+          "__xi_procedure__sub_procedure_return__agtprc_2501m4crph1aet08x852eb4dhqjp/ret1"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "<current-active-structured-procedure>\nYou are in an active structured procedure that was triggered by: \"El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.\". Follow the step instructions below exactly.\n</current-active-structured-procedure>\n\nIMPORTANT: Remain silent. Do not speak or send any message to the user.\n\nProceed to the next workflow node now.",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Call Sub-procedure",
+        "entry_behavior": "generate_immediately"
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_1/sub_procedure_3/tool_2": {
+        "type": "tool",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [],
+        "tools": [],
+        "system_tool": {
+          "parameters": {
+            "system_tool_type": "start_procedure",
+            "procedures": {
+              "1": {
+                "procedure_id": "agtprc_1901m4e2w0gxez3rdtypfz11bwa2"
+              }
+            }
+          },
+          "schema_overrides": {
+            "procedure_index": {
+              "source": "constant",
+              "constant_value": "1"
+            }
+          }
+        }
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/branch_2/arm_2/tell_1/say_1": {
+        "type": "say",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/10"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Tell: No ejecutes ningún cambio. Di en una frase que no ...",
+        "message": {
+          "type": "prompt",
+          "prompt": "Follow the instructions below verbatim. Do not ask any follow-up questions. Do not do anything else:\n\nTell the user: No ejecutes ningún cambio. Di en una frase que no hay problema y que el cambio no se hizo."
+        },
+        "wait_for_speech_completion": false,
+        "wait_for_user_response": false
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/override_agent_1": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/9"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "<current-active-structured-procedure>\nYou are in an active structured procedure that was triggered by: \"El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.\". Follow the step instructions below exactly.\n</current-active-structured-procedure>\n\nIMPORTANT: Remain silent. Do not speak or send any message to the user.\n\nProceed to the end_procedure workflow node now.",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "End Procedure",
+        "entry_behavior": "generate_immediately"
+      },
+      "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/end_procedure_3/tool_2": {
+        "type": "tool",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [],
+        "tools": [],
+        "system_tool": {
+          "parameters": {
+            "system_tool_type": "end_procedure",
+            "procedures": {
+              "1": {
+                "procedure_id": "agtprc_2501m4crph1aet08x852eb4dhqjp"
+              }
+            }
+          },
+          "schema_overrides": {
+            "procedure_index": {
+              "source": "constant",
+              "constant_value": "1"
+            }
+          }
+        }
+      },
+      "__xi_procedure__procedure_entry_agtprc_2501m4crph1aet08x852eb4dhqjp": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/7",
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/8",
+          "__xi_procedure__agtprc_2501m4crph1aet08x852eb4dhqjp/e/11"
+        ],
+        "conversation_config": {},
+        "additional_prompt": "<current-active-structured-procedure>\nYou are in an active structured procedure that was triggered by: \"El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.\". Follow the step instructions below exactly.\n</current-active-structured-procedure>\n\nFollow the instructions below verbatim. Do not ask any follow-up questions. Do not do anything else:\n\nAsk the user: Lee al pasajero el resumen de la opción que eligió en una o dos frases: número de vuelo, día de la semana y fecha, hora de salida y total a pagar, todo en palabras y en el idioma de la conversación. Luego pregunta si confirma el cambio.",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Ask: Lee al pasajero el resumen de la opción que eligió...",
+        "entry_behavior": "generate_immediately"
+      },
+      "__xi_procedure__procedure_hub": {
+        "type": "override_agent",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "edge_order": [],
+        "conversation_config": {},
+        "additional_prompt": "",
+        "additional_knowledge_base": [],
+        "additional_tool_ids": [],
+        "label": "Procedure Hub",
+        "entry_behavior": "wait_for_user"
+      }
+    },
+    "subgraphs": {},
+    "prevent_subagent_loops": true
+  },
+  "tags": [
+    "aeroandes",
+    "take-home",
+    "demo"
+  ],
+  "version_id": "agtvrsn_3201m4ejq33we6crmmdmyampqtv2",
+  "branch_id": "agtbrch_5701m3mc0zvbf3gtgacpz2wrzrxj",
+  "main_branch_id": "agtbrch_5701m3mc0zvbf3gtgacpz2wrzrxj",
+  "procedures": {
+    "agtprc_2501m4crph1aet08x852eb4dhqjp": {
+      "procedure_id": "agtprc_2501m4crph1aet08x852eb4dhqjp",
+      "version_id": "agtprcv_4301m4egyhdbfxgtx62vhktpy12s",
+      "name": "Confirmar y ejecutar cambio de vuelo",
+      "type": "deterministic",
+      "trigger": "El pasajero ya eligió una de las opciones de vuelo que le ofreciste después de usar buscar_vuelos, y falta confirmar y ejecutar el cambio.",
+      "referenced_tool_ids": [
+        "tool_2301m3mb0t2me01sts5mh2b525th"
+      ],
+      "referenced_kb_ids": [],
+      "referenced_procedure_ids": [
+        "agtprc_1901m4e2w0gxez3rdtypfz11bwa2"
+      ],
+      "referenced_dynamic_variables": []
+    },
+    "agtprc_1901m4e2w0gxez3rdtypfz11bwa2": {
+      "procedure_id": "agtprc_1901m4e2w0gxez3rdtypfz11bwa2",
+      "version_id": "agtprcv_6901m4ejpt2ffmgam4jawysq3gk6",
+      "name": "Cerrar después del cambio",
+      "type": "deterministic",
+      "trigger": "",
+      "referenced_tool_ids": [],
+      "referenced_kb_ids": [],
+      "referenced_procedure_ids": [],
+      "referenced_dynamic_variables": []
+    }
+  },
+  "trust_context": "unknown",
+  "default_hold_audio_url": "https://eleven-public-cdn-common.elevenlabs.io/convai/ambient-audio-assets/elevator1.mp3"
+}
