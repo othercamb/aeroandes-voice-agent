@@ -18,7 +18,7 @@ The `X-Agent-Secret` secret lives as an ElevenLabs workspace secret (referenced 
 ## Configuration
 
 - **Language:** Spanish by default, English via the `language_detection` system tool. The `en` language preset switches the voice to Jessica and uses an English greeting. **TTS:** `eleven_flash_v2_5` (multilingual, lowest latency).
-- **LLM:** `gemini-3.1-flash-lite`, temperature 0 (see "Choosing the LLM" below).
+- **LLM:** `gemini-3.1-flash-lite`, temperature 0, backup LLM cascade after 2 s (see "Choosing the LLM" below).
 - **Prompt:** [`prompt.md`](prompt.md), structured as personality, environment, tone, language, call flow, tools and guardrails.
 - **Dynamic variables:** `pais`, `pais_codigo`, `trato_regional`, `telefono_cliente`. They default to Colombia; on real calls the initiation webhook fills them in.
 - **Knowledge base:** the 6 documents in `kb/`, in `auto` mode with RAG off. They are about 12 KB and fit entirely in context: no retrieval step and no risk of missing a detail.
@@ -96,6 +96,10 @@ Data extracted per call (filterable in the call history): `call_reason`, `bookin
 ### Sample conversation for reviewers (English)
 
 **`conv_6801m4cqdpn2e459mzctrmghfy25`** (Oct 7, 2026), after the prompt fixes. Spanish greeting → caller asks for English → `language_detection` → code dictated and read back in the NATO alphabet → the surname is first captured as "Soto", verification fails without revealing whether the booking exists, and the agent keeps the confirmed code and asks only for the surname spelled out ("Romeo, Oscar, Juliet, Alpha, Sierra") → verified → the 21st is full → two options on the 22nd in a single sentence → AN101 for USD 80 → explicit confirmation → change + payment link (with the 2-hour auto-reversal from the policy KB) → `end_call`. 4 min 11 s, 2,452 credits. All 5 criteria passed under the stricter `voice_style`; tool latency 0.3–0.5 s.
+
+### Sample conversation with the structured procedure (English)
+
+**`conv_4901m4ehpfpvfjvts8vvyan27y20`** (Oct 8, 2026), `gemini-3.1-flash-lite`. Spanish greeting → caller asks for English → code read back in the NATO alphabet → Rojas verified on the first try → two options on the 22nd; the caller asks for a "third option" and the agent says only two exist instead of inventing one → caller picks the morning flight → `start_procedure` → summary + explicit "yes" → `cambiar_vuelo` with the constant confirmation flag → confirmation and payment link → "anything else?" → `end_call`. 3 min 5 s, 1,528 credits; all 5 criteria passed; LLM first token 0.5–0.8 s on almost every turn. One 7.6 s pause before the goodbye came from the primary LLM stalling until the 4 s fallback cascade kicked in; the cascade timeout is now 2 s.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ A voice agent built on **ElevenLabs Agents** for the Solutions Engineer take-hom
 
 The agent speaks Spanish by default (the real customer base) and switches to English when the caller speaks English, so it can be tested by non-Spanish speakers.
 
-**Try it:** call **+1 629 288 9379**, ask for English, and use booking `K7Q2MX`, surname Rojas. **Sample conversation:** `conv_6801m4cqdpn2e459mzctrmghfy25` (English golden path, including a recovered verification failure).
+**Try it:** call **+1 629 288 9379**, ask for English, and use booking `K7Q2MX`, surname Rojas. **Sample conversation:** `conv_4901m4ehpfpvfjvts8vvyan27y20` (English golden path by phone, with the confirm-and-execute step running as a structured procedure).
 
 > Code, tool names and the agent prompt are in Spanish on purpose: this is how the solution would be delivered to a LATAM customer whose team maintains it. Everything reviewer-facing is in English.
 
