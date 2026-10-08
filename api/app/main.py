@@ -95,6 +95,17 @@ def _apellido_coincide(dicho: str, registrado: str) -> bool:
     return bool(d and r) and (r <= d or d <= r)
 
 
+def _codigo_casi_igual(registrado: str, dicho: str) -> bool:
+    """Un solo carácter distinto, o dos caracteres vecinos intercambiados."""
+    distintos = [i for i, (a, b) in enumerate(zip(registrado, dicho)) if a != b]
+    if len(distintos) == 1:
+        return True
+    if len(distintos) == 2 and distintos[1] == distintos[0] + 1:
+        i, j = distintos
+        return registrado[i] == dicho[j] and registrado[j] == dicho[i]
+    return False
+
+
 def _describir_vuelo(v: dict) -> dict:
     return {
         "vuelo_id": v["id"],
@@ -140,14 +151,16 @@ def crear_app(cfg: Config | None = None, repo: Repositorio | None = None, reloj=
         reserva = repo.obtener_reserva(pnr)
         if reserva and _coincide_apellido(reserva, apellido):
             return reserva
-        # Tolerancia de voz: por teléfono se confunden letras como M/N o B/V. Si el código difiere
-        # en UN solo carácter y el apellido coincide con UNA única reserva, se acepta. El apellido
-        # sigue siendo obligatorio, así que no permite adivinar reservas ajenas.
+        # Tolerancia de voz: por teléfono se confunden letras como M/N o B/V, y al armar el código
+        # el LLM a veces invierte dos caracteres seguidos (W2LB9N → W2LBN9). Si el código difiere
+        # en UN solo carácter, o solo por un par de caracteres vecinos intercambiados, y el apellido
+        # coincide con UNA única reserva, se acepta. El apellido sigue siendo obligatorio, así que
+        # no permite adivinar reservas ajenas.
         if len(pnr) != 6:
             return None
         cercanas = []
         for otro in repo.listar_codigos_reserva():
-            if len(otro) == 6 and sum(a != b for a, b in zip(otro, pnr)) == 1:
+            if len(otro) == 6 and _codigo_casi_igual(otro, pnr):
                 r = repo.obtener_reserva(otro)
                 if r and _coincide_apellido(r, apellido):
                     cercanas.append(r)

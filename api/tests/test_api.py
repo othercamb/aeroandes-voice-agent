@@ -95,7 +95,26 @@ def test_codigo_con_un_caracter_distinto_y_apellido_ajeno_falla(cliente):
     assert r["verificado"] is False
 
 
-@pytest.mark.parametrize("codigo", ["AZQ2MX", "K7K2NX", "1K12NE"])
+@pytest.mark.parametrize("codigo,apellido,esperado", [
+    ("W2LBN9", "Salazar", "W2LB9N"),   # simulaciones: el LLM invirtió "nueve, N de Nicolás"
+    ("F9C3NE", "Martinez", "F9CN3E"),
+])
+def test_codigo_con_dos_vecinos_invertidos_se_acepta_si_el_apellido_coincide(cliente, codigo, apellido, esperado):
+    c, _ = cliente
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": codigo, "apellido": apellido}).json()
+    assert r["verificado"] is True
+    assert r["codigo_reserva"] == esperado
+
+
+def test_codigo_con_vecinos_invertidos_y_apellido_ajeno_falla(cliente):
+    c, _ = cliente
+    r = c.post("/herramientas/consultar-reserva", headers=H,
+               json={"codigo_reserva": "W2LBN9", "apellido": "Rojas"}).json()
+    assert r["verificado"] is False
+
+
+@pytest.mark.parametrize("codigo", ["AZQ2MX", "K7K2NX", "1K12NE", "7KQ2XM"])
 def test_codigo_con_dos_o_mas_errores_falla(cliente, codigo):
     c, _ = cliente
     r = c.post("/herramientas/consultar-reserva", headers=H,

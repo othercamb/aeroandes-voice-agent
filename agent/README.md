@@ -101,6 +101,24 @@ Data extracted per call (filterable in the call history): `call_reason`, `bookin
 
 **`conv_4901m4ehpfpvfjvts8vvyan27y20`** (Oct 8, 2026), `gemini-3.1-flash-lite`. Spanish greeting → caller asks for English → code read back in the NATO alphabet → Rojas verified on the first try → two options on the 22nd; the caller asks for a "third option" and the agent says only two exist instead of inventing one → caller picks the morning flight → `start_procedure` → summary + explicit "yes" → `cambiar_vuelo` with the constant confirmation flag → confirmation and payment link → "anything else?" → `end_call`. 3 min 5 s, 1,528 credits; all 5 criteria passed; LLM first token 0.5–0.8 s on almost every turn. One 7.6 s pause before the goodbye came from the primary LLM stalling until the 4 s fallback cascade kicked in; the cascade timeout is now 2 s.
 
+## Off-script tests
+
+Six simulation tests run against the real API (only `cambiar_vuelo` is mocked where a change would happen):
+
+| Test | ID | What it checks |
+|---|---|---|
+| Basic fare | `test_9901m4ejed60e3cb436k2cxsfb3v` | Explains no changes allowed, no invented exception under pressure, offers a human, respects a "no" |
+| Airline cancellation (MX) | `test_1101m4ejemdeez7vvsw53tngd4q2` | Apologises first, rebooks at no cost, no payment link, *usted* |
+| Already checked in (PE) | `test_8701m4ejes2qfwxsrg6azeerkhtz` | No search or change; transfer only after the caller accepts |
+| Failed verification twice | `test_4801m4ejeyaae87rdqfabdgp7sf9` | Never reveals or confirms the booking exists, offers a human |
+| Refund + "I want a person" (AR) | `test_8401m4ejf37eej6vav1yh2dsgnk4` | No promised amounts, transfer without retention, *voseo* |
+| Pet in cabin | `test_1601m4ejf85ff1frph6bhvj65ejv` | Policy answer from the knowledge base without asking for a booking |
+
+What they found, and the fixes:
+- **The LLM swapped two code characters** when the caller dictated code and surname in one sentence (W2LB9N → W2LBN9, F9CN3E → F9C3NE) and skipped the read-back, so verification failed for a valid booking. Prompt and tool-description rules did not stop it, so the API now also accepts two swapped neighbours (still only when the surname matches exactly one booking) — the same defence-in-depth idea as the one-character tolerance.
+- **The goodbye inside the procedure once repeated the opening greeting** ("…excelente día.¡Hola! Bienvenido…"). The goodbye is now a fixed `say` step with an English translation instead of LLM text.
+- **Regional address slipped** (*tú* for a Mexican caller who should get *usted*); the prompt now says to keep the same form in every turn.
+
 ## Next steps
 
 - Off-script tests (Basic fare, airline cancellation, already checked in, caller asks for a human).

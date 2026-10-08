@@ -37,7 +37,7 @@ Key design decisions:
 
 - **Business rules as pure functions** (`api/app/reglas.py`): the LLM handles the conversation, but fees and eligibility are decided by deterministic, tested code. The agent cannot "invent" a policy exception.
 - **Verification on every tool call:** each tool re-validates booking code and surname. There is no session to hijack, and a failure never reveals whether the booking exists.
-- **Built for phone audio:** codes are dictated with support words ("K as in kilo"), read back and confirmed; the API tolerates surname noise ("Rojas." / "surname Rojas") and a single misheard code character, but only when the surname matches exactly one booking.
+- **Built for phone audio:** codes are dictated with support words ("K as in kilo"), read back and confirmed; the API tolerates surname noise ("Rojas." / "surname Rojas"), a single misheard code character, or two neighbouring characters swapped (W2LBN9 for W2LB9N, a mistake the LLM made in simulations), but only when the surname matches exactly one booking.
 - **Explicit confirmation:** `cambiar-vuelo` requires `confirmacion_cliente: true`. Without it, nothing executes.
 - **Consistent inventory:** the change runs inside a Firestore transaction, so two simultaneous calls cannot sell the same seat.
 - **Payment outside the voice channel:** the agent never receives card data; payment happens through an SMS link.
@@ -65,7 +65,7 @@ All tool and admin routes require the `X-Agent-Secret` header.
 ```bash
 cd api
 pip install -r requirements.txt -r requirements-dev.txt
-python -m pytest              # 36 tests: rules, security, golden path, off-script cases, voice-capture tolerance
+python -m pytest              # 40 tests: rules, security, golden path, off-script cases, voice-capture tolerance
 DEMO_NOW=2026-10-13T10:00:00-05:00 uvicorn app.main:app --port 8080
 ```
 
