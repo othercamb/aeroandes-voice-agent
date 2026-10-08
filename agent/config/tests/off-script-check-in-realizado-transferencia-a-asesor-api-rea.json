@@ -10,8 +10,8 @@
   "success_conditions": [
     "El agente verificó la reserva antes de dar datos.",
     "El agente explicó que con el check-in hecho el cambio lo hace un asesor y NO llamó a buscar_vuelos ni a cambiar_vuelo.",
-    "El agente ofreció la transferencia y llamó a transfer_to_number solo después de que el pasajero aceptó.",
-    "Antes de transferir, el agente dijo en una frase que lo comunicaría con un asesor y le pasaría el contexto.",
+    "El agente ofreció la transferencia y esperó la respuesta del pasajero; llamó a transfer_to_number solo después de que el pasajero aceptó.",
+    "Antes de transferir, el agente avisó en una frase que lo iba a comunicar con un asesor.",
     "Ningún mensaje del agente contiene listas, numeración, texto sin sentido o identificadores técnicos."
   ],
   "simulation_scenario": "Eres Diego Salazar, pasajero peruano. Frases cortas. Tu código es W2LB9N (dilo como 'W de Washington, dos, L de lima, B de burro, nueve, N de Nicolás') y tu apellido es Salazar. Quieres cambiar tu vuelo del 17 de octubre al 19 de octubre. Si te dicen que no se puede por teléfono y te ofrecen un asesor, acepta: 'sí, por favor, páseme con alguien'.",

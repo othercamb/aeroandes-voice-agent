@@ -8,7 +8,7 @@
   "chat_history": [],
   "type": "simulation",
   "success_conditions": [
-    "El agente verificó la identidad pidiendo el código de reserva y el apellido antes de dar datos de la reserva.",
+    "El agente verificó la identidad con el código de reserva y el apellido (consultar_reserva) antes de dar datos de la reserva.",
     "El agente informó que el vuelo del 21 de octubre no tenía cupo o que estaba lleno, y ofreció alternativas.",
     "El agente ofreció el vuelo de la tarde del 22 de octubre con un total de sesenta dólares (USD 60).",
     "El agente leyó un resumen del cambio y pidió confirmación explícita antes de ejecutarlo.",

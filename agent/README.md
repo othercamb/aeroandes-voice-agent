@@ -117,6 +117,7 @@ Six simulation tests run against the real API (only `cambiar_vuelo` is mocked wh
 What they found, and the fixes:
 - **The LLM swapped two code characters** when the caller dictated code and surname in one sentence (W2LB9N → W2LBN9, F9CN3E → F9C3NE) and skipped the read-back, so verification failed for a valid booking. Prompt and tool-description rules did not stop it, so the API now also accepts two swapped neighbours (still only when the surname matches exactly one booking) — the same defence-in-depth idea as the one-character tolerance.
 - **The goodbye inside the procedure once repeated the opening greeting** ("…excelente día.¡Hola! Bienvenido…"). The goodbye is now a fixed `say` step with an English translation instead of LLM text.
+- **The agent promised to "pass the context" to the human**, which today's mobile transfer can't do; the prompt no longer says it, and it must wait for the caller to accept before transferring. After the API fix and this change, the off-script cases pass 9 of 9 runs on verification and 6 of 6 on transfers.
 - **Regional address slipped** (*tú* for a Mexican caller who should get *usted*); the prompt now says to keep the same form in every turn.
 
 ## Next steps
