@@ -11,13 +11,14 @@
 | Simulation test "Procedure - confirma y ejecuta" (tools mocked) | `test_0901m4cv1ej6ech88xz02avm6err` |
 | Simulation test "Procedure - pasajera no confirma" (tools mocked) | `test_2001m4cv1td7fzx909n7m9jd9rzb` |
 | Structured procedure "Confirmar y ejecutar cambio de vuelo" | `agtprc_2501m4crph1aet08x852eb4dhqjp` |
+| Structured sub-procedure "Cerrar después del cambio" | `agtprc_1901m4e2w0gxez3rdtypfz11bwa2` |
 
 The `X-Agent-Secret` secret lives as an ElevenLabs workspace secret (referenced only by ID) and in GCP Secret Manager (`agent-tools-secret`).
 
 ## Configuration
 
 - **Language:** Spanish by default, English via the `language_detection` system tool. The `en` language preset switches the voice to Jessica and uses an English greeting. **TTS:** `eleven_flash_v2_5` (multilingual, lowest latency).
-- **LLM:** `qwen35-397b-a17b`, temperature 0.
+- **LLM:** `gemini-3.1-flash-lite`, temperature 0 (see "Choosing the LLM" below).
 - **Prompt:** [`prompt.md`](prompt.md), structured as personality, environment, tone, language, call flow, tools and guardrails.
 - **Dynamic variables:** `pais`, `pais_codigo`, `trato_regional`, `telefono_cliente`. They default to Colombia; on real calls the initiation webhook fills them in.
 - **Knowledge base:** the 6 documents in `kb/`, in `auto` mode with RAG off. They are about 12 KB and fit entirely in context: no retrieval step and no risk of missing a detail.
@@ -30,8 +31,9 @@ The `X-Agent-Secret` secret lives as an ElevenLabs workspace secret (referenced 
 
 The one irreversible step, charging the passenger and moving the seat, runs as a **structured procedure** instead of free prompt text. It starts once the passenger picks one of the options from `buscar_vuelos`:
 
-1. **Ask** — read back flight, day, time and total, and ask for confirmation (the only step that waits for the caller).
-2. **Branch** — *explicit yes* → `cambiar_vuelo` with `confirmacion_cliente` forced to `true` as a **constant** (the LLM cannot set it), then confirm and mention the payment link; on tool failure, apologise and offer a human. *Anything else* → no change, say so.
+1. **Ask** — read back flight, day, time and total, and ask for confirmation.
+2. **Branch** — *explicit yes* → `cambiar_vuelo` with `confirmacion_cliente` forced to `true` as a **constant** (the LLM cannot set it), then confirm and mention the payment link, then run the closing sub-procedure; on tool failure, apologise and offer a human. *Anything else* → no change, say so.
+3. **Closing sub-procedure** — ask "anything else?"; if the caller is done, say goodbye and `end_call`; otherwise hand back to the main conversation. It is a separate procedure because structured procedures do not allow an If inside another If.
 
 Three layers protect the write: the step order (the tool only exists inside the "yes" branch), the constant parameter, and the API's own check. The prompt delegates this step to the procedure and forbids calling `cambiar_vuelo` directly.
 
@@ -39,10 +41,24 @@ What we learned building it:
 - While the prompt also described "read back, confirm, call the tool", the LLM never started the procedure: it had no reason to. Switching the LLM to Gemini did not help (and was ~3× slower on first token), so we kept `qwen35`; the fix was removing that responsibility from the prompt.
 - The first working version said "processing" twice and produced garbled output after the procedure ended. Both were found by reading transcripts of runs that the test marked as passed; fixed by dropping the redundant "tell" step and ending the procedure without a question.
 - Webhook-tool overrides in procedures need the `request_body.` prefix; ElevenLabs validation reports the exact step path on publish.
+- The procedure first ended in a platform "exit" step where the LLM must call `end_procedure`. On a phone call, `qwen35` produced 14 s of garbage text there instead of the tool call; in simulations it did the same at the yes/no decision step (2 of 7 runs). Ending the call inside the procedure (`end_call` as a step) removes the exit step from the happy path.
+- An Ask step that both confirmed the change and asked "anything else?" was sometimes skipped (the LLM decided the branch before the caller spoke). Splitting it into a Tell (confirmation) and an Ask (only the question) fixed it.
 - The two procedure tests mock the three booking tools, so they are repeatable without resetting data; the original golden-path test still hits the real API.
 - A phone test of the merged procedure (`conv_2901m4e1h27ke74tzbdf6xy491dr`, 3 min 2 s, all 5 criteria passed) confirmed it fires by voice, but showed ~6 s of silence after `consultar_reserva`: the LLM did not always say the "one moment" line before the tool. `pre_tool_speech` is now set to `force` on that tool, so the platform always speaks before the lookup.
 
 > The initiation webhook only fires on phone calls (Twilio or SIP). The widget and text tests use the Colombian defaults.
+
+### Choosing the LLM
+
+Each candidate ran the two procedure tests three times (6 runs):
+
+| LLM | Result | Median LLM first-token | Notes |
+|---|---|---|---|
+| `qwen35-397b-a17b` | garbage text in 2 of 7 runs | ~0.4 s | Fastest, but unreliable at procedure tool calls |
+| `gemini-3.1-flash-lite` | 6/6 passed | ~0.6 s | Chosen; after the fixes above, 6/6 with every turn under 1 s |
+| `claude-haiku-4-5` | 6/6 passed | 1.6–3 s | Reliable but too slow for voice |
+
+Lesson for customers: with structured procedures, model choice is tested against the procedure itself, not only the free conversation.
 
 ## Phone number (Twilio)
 
