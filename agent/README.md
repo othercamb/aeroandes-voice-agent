@@ -7,7 +7,10 @@
 | Tool `buscar_vuelos` (flight search with priced options) | `tool_1601m3mb0pxkfxr89ssdhe53jmb9` |
 | Tool `cambiar_vuelo` (execute confirmed change) | `tool_2301m3mb0t2me01sts5mh2b525th` |
 | Tool `estado_equipaje` (baggage claim status) | `tool_1601m3mb0wyzf818f8b12c0z9mq2` |
-| Simulation test "Golden path - cambio de vuelo K7Q2MX" | `test_4101m3mc6rzrfzmav8yqp4tj47jb` |
+| Simulation test "Golden path - cambio de vuelo K7Q2MX" (real API) | `test_4101m3mc6rzrfzmav8yqp4tj47jb` |
+| Simulation test "Procedure - confirma y ejecuta" (tools mocked) | `test_0901m4cv1ej6ech88xz02avm6err` |
+| Simulation test "Procedure - pasajera no confirma" (tools mocked) | `test_2001m4cv1td7fzx909n7m9jd9rzb` |
+| Structured procedure "Confirmar y ejecutar cambio de vuelo" | `agtprc_2501m4crph1aet08x852eb4dhqjp` |
 
 The `X-Agent-Secret` secret lives as an ElevenLabs workspace secret (referenced only by ID) and in GCP Secret Manager (`agent-tools-secret`).
 
@@ -22,6 +25,21 @@ The `X-Agent-Secret` secret lives as an ElevenLabs workspace secret (referenced 
 - **Speech recognition:** `patient` turn eagerness and ASR keywords with the demo CRM surnames and "AeroAndes". In production, the initiation webhook could send the surnames linked to the caller's phone as keywords.
 - **Voices:** one per country, all from the Voice Library (Creator plan, added to My Voices): Luna (CO, default), Regina (MX), Melisa (AR, with *voseo*), Catalina (CL), Lily (PE). English: Jessica.
 - **Initiation webhook:** `POST /webhooks/inicio-conversacion` with the `X-Agent-Secret` header. On every inbound Twilio call, ElevenLabs sends the `caller_id`; the API returns the country's voice, greeting and variables. Overrides enabled on the agent: `tts.voice_id`, `agent.first_message` and `agent.language`; any other override is ignored.
+
+## Structured procedure: confirm and execute the change
+
+The one irreversible step, charging the passenger and moving the seat, runs as a **structured procedure** instead of free prompt text. It starts once the passenger picks one of the options from `buscar_vuelos`:
+
+1. **Ask** — read back flight, day, time and total, and ask for confirmation (the only step that waits for the caller).
+2. **Branch** — *explicit yes* → `cambiar_vuelo` with `confirmacion_cliente` forced to `true` as a **constant** (the LLM cannot set it), then confirm and mention the payment link; on tool failure, apologise and offer a human. *Anything else* → no change, say so.
+
+Three layers protect the write: the step order (the tool only exists inside the "yes" branch), the constant parameter, and the API's own check. The prompt delegates this step to the procedure and forbids calling `cambiar_vuelo` directly.
+
+What we learned building it:
+- While the prompt also described "read back, confirm, call the tool", the LLM never started the procedure: it had no reason to. Switching the LLM to Gemini did not help (and was ~3× slower on first token), so we kept `qwen35`; the fix was removing that responsibility from the prompt.
+- The first working version said "processing" twice and produced garbled output after the procedure ended. Both were found by reading transcripts of runs that the test marked as passed; fixed by dropping the redundant "tell" step and ending the procedure without a question.
+- Webhook-tool overrides in procedures need the `request_body.` prefix; ElevenLabs validation reports the exact step path on publish.
+- The two procedure tests mock the three booking tools, so they are repeatable without resetting data; the original golden-path test still hits the real API.
 
 > The initiation webhook only fires on phone calls (Twilio or SIP). The widget and text tests use the Colombian defaults.
 
