@@ -40,6 +40,7 @@ What we learned building it:
 - The first working version said "processing" twice and produced garbled output after the procedure ended. Both were found by reading transcripts of runs that the test marked as passed; fixed by dropping the redundant "tell" step and ending the procedure without a question.
 - Webhook-tool overrides in procedures need the `request_body.` prefix; ElevenLabs validation reports the exact step path on publish.
 - The two procedure tests mock the three booking tools, so they are repeatable without resetting data; the original golden-path test still hits the real API.
+- A phone test of the merged procedure (`conv_2901m4e1h27ke74tzbdf6xy491dr`, 3 min 2 s, all 5 criteria passed) confirmed it fires by voice, but showed ~6 s of silence after `consultar_reserva`: the LLM did not always say the "one moment" line before the tool. `pre_tool_speech` is now set to `force` on that tool, so the platform always speaks before the lookup.
 
 > The initiation webhook only fires on phone calls (Twilio or SIP). The widget and text tests use the Colombian defaults.
 
