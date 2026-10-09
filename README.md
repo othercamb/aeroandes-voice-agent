@@ -24,14 +24,30 @@ The agent speaks Spanish by default (the real customer base) and switches to Eng
 
 ## Architecture
 
+```mermaid
+flowchart LR
+  C["Caller<br/>CO · MX · AR · CL · PE"] --> R["Twilio number<br/>Function router"]
+  W["Reviewer<br/>web talk-to link"] --> A
+  R --> A
+  subgraph EL["ElevenLabs Agents"]
+    A["AeroAndes agent<br/>gemini-3.1-flash-lite<br/>prompt · knowledge base<br/>deterministic procedure:<br/>confirm & execute flight change"]
+  end
+  subgraph GCP["Google Cloud · us-east1"]
+    API["AeroAndes API<br/>FastAPI on Cloud Run<br/>rules as pure functions"]
+    FS[("Firestore<br/>change = transaction")]
+    SM["Secret Manager"]
+    CS["Cloud Scheduler<br/>hourly reset"]
+    SM -. X-Agent-Secret .-> API
+    CS --> API
+    API --> FS
+  end
+  A -- "initiation webhook:<br/>prefix → voice, greeting" --> API
+  A -- "4 server tools<br/>cambiar_vuelo needs<br/>confirmacion_cliente: true" --> API
+  API --> SMS["Twilio SMS<br/>payment link"]
+  A -- transfer_to_number --> H["Human advisor"]
 ```
-Caller → Twilio number → Twilio Function (router) → ElevenLabs Agent
-                                                     ├── Initiation webhook → API: country from prefix → voice, greeting, variables
-                                                     ├── Knowledge base (kb/)
-                                                     ├── Server tools → API (Cloud Run) → Firestore (transaction on change)
-                                                     │                                  → SMS with payment link (simulated in the demo)
-                                                     └── System tools: language_detection, transfer_to_number, end_call
-```
+
+System tools: `language_detection`, `transfer_to_number`, `end_call`.
 
 Key design decisions:
 
