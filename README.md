@@ -24,6 +24,13 @@ The agent speaks Spanish by default (the real customer base) and switches to Eng
 
 ## Architecture
 
+![Architecture: Twilio, ElevenLabs agent, FastAPI on Cloud Run, Firestore](docs/architecture.png)
+
+Source: [docs/architecture.html](docs/architecture.html). Same flow as a Mermaid graph:
+
+<details>
+<summary>Mermaid version</summary>
+
 ```mermaid
 flowchart LR
   C["Caller<br/>CO · MX · AR · CL · PE"] --> R["Twilio number<br/>Function router"]
@@ -46,6 +53,8 @@ flowchart LR
   API --> SMS["Twilio SMS<br/>payment link"]
   A -- transfer_to_number --> H["Human advisor"]
 ```
+
+</details>
 
 System tools: `language_detection`, `transfer_to_number`, `end_call`.
 

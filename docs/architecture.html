@@ -1,0 +1,210 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AeroAndes Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one wide diagram in three zones (Twilio, ElevenLabs, Google Cloud), call sequence underneath */
+:root {
+  --bg: #f5f7f9;
+  --surface: #ffffff;
+  --ink: #16202b;
+  --muted: #5a6876;
+  --line: #8a98a6;
+  --tel: #fbeeee;   --tel-ink: #b23a3a;
+  --el: #eef0f3;    --el-ink: #2a3440;
+  --gcp: #ecf3fc;   --gcp-ink: #1f5fae;
+  --accent: #0f7a6c; --accent-soft: #e2f3f0;
+  --font-display: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11161c; --surface: #1a2129; --ink: #e6ebf0; --muted: #9aa7b4; --line: #6b7987;
+    --tel: #2a1c1e; --tel-ink: #f08a8a;
+    --el: #1e252d;  --el-ink: #d5dce3;
+    --gcp: #17222f; --gcp-ink: #7fb1ec;
+    --accent: #4fc7b5; --accent-soft: #163330;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11161c; --surface: #1a2129; --ink: #e6ebf0; --muted: #9aa7b4; --line: #6b7987;
+  --tel: #2a1c1e; --tel-ink: #f08a8a;
+  --el: #1e252d;  --el-ink: #d5dce3;
+  --gcp: #17222f; --gcp-ink: #7fb1ec;
+  --accent: #4fc7b5; --accent-soft: #163330;
+  color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--font-display); }
+.wrap { max-width: 1240px; margin: 0 auto; padding-inline: 20px; padding-block: 28px 40px; display: grid; gap: 24px; }
+header { display: grid; gap: 4px; }
+h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+.sub { color: var(--muted); margin: 0; font-size: 1rem; }
+.diagram { overflow-x: auto; background: var(--surface); border-radius: 12px; border: 1px solid color-mix(in srgb, var(--line) 35%, transparent); }
+svg { display: block; width: 100%; min-width: 900px; height: auto; }
+svg text { font-family: var(--font-display); fill: var(--ink); }
+.zone-tel { fill: var(--tel); } .zone-el { fill: var(--el); } .zone-gcp { fill: var(--gcp); }
+.zl { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; }
+.zl-tel { fill: var(--tel-ink); } .zl-el { fill: var(--el-ink); } .zl-gcp { fill: var(--gcp-ink); }
+.node { fill: var(--surface); stroke: var(--line); stroke-width: 1; }
+.node-ext { fill: var(--surface); stroke: var(--line); stroke-dasharray: 4 3; }
+.pill { fill: var(--el); stroke: none; }
+.pill-key { fill: var(--accent-soft); stroke: var(--accent); stroke-width: 1.5; }
+.t { font-size: 15px; font-weight: 600; }
+.s { font-size: 12.5px; fill: var(--muted); }
+.m { font-family: var(--font-mono); font-size: 12px; fill: var(--ink); }
+.key { fill: var(--accent); font-weight: 700; }
+.arrow { stroke: var(--line); stroke-width: 1.6; fill: none; marker-end: url(#head); }
+.arrow-key { stroke: var(--accent); stroke-width: 2; fill: none; marker-end: url(#head-key); }
+.head { fill: var(--line); } .head-key { fill: var(--accent); }
+.badge { fill: var(--ink); } .badge-key { fill: var(--accent); }
+.bt { font-size: 11px; font-weight: 700; fill: var(--bg); }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px 24px; margin: 0; padding: 0; list-style: none; counter-reset: step; }
+.steps li { display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; min-width: 0; line-height: 1.5; font-size: 0.95rem; }
+.steps li::before { counter-increment: step; content: counter(step); width: 24px; height: 24px; border-radius: 50%; background: var(--ink); color: var(--bg); font-size: 12px; font-weight: 700; display: grid; place-items: center; margin-top: 1px; }
+.steps li.k::before { background: var(--accent); }
+.steps b { font-weight: 600; }
+code { font-family: var(--font-mono); font-size: 0.85em; background: var(--el); padding: 1px 5px; border-radius: 4px; }
+h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 12px; }
+.note { color: var(--muted); font-size: 0.9rem; margin: 0; max-width: 75ch; }
+</style>
+</head><body>
+
+<div class="wrap">
+  <header>
+    <h1>AeroAndes Voice Agent</h1>
+    <p class="sub">Flight changes by phone for a LATAM airline BPO · Architecture</p>
+  </header>
+
+  <div class="diagram">
+    <svg viewBox="0 0 1200 570" role="img" aria-label="Architecture: caller reaches Twilio, which routes to the ElevenLabs agent; the agent calls a FastAPI service on Cloud Run backed by Firestore, Secret Manager, Cloud Scheduler and Twilio SMS.">
+      <defs>
+        <marker id="head" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head" d="M0,0 L10,5 L0,10 z"/></marker>
+        <marker id="head-key" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="head-key" d="M0,0 L10,5 L0,10 z"/></marker>
+      </defs>
+
+      <!-- zones -->
+      <rect class="zone-tel" x="10" y="14" width="250" height="546" rx="14"/>
+      <text class="zl zl-tel" x="28" y="42">TELEPHONY · TWILIO</text>
+      <rect class="zone-el" x="275" y="14" width="380" height="546" rx="14" style="fill: color-mix(in srgb, var(--el) 70%, var(--surface))"/>
+      <text class="zl zl-el" x="293" y="42">ELEVENLABS AGENTS</text>
+      <rect class="zone-gcp" x="670" y="14" width="520" height="546" rx="14"/>
+      <text class="zl zl-gcp" x="688" y="42">GOOGLE CLOUD · us-east1</text>
+
+      <!-- telephony -->
+      <rect class="node" x="30" y="66" width="210" height="64" rx="8"/>
+      <text class="t" x="44" y="93">Caller</text>
+      <text class="s" x="44" y="114">Phone · CO, MX, AR, CL, PE</text>
+
+      <rect class="node" x="30" y="166" width="210" height="88" rx="8"/>
+      <text class="t" x="44" y="193">Twilio number</text>
+      <text class="s" x="44" y="214">Function router</text>
+      <text class="s" x="44" y="234">notification calls → presenter</text>
+
+      <rect class="node" x="30" y="300" width="210" height="64" rx="8"/>
+      <text class="t" x="44" y="327">Reviewer</text>
+      <text class="s" x="44" y="348">Web talk-to link · English</text>
+
+      <rect class="node" x="30" y="470" width="210" height="64" rx="8"/>
+      <text class="t" x="44" y="497">Human advisor</text>
+      <text class="s" x="44" y="518">Phone hand-off</text>
+
+      <!-- agent -->
+      <rect class="node" x="295" y="66" width="340" height="474" rx="10"/>
+      <text class="t" x="313" y="94">AeroAndes agent</text>
+      <text class="s" x="313" y="114">gemini-3.1-flash-lite · backup LLM after 2 s</text>
+
+      <rect class="pill" x="313" y="130" width="304" height="50" rx="7"/>
+      <text class="t" x="327" y="151" style="font-size:13.5px">System prompt</text>
+      <text class="s" x="327" y="169">verify → search → offer → confirm</text>
+
+      <rect class="pill-key" x="313" y="190" width="304" height="50" rx="7"/>
+      <text class="t key" x="327" y="211" style="font-size:13.5px">Procedure (deterministic)</text>
+      <text class="s" x="327" y="229">Confirm &amp; execute flight change</text>
+
+      <rect class="pill" x="313" y="250" width="304" height="50" rx="7"/>
+      <text class="t" x="327" y="271" style="font-size:13.5px">Server tools ×4</text>
+      <text class="s" x="327" y="289">booking · flights · change · baggage</text>
+
+      <rect class="pill" x="313" y="310" width="304" height="50" rx="7"/>
+      <text class="t" x="327" y="331" style="font-size:13.5px">Knowledge base</text>
+      <text class="s" x="327" y="349">fare, change and baggage policies</text>
+
+      <rect class="pill" x="313" y="370" width="304" height="50" rx="7"/>
+      <text class="t" x="327" y="391" style="font-size:13.5px">System tools</text>
+      <text class="s" x="327" y="409">language_detection · transfer · end_call</text>
+
+      <rect class="pill" x="313" y="430" width="304" height="50" rx="7"/>
+      <text class="t" x="327" y="451" style="font-size:13.5px">Quality</text>
+      <text class="s" x="327" y="469">5 evaluation criteria · 9 simulation tests</text>
+
+      <!-- api -->
+      <rect class="node" x="690" y="66" width="300" height="324" rx="10"/>
+      <text class="t" x="708" y="94">AeroAndes API</text>
+      <text class="s" x="708" y="114">FastAPI on Cloud Run · min 1 instance</text>
+      <text class="m" x="708" y="146">/webhooks/inicio-conversacion</text>
+      <text class="s" x="708" y="164">prefix → country → voice, greeting</text>
+      <text class="m" x="708" y="196">/herramientas/consultar-reserva</text>
+      <text class="m" x="708" y="216">/herramientas/buscar-vuelos</text>
+      <text class="m" x="708" y="236" style="fill:var(--accent)">/herramientas/cambiar-vuelo</text>
+      <text class="m" x="708" y="256">/herramientas/estado-equipaje</text>
+      <text class="m" x="708" y="290">reglas.py</text>
+      <text class="s" x="708" y="308">fees and eligibility as pure,</text>
+      <text class="s" x="708" y="325">tested functions (40 tests)</text>
+      <text class="m" x="708" y="360">/pagar/{token}</text>
+      <text class="s" x="708" y="377">payment page (SMS link)</text>
+
+      <rect class="node" x="1012" y="66" width="164" height="84" rx="8"/>
+      <text class="t" x="1026" y="92">Firestore</text>
+      <text class="s" x="1026" y="112">bookings · flights</text>
+      <text class="s" x="1026" y="131">change = transaction</text>
+
+      <rect class="node" x="1012" y="186" width="164" height="64" rx="8"/>
+      <text class="t" x="1026" y="212">Secret Manager</text>
+      <text class="s" x="1026" y="232">X-Agent-Secret header</text>
+
+      <rect class="node-ext" x="1012" y="286" width="164" height="84" rx="8"/>
+      <text class="t" x="1026" y="312">Twilio SMS</text>
+      <text class="s" x="1026" y="332">payment link</text>
+      <text class="s" x="1026" y="351">external service</text>
+
+      <rect class="node" x="690" y="440" width="300" height="70" rx="8"/>
+      <text class="t" x="708" y="467">Cloud Scheduler</text>
+      <text class="s" x="708" y="489">hourly demo-data reset</text>
+
+      <!-- arrows -->
+      <path class="arrow" d="M135 130 V164"/>
+      <path class="arrow" d="M240 210 H293"/>
+      <path class="arrow" d="M240 332 H293"/>
+      <path class="arrow" d="M295 502 H242"/>
+      <path class="arrow" d="M635 150 H688"/>
+      <path class="arrow-key" d="M617 230 H688"/>
+      <path class="arrow" d="M635 280 H688"/>
+      <path class="arrow" d="M990 108 H1010"/>
+      <path class="arrow" d="M1012 218 H992"/>
+      <path class="arrow" d="M990 328 H1010"/>
+      <path class="arrow" d="M840 440 V392"/>
+
+      <!-- step badges -->
+      <circle class="badge" cx="266" cy="196" r="10"/><text class="bt" x="266" y="200" text-anchor="middle">1</text>
+      <circle class="badge" cx="661" cy="136" r="10"/><text class="bt" x="661" y="140" text-anchor="middle">2</text>
+      <circle class="badge" cx="661" cy="266" r="10"/><text class="bt" x="661" y="270" text-anchor="middle">3</text>
+      <circle class="badge-key" cx="661" cy="216" r="10"/><text class="bt" x="661" y="220" text-anchor="middle">4</text>
+      <circle class="badge" cx="268" cy="488" r="10"/><text class="bt" x="268" y="492" text-anchor="middle">5</text>
+    </svg>
+  </div>
+
+  <section>
+    <h2>One call, step by step</h2>
+    <ol class="steps">
+      <li><span>The caller dials the Twilio number and a small router function sends the call to the agent. Reviewers can use the web link instead.</span></li>
+      <li><span>At call start, ElevenLabs calls the <b>initiation webhook</b> with the caller's number. The API maps the prefix to a country and returns the voice, the greeting and the variables.</span></li>
+      <li><span>The agent verifies <b>booking code and surname</b> on every tool call, then searches flights. Fees come already priced by the rules in code, never by the LLM.</span></li>
+      <li class="k"><span>The <b>deterministic procedure</b> reads the change back, waits for a yes and calls <code>cambiar_vuelo</code> with <code>confirmacion_cliente: true</code>. Firestore commits it in a transaction and the caller gets an SMS payment link.</span></li>
+      <li><span>The call ends with <code>end_call</code>, or goes to a <b>human advisor</b> if the caller accepts the offer.</span></li>
+    </ol>
+  </section>
+
+  <p class="note">Cloud Scheduler resets the demo data every hour, so every reviewer finds booking K7Q2MX in its original state even after someone else has changed the flight.</p>
+</div>
+</body></html>
