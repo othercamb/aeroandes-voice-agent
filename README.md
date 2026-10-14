@@ -109,8 +109,21 @@ The script enables the APIs, creates the `aeroandes` Firestore database, a least
 
 ## Test data
 
-- **Golden path:** booking `K7Q2MX` (surname Rojas). BOG–MEX flight on October 20, Classic fare. The 21st is full; on the 22nd there are two options: morning (USD 80) or afternoon (USD 60).
-- The other cases (Basic fare, airline-cancelled flight, already checked in, delayed bag, pets, multiple passengers) are described in the `nota_demo` field of each booking.
+You can test with any of these bookings, by phone or with the web link. Say the code letter by letter; the agent reads it back to confirm.
+
+| Booking | Surname | What happens |
+|---|---|---|
+| `K7Q2MX` | Rojas | **Golden path.** Ask to move the flight to October 21: it's full, so the agent offers the 22nd, morning (USD 80) or afternoon (USD 60). Confirm and the change is executed. |
+| `M2XP6D` | Hernandez | Same flow from Mexico (Mexican voice when calling from a +52 number). |
+| `G8FQ3M` | Quispe | Same flow from Peru. |
+| `B4VW7G` | Fernandez | Flex fare: no change fee, only the fare difference. Ask for a refund too. |
+| `H3LM9P` | Gomez | Basic fare: changes not allowed. The agent explains without inventing exceptions. |
+| `F9CN3E` | Martinez | Flight cancelled by the airline: rebooking at no cost, even on a Basic fare. |
+| `W2LB9N` | Salazar | Already checked in: can't be changed by phone, the agent offers a human advisor. |
+| `P5SK8J` | Soto | Delayed bag: ask for the status of baggage claim `SCLAN00482`. |
+| `R8TZ4C` | Ospina | Ask whether you can travel with a cat in the cabin (knowledge base). |
+
+**Demo data resets every hour, on the hour** (Cloud Scheduler). If someone already changed `K7Q2MX`, use `M2XP6D` or `G8FQ3M`, or try again after the next full hour.
 
 To regenerate the data:
 
