@@ -123,6 +123,8 @@ You can test with any of these bookings, by phone or with the web link. Say the 
 | `P5SK8J` | Soto | Delayed bag: ask for the status of baggage claim `SCLAN00482`. |
 | `R8TZ4C` | Ospina | Ask whether you can travel with a cat in the cabin (knowledge base). |
 
+**Transfer to a human only works on phone calls.** On the web link the platform can't transfer a call, so the agent will report that the transfer failed.
+
 **Demo data resets every hour, on the hour** (Cloud Scheduler). If someone already changed `K7Q2MX`, use `M2XP6D` or `G8FQ3M`, or try again after the next full hour.
 
 To regenerate the data:
