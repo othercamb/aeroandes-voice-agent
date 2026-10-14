@@ -114,8 +114,8 @@ You can test with any of these bookings, by phone or with the web link. Say the 
 | Booking | Surname | What happens |
 |---|---|---|
 | `K7Q2MX` | Rojas | **Golden path.** Ask to move the flight to October 21: it's full, so the agent offers the 22nd, morning (USD 80) or afternoon (USD 60). Confirm and the change is executed. |
-| `M2XP6D` | Hernandez | Same flow from Mexico (Mexican voice when calling from a +52 number). |
-| `G8FQ3M` | Quispe | Same flow from Peru. |
+| `M2XP6D` | Hernandez | Classic fare from Mexico: ask to move the flight a few days later and confirm (Mexican voice when calling from a +52 number). |
+| `G8FQ3M` | Quispe | Classic fare from Peru: same kind of change as above. |
 | `B4VW7G` | Fernandez | Flex fare: no change fee, only the fare difference. Ask for a refund too. |
 | `H3LM9P` | Gomez | Basic fare: changes not allowed. The agent explains without inventing exceptions. |
 | `F9CN3E` | Martinez | Flight cancelled by the airline: rebooking at no cost, even on a Basic fare. |
