@@ -38,7 +38,7 @@ The one irreversible step, charging the passenger and moving the seat, runs as a
 Three layers protect the write: the step order (the tool only exists inside the "yes" branch), the constant parameter, and the API's own check. The prompt delegates this step to the procedure and forbids calling `cambiar_vuelo` directly.
 
 What we learned building it:
-- While the prompt also described "read back, confirm, call the tool", the LLM never started the procedure: it had no reason to. Switching the LLM to Gemini did not help (and was ~3× slower on first token), so we kept `qwen35`; the fix was removing that responsibility from the prompt.
+- While the prompt also described "read back, confirm, call the tool", the LLM never started the procedure: it had no reason to. Switching the LLM to Gemini did not help (and was ~3× slower on first token), so we kept `qwen35` at that stage (it was later replaced by `gemini-3.1-flash-lite`, see "Choosing the LLM"); the fix was removing that responsibility from the prompt.
 - The first working version said "processing" twice and produced garbled output after the procedure ended. Both were found by reading transcripts of runs that the test marked as passed; fixed by dropping the redundant "tell" step and ending the procedure without a question.
 - Webhook-tool overrides in procedures need the `request_body.` prefix; ElevenLabs validation reports the exact step path on publish.
 - The procedure first ended in a platform "exit" step where the LLM must call `end_procedure`. On a phone call, `qwen35` produced 14 s of garbage text there instead of the tool call; in simulations it did the same at the yes/no decision step (2 of 7 runs). Ending the call inside the procedure (`end_call` as a step) removes the exit step from the happy path.
@@ -122,4 +122,7 @@ What they found, and the fixes:
 
 ## Next steps
 
-- Off-script tests (Basic fare, airline cancellation, already checked in, caller asks for a human).
+- Warm transfer over SIP with conversation context.
+- Local numbers or WhatsApp instead of the US number.
+- An owned voice (PVC) or a backup voice, because the owner removed Melisa from the Voice Library.
+- Workflows with subagents if the scope grows.
